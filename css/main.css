@@ -1,26 +1,24 @@
 * {box-sizing: border-box;}
-
+/* BODY */
 body {
   margin: 0;
   font-family: monospace;
   background-color: #dcfffb;
 }
 
-
 /* HEADER */
 .header {
   overflow: hidden;
-  /*background-color: #f1f1f1;*/
   padding: 20px 10px;
 }
 .header a {
   float: left;
   color: black;
+  display: block;
   text-align: center;
   padding: 12px;
   text-decoration: none;
   font-size: 24px;
-  line-height: 25px;
   border-bottom: 4px solid transparent;
 }
 .header a.logo {
@@ -38,15 +36,41 @@ body {
 .header-right {
   float: right;
 }
-
 @media screen and (max-width: 500px) {
   .header a {
     float: none;
     display: block;
     text-align: left;
   }
-
   .header-right {
     float: none;
   }
+}
+
+/* FOOTER */
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #c1e7e3;
+}
+.footer a {
+  float: left;
+  color: black;
+  display: block;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 20px;
+}
+.footer a.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+.footer a.social:hover {
+  color: #dabfde;
+}
+.footer-right {
+  float: right;
 }
