@@ -5,6 +5,7 @@
     <title>Aniisa Bihi</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -15,6 +16,9 @@
     <a href="index.html">WORK</a>
     <a class="active" href="about.html">ABOUT</a>
     <a href="AniisaBihi_CV.pdf" target="_blank">RÉSUMÉ</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
   </div>
   </div>
 
@@ -48,7 +52,8 @@
       <form action="mailto:aniisaaden@gmail.com" method="post" enctype="text/plain">
         <input type="text" name="name" placeholder="Name">
         <input type="text" name="mail" placeholder="Email">
-        <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
+        <textarea id="subject" name="subject" placeholder="Write something.."
+          style="height:200px"></textarea>
         <div class="form-right">
           <input class="submit" type="submit" value="Send">
         </div>
@@ -62,9 +67,20 @@
     <a href="https://www.linkedin.com/in/aniisabihi/" class="social">LINKEDIN</a>
     <a href="https://github.com/aniisabihi" class="social">GITHUB</a>
     <div class="footer-right">
-      <a class="logo">&#169; ANIISA BIHI</a>
+      <a class="logo">&#169; ANIISA BIHI 2020</a>
     </div>
   </div>
 
+  <!-- JAVASCRIPT -->
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myHeader");
+      if (x.className === "header") {
+        x.className += " responsive";
+      } else {
+        x.className = "header";
+      }
+    }
+  </script>
 </body>
 </html>
