@@ -6,16 +6,20 @@
     <link rel="icon" href="img/aniisa.png" type="image/icon type">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/grid.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
   <!-- HEADER -->
-  <div class="header">
+  <div class="header" id="myHeader">
     <a href="index.html" class="logo">ANIISA BIHI</a>
     <div class="header-right">
       <a class="active" href="index.html">WORK</a>
       <a href="about.html">ABOUT</a>
       <a href="AniisaBihi_CV.pdf" target="_blank">RÉSUMÉ</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
   </div>
 
@@ -31,5 +35,17 @@
       <a class="logo">&#169; ANIISA BIHI</a>
     </div>
   </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myHeader");
+      if (x.className === "header") {
+        x.className += " responsive";
+      } else {
+        x.className = "header";
+      }
+    }
+  </script>
 </body>
 </html>

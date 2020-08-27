@@ -30,21 +30,42 @@ body {
   color: #dabfde;
 }
 .header a.active {
-  border-bottom-width: 4px;
-  border-bottom-style: solid;
   border-bottom-color: #dabfde;
 }
 .header-right {
   float: right;
 }
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
+.header-right .icon {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .header a.active {
+    border-bottom-color: transparent;
+    background-color:  #dabfde;
+  }
+  .header a:not(.logo) {
+    display: none;
     text-align: left;
+  }
+  .header-right a.icon {
+    float: right;
+    display: block;
   }
   .header-right {
     float: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .header.responsive {position: relative;}
+  .header-right.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .header.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
   }
 }
 
