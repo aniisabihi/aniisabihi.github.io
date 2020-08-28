@@ -1,0 +1,32 @@
+hr { /*dummy content*/
+  height: 6px;
+  border: none;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+hr:last-child {  /*dummy content*/
+  margin-right: 60%;
+}
+
+hr.image { /*dummy content*/
+  padding-bottom: 50%;
+}
+
+.page {
+  padding: 2em;
+  max-width: 100%;
+}
+
+.archive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 3fr));
+  grid-gap: 2em;
+}
+
+.article {
+  padding: 1em;
+  background: #fff;
+  box-shadow:
+    0 5px 10px rgba(0, 0, 0, 0.1),
+    0 20px 20px rgba(0, 0, 0, 0.05);
+}
