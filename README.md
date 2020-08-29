@@ -7,3 +7,4 @@ To-do:
 - Grid-layout for posts on front-page
 - Filter posts by tags: projects, work, extracurriculars
 - Work on footer
+- Work on color scheme
