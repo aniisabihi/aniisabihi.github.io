@@ -8,3 +8,4 @@ To-do:
 - Filter posts by tags: projects, work, extracurriculars
 - Work on footer
 - Work on color scheme
+- bitmoji image is a bit pixly 
