@@ -2,17 +2,80 @@
   padding: 2em;
   max-width: 100%;
 }
-
 .archive {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 3fr));
   grid-gap: 2em;
+  grid-auto-flow: dense;
 }
 
+/* POSTS */
 .project, .job, .extracurricular {
   padding: 1em;
   background: #fff;
   box-shadow:
-    0 5px 10px rgba(0, 0, 0, 0.1),
-    0 20px 20px rgba(0, 0, 0, 0.05);
+          0 5px 10px rgba(0, 0, 0, 0.1),
+          0 20px 20px rgba(0, 0, 0, 0.05);
 }
+.content {
+  opacity: 0;
+}
+.content h3, p {
+  color: black;
+}
+.content p a {
+  color: #dcfffb;
+  text-decoration: none;
+}
+.content p a:hover {
+  color: #c1e7e3;
+}
+.content .button {
+  background-color: #dcfffb;
+  color: black;
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  font-weight: bolder;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.content .button:hover {
+  background-color: #c1e7e3;
+}
+
+/* PROJECTS */
+/* OPENSPACE */
+#openspace {
+  background-image: url('../posts/project/openspace/os.png');
+  background-size: cover;
+}
+#openspace:hover {
+  background-image: none;
+  background-color: #dabfde;
+}
+#openspace:hover .content
+{
+  opacity: 1;
+}
+
+/* JOBS */
+/* WE KNOW IT */
+#wkit {
+  background-image: url('../posts/job/weknowit/wkit.png');
+  background-size: cover;
+}
+#wkit:hover {
+  background-image: none;
+  background-color: #dabfde;
+}
+#wkit:hover .content
+{
+  opacity: 1;
+}
+
+/* EXTRACURRICULAR */

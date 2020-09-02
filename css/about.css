@@ -27,11 +27,11 @@ p {
   padding-right: 40px;
 }
 .about a {
-  color: #ffdcf4;
+  color: #dabfde;
   text-decoration: none;
 }
 .about a:hover {
-  color: #dabfde;
+  color: #ffdcf4;
 }
 
 /* CONTACT FORM */
@@ -58,7 +58,7 @@ input[type=submit] {
   background-color: #dabfde;
   color: black;
   padding: 12px 20px;
-  border: 2px solid black;
+  border: 0;
   border-radius: 4px;
   cursor: pointer;
 }

@@ -3,7 +3,8 @@
 body {
   margin: 0;
   font-family: monospace;
-  background-color: #dcfffb;
+  /*background-color: #dcfffb;*/
+  background-image: linear-gradient(#dcfffb, #ffdcf4);
 }
 
 /* HEADER */
@@ -74,7 +75,6 @@ body {
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: #c1e7e3;
 }
 .footer a {
   float: left;
