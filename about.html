@@ -16,8 +16,8 @@
     <div class="header-right">
       <a href="index.html">WORK</a>
       <a class="active" href="about.html">ABOUT</a>
-      <a href="AniisaBihi_CV.pdf" target="_blank">RÉSUMÉ</a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <a href="AniisaBihi_CV.pdf" target="_blank">RESUME</a>
+      <a href="javascript:void(0);" class="icon" onclick="smallMenu()">
         <i class="fa fa-bars"></i>
       </a>
     </div>
@@ -39,22 +39,26 @@
           possible way. </p>
       <p> Currently I am mostly interested in Information & Scientific
           Visualization, Web Development, App Development and general Front End
-          Development. My intrest for visualization comes from having a hectic
+          Development. My interest for visualization comes from having a hectic
           mind who likes to have and see things in order. With visualization you
-          can precieve information in a more understandable way, especially if
+          can perceive information in a more understandable way, especially if
           UX has been in focus.
           In my free time I enjoy the company of friends, parlour games, food,
           self-care and true crime.</p>
       <p> Feel free to check out <a href="AniisaBihi_CV.pdf" target="_blank">my
-          résumé</a> or contact me below!</p>
+          resume</a> or contact me below!</p>
     </div>
     <div class="contact">
       <h2>Want to know more about me?</h2>
       <form action="mailto:aniisaaden@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Name">
-        <input type="text" name="mail" placeholder="Email">
-        <textarea id="subject" name="subject" placeholder="Write something.."
-          style="height:200px"></textarea>
+          <label>
+              <input type="text" name="name" placeholder="Name">
+          </label>
+          <label>
+              <input type="text" name="mail" placeholder="Email">
+          </label>
+          <label for="subject"></label><textarea id="subject" name="subject" placeholder="Write something.."
+                                                 style="height:200px"></textarea>
         <div class="form-right">
           <input class="submit" type="submit" value="Send">
         </div>
@@ -74,8 +78,8 @@
 
   <!-- JAVASCRIPT -->
   <script>
-    function myFunction() {
-      var x = document.getElementById("myHeader");
+    function smallMenu() {
+      const x = document.getElementById("myHeader");
       if (x.className === "header") {
         x.className += " responsive";
       } else {
