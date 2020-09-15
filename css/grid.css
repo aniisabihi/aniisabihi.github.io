@@ -1,15 +1,187 @@
+/* TEST */
+/* RESET RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+:root {
+  --black: #3a3a3a;
+  --white: #fff;
+  --green: #49b293;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.author-archive {
+  padding: 1.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h1 a {
+  transition: all 0.1s;
+}
+
+h1 a:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
+input[type="radio"] {
+  position: absolute;
+  left: -9999px;
+}
+
+
+/* FILTERS
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.filters {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.filters * {
+  display: inline-block;
+}
+
+.filters label {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.25rem;
+  border-radius: 2rem;
+  min-width: 50px;
+  line-height: normal;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.filters label:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
+
+/* FILTERED ELEMENTS (POSTS)
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.posts {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.posts .post {
+  background: white;/*#fafafa;*/
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.posts .post-title {
+  font-size: 1.3rem;
+}
+
+.posts .post-title:hover {
+  text-decoration: underline;
+}
+
+.posts figcaption {
+  padding: 1rem;
+}
+
+.posts .post-categories {
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.posts .post-categories * {
+  display: inline-block;
+}
+
+.posts .post-categories li {
+  margin-bottom: 0.2rem;
+}
+
+.posts .post-categories a {
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid;
+  line-height: normal;
+  transition: all 0.1s;
+}
+
+.posts .post-categories a:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
+
+/* FILTERING RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+[value="All"]:checked ~ .filters [for="All"],
+[value="Extracurricular"]:checked ~ .filters [for="Extracurricular"],
+[value="Job"]:checked ~ .filters [for="Job"],
+[value="Project"]:checked ~ .filters [for="Project"] {
+  background: var(--green);
+  color: var(--white);
+}
+
+[value="All"]:checked ~ .posts [data-category] {
+  display: block;
+}
+
+[value="Extracurricular"]:checked ~ .posts .post:not([data-category~="Extracurricular"]),
+[value="Job"]:checked ~ .posts .post:not([data-category~="Job"]),
+[value="Project"]:checked ~ .posts .post:not([data-category~="Project"]) {
+  display: none;
+}
+
+/* MQ
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media screen and (max-width: 650px) {
+  html {
+    font-size: 14px;
+  }
+
+  .posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+* {box-sizing: border-box;}
+
+
+
+/*
 .page {
   padding: 2em;
   max-width: 100%;
 }
 .archive {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 3fr));
-  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-gap: 1em;
   grid-auto-flow: dense;
 }
-
-/* POSTS */
 .project, .job, .extracurricular {
   padding: 1em;
   background: #fff;
@@ -17,6 +189,17 @@
           0 5px 10px rgba(0, 0, 0, 0.1),
           0 20px 20px rgba(0, 0, 0, 0.05);
 }
+@media (max-width: 680px) {
+  .archive {
+    display: flex;
+    flex-direction: column;
+  }
+  article {
+    margin-bottom: 1em;
+  }
+}
+
+/* POSTS
 .content {
   opacity: 0;
 }
@@ -48,8 +231,12 @@
   background-color: #c1e7e3;
 }
 
-/* PROJECTS */
-/* OPENSPACE */
+/* PROJECTS
+/* OPENSPACE
+article:nth-child(1) {
+  grid-column: 1 / 3;
+  background: rgba(200,200,255,0.3)
+}
 #openspace {
   background-image: url('../posts/project/openspace/os.png');
   background-size: cover;
@@ -63,10 +250,14 @@
   opacity: 1;
 }
 
-/* JOBS */
-/* WE KNOW IT */
+/* JOBS
+/* WE KNOW IT
+article:nth-child(2) {
+  grid-column: 3 / 5;
+  background: rgba(200,200,255,0.3)
+}
 #wkit {
-  background-image: url('../posts/job/weknowit/wkit.png');
+  background-image: url('../ ');
   background-size: cover;
 }
 #wkit:hover {

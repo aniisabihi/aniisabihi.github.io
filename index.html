@@ -11,21 +11,214 @@
 <body>
 
   <!-- HEADER -->
-  <div class="header" id="myHeader">
-    <a href="index.html" class="logo">ANIISA BIHI</a>
-    <div class="header-right">
-      <a class="active" href="index.html">WORK</a>
-      <a href="about.html">ABOUT</a>
-      <a href="AniisaBihi_CV.pdf" target="_blank">RESUME</a>
-      <a href="javascript:void(0);" class="icon" onclick="smallMenu()">
-        <i class="fa fa-bars"></i>
-      </a>
-    </div>
-  </div>
+  <header class="page-header" id="myHeader">
+    <nav class="justify-content-between">
+      <a href="index.html" class="logo"><strong>ANIISA BIHI</strong></a>
+      <div class="header-right">
+            <a class="active" href="index.html">WORK</a>
+            <a href="about.html">ABOUT</a>
+            <a href="" class="skills">SKILLS</a>
+            <a href="AniisaBihi_CV.pdf" target="_blank">RESUME</a>
+            <a href="javascript:void(0);" class="icon" onclick="smallMenu()">
+              <i class="fa fa-bars"></i>
+            </a>
+      </div>
+    </nav>
+  </header>
 
-  <!-- GRID -->
+  <!-- GRID TEST -->
+  <section class="author-archive">
+  <div class="container">
+    <input type="radio" id="All" name="categories" value="All" checked>
+    <input type="radio" id="Extracurricular" name="categories" value="Extracurricular">
+    <input type="radio" id="Job" name="categories" value="Job">
+    <input type="radio" id="Project" name="categories" value="Project">
+
+    <ol class="filters">
+      <li>
+        <label for="All">All</label>
+      </li>
+      <li>
+        <label for="Extracurricular">Extracurricular</label>
+      </li>
+      <li>
+        <label for="Job">Job</label>
+      </li>
+      <li>
+        <label for="Project">Project</label>
+      </li>
+    </ol>
+
+    <ol class="posts">
+      <li class="post" data-category="Job Project">
+        <article>
+          <figure>
+            <a href="https://www.openspaceproject.com/" target="_blank">
+              <img src="posts/project/openspace/os.png" alt="openspace">
+            </a>
+            <figcaption>
+              <ol class="post-categories">
+                <li>
+                  <a href="">Job</a>
+                </li>
+                <li>
+                  <a href="">Project</a>
+                </li>
+              </ol>
+              <h2 class="post-title">
+                <a href="https://www.openspaceproject.com/" target="_blank">
+                  OpenSpace | Master Thesis | Astronomy Software Integration</a>
+              </h2>
+            </figcaption>
+          </figure>
+        </article>
+      </li>
+      <li class="post" data-category="Job">
+        <article>
+          <figure>
+            <a href="https://weknowit.se/" target="_blank">
+              <img src="posts/job/weknowit/wkit.jpeg" alt="wkit">
+            </a>
+            <figcaption>
+              <ol class="post-categories">
+                <li>
+                  <a href="">Job</a>
+                </li>
+              </ol>
+              <h2 class="post-title">
+                <a href="https://weknowit.se/" target="_blank">
+                  We Know It | Part Time Job | Developer</a>
+              </h2>
+            </figcaption>
+          </figure>
+        </article>
+      </li>
+      <li class="post" data-category="Project">
+        <article>
+          <figure>
+            <a href="https://aniisabihi.github.io/" target="_blank">
+              <img src="posts/project/portfolio/portfolio.png" alt="portfolio">
+            </a>
+            <figcaption>
+              <ol class="post-categories">
+                <li>
+                  <a href="">Project</a>
+                </li>
+              </ol>
+              <h2 class="post-title">
+                <a href="https://aniisabihi.github.io/" target="_blank">
+                  Portfolio | Personal Project | Web Development</a>
+              </h2>
+            </figcaption>
+          </figure>
+        </article>
+      </li>
+      <li class="post" data-category="Project">
+        <article>
+          <figure>
+            <a href="https://aniisabihi.github.io/Procedural-Solar-System/" target="_blank">
+              <img src="posts/project/solarsystem/solarsystem.png" alt="solarsystem">
+            </a>
+            <figcaption>
+              <ol class="post-categories">
+                <li>
+                  <a href="">Project</a>
+                </li>
+              </ol>
+              <h2 class="post-title">
+                <a href="https://aniisabihi.github.io/Procedural-Solar-System/" target="_blank">
+                  Solar System | School Project | Procedural Methods for Images</a>
+              </h2>
+            </figcaption>
+          </figure>
+        </article>
+      </li>
+      <li class="post" data-category="Project">
+        <article>
+          <figure>
+            <a href="https://tyddan.github.io/TNM095-AI-doodle/" target="_blank">
+              <img src="posts/project/doodle/doodle.png" alt="doodle">
+            </a>
+            <figcaption>
+              <ol class="post-categories">
+                <li>
+                  <a href="">Project</a>
+                </li>
+              </ol>
+              <h2 class="post-title">
+                <a href="https://tyddan.github.io/TNM095-AI-doodle/" target="_blank">
+                  Doodle | School Project | AI for Interactive Media</a>
+              </h2>
+            </figcaption>
+          </figure>
+        </article>
+      </li>
+      <li class="post" data-category="Job">
+        <article>
+          <figure>
+            <a href="https://linkopingsciencepark.se/summercamp/" target="_blank">
+              <img src="posts/job/summercamp/summercamp.jpg" alt="summercamp">
+            </a>
+            <figcaption>
+              <ol class="post-categories">
+                <li>
+                  <a href="">Job</a>
+                </li>
+              </ol>
+              <h2 class="post-title">
+                <a href="https://linkopingsciencepark.se/summercamp/" target="_blank">
+                  Code Summer Camp | Summer Job | Code Coach</a>
+              </h2>
+            </figcaption>
+          </figure>
+        </article>
+      </li>
+    </ol>
+  </div>
+</section>
+<!--
+<article class="project">
+  <h3>Weaving Through Norrköping's History</h3>
+</article>
+<article class="extracurricular">
+  <h3>Media Technology Days</h3>
+</article>
+<article class="project">
+  <h3>Meowt</h3>
+</article>
+<article class="project">
+  <h3>Mosaic Image Reproduction</h3>
+</article>
+<article class="project">
+  <h3>The Human Freedom Index</h3>
+</article>
+<article class="project">
+  <h3>Connex</h3>
+</article>
+<article class="job">
+  <h3>Summer match</h3>
+</article>
+<article class="project">
+  <h3>TouchHockey</h3>
+</article>
+<article class="project">
+  <h3>Prisma</h3>
+</article>
+<article class="extracurricular">
+  <h3>NKPG Match Up</h3>
+</article>
+<article class="job">
+  <h3>SKA Website</h3>
+</article>
+<article class="extracurricular">
+  <h3>3Cant</h3>
+</article>
+<article class="extracurricular">
+  <h3>The Media Technology Board</h3>
+</article> -->
+
+  <!-- GRID
   <div class="page">
-    <h2>ALL | PROJECT JOB EXTRACURRICULAR</h2>
     <div class="archive">
       <article class="project" id="openspace">
         <div class="content">
@@ -37,17 +230,18 @@
             software.
           </p>
           <button class="button" onclick="window.location.href='https://github.com/OpenSpace/OpenSpace/tree/thesis/2020/software-integration'">Code</button>
-          <button class="button">Report</button>
-          <button class="button">Read More</button>
+          <!- <button class="button">Report</button>
+          <button class="button">Read More</button> --> <!--
         </div>
       </article>
       <article class="job" id="wkit">
         <div class="content">
           <h3>We Know It | Part Time Job</h3>
-          <p>I currently have a part time job at WKIT since March 2020. It is a student driven consulting company where
-             students can try out working as a consultant before graduating. The work at We Know IT is meritorious and
-             educational and consists of Web and App Development. One of my assignments has been to help a client
-             recreate her existing Wordpress site for her new company.
+          <p>I currently have a part time job at <a href="https://weknowit.se/" target="_blank">We Know IT</a> since
+             March 2020. It is a student driven consulting company where students can try out working as a consultant
+             before graduating. The work at We Know IT is meritorious and educational and consists of Web and App
+             Development. One of my assignments has been to help a client recreate her existing Wordpress site for
+             her new company.
           </p>
           <button class="button" onclick="window.location.href='https://weknowit.se/'">About WKIT</button>
         </div>
@@ -104,7 +298,35 @@
         <h3>The Media Technology Board</h3>
       </article>
     </div>
-  </div>
+  </div> -->
+
+  <!-- SKILLS -->
+  <section class="position-absolute d-flex align-items-center justify-content-center text-black bg-white skills-section" data-slideIn="to-top">
+    <button class="position-absolute skills-close" aria-label="Close Skills Section">✕</button>
+    <div class="d-flex chart-wrapper">
+      <ul class="chart-levels">
+        <li>Expert</li>
+        <li>Advanced</li>
+        <li>Intermediate</li>
+        <li>Beginner</li>
+        <li>Novice</li>
+      </ul>
+      <ul class="d-flex justify-content-around align-items-end flex-grow-1 text-center bg-black chart-skills">
+        <li class="position-relative bg-red" data-height="80%">
+          <span class="position-absolute w-100">CSS</span>
+        </li>
+        <li class="position-relative bg-red" data-height="60%">
+          <span class="position-absolute w-100">HTML</span>
+        </li>
+        <li class="position-relative bg-red" data-height="68%">
+          <span class="position-absolute w-100">JavaScript</span>
+        </li>
+        <li class="position-relative bg-red" data-height="52%">
+          <span class="position-absolute w-100">Python</span>
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <div class="footer">
@@ -120,12 +342,25 @@
   <script>
     function smallMenu() {
       const x = document.getElementById("myHeader");
-      if (x.className === "header") {
+      if (x.className === "page-header") {
         x.className += " responsive";
       } else {
-        x.className = "header";
+        x.className = "page-header";
       }
     }
+
+    const skillsLink = document.querySelector(".skills");
+    const skillsClose = document.querySelector(".skills-close");
+    const windowOpened = "window-opened";
+
+    skillsLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.body.classList.toggle(windowOpened);
+    });
+
+    skillsClose.addEventListener("click", () => {
+      document.body.classList.toggle(windowOpened);
+    });
   </script>
 </body>
 </html>

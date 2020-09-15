@@ -37,7 +37,8 @@ p {
 /* CONTACT FORM */
 .contact {
   grid-area: contact;
-  background-color: #c1bbdd;
+  /*background-color: #c1bbdd;*/
+  background-image: linear-gradient(#dcfffb, #ffdcf4);
   padding: 20px;
 }
 input[type=text], select, textarea {
