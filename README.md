@@ -3,9 +3,6 @@ Simple online portfolio created to present projects to employers.
 
 To-do:
 - Responsive updates
-- Add all planned posts (projects, work, extracurriculars)
-- Grid-layout for posts on front-page
-- Filter posts by tags: projects, work, extracurriculars
-- Work on footer
-- Work on color scheme
 - bitmoji image is a bit pixly 
+- Create individual pages with more information for each post
+- Update resume 
