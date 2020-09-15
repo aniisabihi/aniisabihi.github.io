@@ -1,3 +1,17 @@
+/* RESET RULES & HELPER CLASSES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+:root {
+  --black: #1a1a1a;
+  --white: #fff;
+  --blue: #dcfffb;
+  --darkblue: #c1e7e3;
+  --pink: #ffdcf4;
+  --darkpink: #dabfde;
+  --lilac: #c1bbdd;
+}
+
+/* GRID
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .grid-container {
   display: grid;
   grid-template-columns: 40% 60%;
@@ -7,7 +21,8 @@
   padding-top: 40px;
 }
 
-/* ABOUT ME */
+/* ABOUT ME
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .aniisa {
   grid-area: aniisa;
 }
@@ -27,18 +42,18 @@ p {
   padding-right: 40px;
 }
 .about a {
-  color: #dabfde;
+  color: var(--darkpink);
   text-decoration: none;
 }
 .about a:hover {
-  color: #ffdcf4;
+  color: var(--pink);
 }
 
-/* CONTACT FORM */
+/* CONTACT FORM
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 .contact {
   grid-area: contact;
-  /*background-color: #c1bbdd;*/
-  background-image: linear-gradient(#dcfffb, #ffdcf4);
+  background-image: linear-gradient(var(--blue), var(--pink));
   padding: 20px;
 }
 input[type=text], select, textarea {
@@ -56,7 +71,7 @@ input[type=submit] {
   font-weight: bold;
   width: 150px;
   height: 50px;
-  background-color: #dabfde;
+  background-color: var(--blue);
   color: black;
   padding: 12px 20px;
   border: 0;
@@ -64,12 +79,13 @@ input[type=submit] {
   cursor: pointer;
 }
 input[type=submit]:hover {
-  background-color: #ffdcf4;
+  background-color: var(--darkblue);
 }
 .form-right { float: right;}
 
 
-/* RESPONSIVE STUFF - not perfect */
+/* MQ- not perfect
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (max-width: 500px) {
   .grid-container {
     display: grid;
