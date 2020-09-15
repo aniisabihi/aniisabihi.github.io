@@ -201,12 +201,16 @@ button {
   right: 0;
   bottom: 0;
   left: 0;
-  display: none;
+  visibility:hidden;
+  opacity:0;
+  transition:visibility 0.3s linear,opacity 0.3s linear;
   transform: translateX(100%);
   transition: transform 1s;
 }
 
 .window-opened .skills-section {
+  visibility:visible;
+  opacity:1;
   transform: none;
 }
 

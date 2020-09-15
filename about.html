@@ -66,6 +66,51 @@
     </div>
   </div>
 
+  <!-- SKILLS -->
+  <section class="position-absolute d-flex align-items-center justify-content-center text-black bg-blue skills-section" data-slideIn="to-top">
+    <button class="position-absolute skills-close" aria-label="Close Skills Section">✕</button>
+    <div class="d-flex chart-wrapper">
+      <ul class="chart-levels">
+        <li>Advanced</li>
+        <li>Intermediate</li>
+        <li>Beginner</li>
+        <li>Novice</li>
+      </ul>
+      <ul class="d-flex justify-content-around align-items-end flex-grow-1 text-center bg-black chart-skills">
+        <li class="position-relative bg-blue" data-height="80%">
+          <span class="position-absolute w-100">HTML</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="80%">
+          <span class="position-absolute w-100">CSS</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="80%">
+          <span class="position-absolute w-100">JavaScript</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="80%">
+          <span class="position-absolute w-100">C++</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="60%">
+          <span class="position-absolute w-100">C#</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="60%">
+          <span class="position-absolute w-100">Java</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="80%">
+          <span class="position-absolute w-100">Python</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="70%">
+          <span class="position-absolute w-100">React Native</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="70%">
+          <span class="position-absolute w-100">Matlab</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="60%">
+          <span class="position-absolute w-100">GPU Programming</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <div class="footer">
     <a href="mailto:aniisaaden@gmail.com" class="social">MAIL</a>
@@ -80,12 +125,25 @@
   <script>
     function smallMenu() {
       const x = document.getElementById("myHeader");
-      if (x.className === "header") {
+      if (x.className === "page-header") {
         x.className += " responsive";
       } else {
-        x.className = "header";
+        x.className = "page-header";
       }
     }
+
+    const skillsLink = document.querySelector(".skills");
+    const skillsClose = document.querySelector(".skills-close");
+    const windowOpened = "window-opened";
+
+    skillsLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.body.classList.toggle(windowOpened);
+    });
+
+    skillsClose.addEventListener("click", () => {
+      document.body.classList.toggle(windowOpened);
+    });
   </script>
 </body>
 </html>
