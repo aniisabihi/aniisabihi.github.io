@@ -53,7 +53,7 @@ p {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .contact {
   grid-area: contact;
-  background-image: linear-gradient(var(--blue), var(--pink));
+  background-image: linear-gradient(var(--darkpink), var(--pink));
   padding: 20px;
 }
 input[type=text], select, textarea {
@@ -71,7 +71,7 @@ input[type=submit] {
   font-weight: bold;
   width: 150px;
   height: 50px;
-  background-color: var(--blue);
+  background-color: var(--darkpink);
   color: black;
   padding: 12px 20px;
   border: 0;
@@ -79,7 +79,7 @@ input[type=submit] {
   cursor: pointer;
 }
 input[type=submit]:hover {
-  background-color: var(--darkblue);
+  background-color: var(--lilac);
 }
 .form-right { float: right;}
 

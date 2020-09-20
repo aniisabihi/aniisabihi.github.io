@@ -1,4 +1,4 @@
-const skillsLink = document.querySelector(".page-header li:nth-child(1) a");
+const skillsLink = document.querySelector(".skills");
 const skillsClose = document.querySelector(".skills-close");
 const windowOpened = "window-opened";
 

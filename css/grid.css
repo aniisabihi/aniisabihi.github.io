@@ -1,4 +1,3 @@
-/* TEST */
 /* RESET RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 :root {
@@ -94,13 +93,22 @@ input[type="radio"] {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .posts {
   display: grid;
-  grid-gap: 1.5rem;
+  /*grid-gap: 1.5rem;*/
   grid-template-columns: repeat(3, 1fr);
 }
 
 .posts .post {
   background: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  /*border: 1px solid rgba(0, 0, 0, 0.1);*/
+}
+
+.posts .post:hover {
+  cursor: pointer;
+}
+
+.posts > img {
+  width: 400px;
+  height: 300px;
 }
 
 .posts .post-title {
@@ -143,7 +151,6 @@ input[type="radio"] {
   transition: color 0.3s;
 }
 
-
 /* FILTERING RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 [value="All"]:checked ~ .filters [for="All"],
@@ -177,3 +184,5 @@ input[type="radio"] {
 }
 
 * {box-sizing: border-box;}
+
+/* –––––––––––––––––––––––––––––––––––––––––––––––––– */

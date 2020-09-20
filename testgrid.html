@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aniisa Bihi</title>
+    <link rel="icon" href="img/aniisa.png" type="image/icon type">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="testgrid.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="page-header" id="myHeader">
+    <nav class="justify-content-between">
+      <a href="index.html" class="logo"><strong>ANIISA BIHI</strong></a>
+      <div class="header-right">
+            <a class="active" href="index.html">WORK</a>
+            <a href="about.html">ABOUT</a>
+            <a href="" class="skills">SKILLS</a>
+            <a href="AniisaBihi_CV.png" target="_blank">RESUME</a>
+            <a href="javascript:void(0);" class="icon" onclick="smallMenu()">
+              <i class="fa fa-bars"></i>
+            </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- TEST GRID -->
+  <section class="grid">
+    <div class="container">
+      <input type="radio" id="All" name="categories" value="All" checked>
+      <input type="radio" id="Extracurricular" name="categories" value="Extracurricular">
+      <input type="radio" id="Job" name="categories" value="Job">
+      <input type="radio" id="Project" name="categories" value="Project">
+
+      <ol class="filters">
+        <li>
+          <label for="All">All</label>
+        </li>
+        <li>
+          <label for="Extracurricular">Extracurricular</label>
+        </li>
+        <li>
+          <label for="Job">Job</label>
+        </li>
+        <li>
+          <label for="Project">Project</label>
+        </li>
+      </ol>
+
+      <ol class="posts">
+        <li class="post" data-category="Job Project">
+  			<!--	<img src="posts/project/openspace/space.png" alt="">-->
+          <a href="https://www.openspaceproject.com/" target="openspace">
+    				<div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>OpenSpace | Master Thesis</h1>
+    						<p>Astronomy Software Integration</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+  			<li class="post" data-category="Job">
+  				<!--<img src="posts/job/weknowit/wkit.jpg" alt="wkit">-->
+          <a href="https://weknowit.se/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>We Know It | Part Time Job</h1>
+    						<p>Web & App Development Consultant</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Project">
+  				<!--<img src="posts/project/portfolio/portfolio.png" alt="portfolio">-->
+          <a href="https://aniisabihi.github.io/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Portfolio | Personal Project</h1>
+    						<p>Web Development</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Project">
+          <!--<img src="posts/project/solarsystem/solarsystem.png" alt="solarsystem">-->
+          <a href="https://aniisabihi.github.io/Procedural-Solar-System/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Solar System | School Project</h1>
+    						<p>Procedural Methods for Images</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Project">
+  				<!--<img src="posts/project/doodle/doodle.png" alt="doodle">-->
+          <a href="https://tyddan.github.io/TNM095-AI-doodle/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Doodle | School Project</h1>
+    						<p>AI for Interactive Media</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Job">
+          <!--<img src="posts/job/summercamp/summercamp.jpg" alt="summercamp">-->
+          <a href="https://linkopingsciencepark.se/summercamp/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Code Summer Camp | Summer Job</h1>
+    						<p>Code Coach</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Project">
+          <!--<img src="posts/project/solarsystem/solarsystem.png" alt="solarsystem">-->
+          <a href="https://aniisabihi.github.io/Procedural-Solar-System/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Datify | School Project</h1>
+    						<p>Advanced Web Development</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Extracurricular">
+          <!--<img src="posts/extracurricular/mtd/mtd.jpg" alt="mtd">-->
+          <a href="https://www.medieteknikdagarna.se/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Media Technology Days | Project Leader</h1>
+    						<p>Work Fair Project Group</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Project">
+          <!--<img src="posts/project/solarsystem/solarsystem.png" alt="solarsystem">-->
+          <a href="https://aniisabihi.github.io/Procedural-Solar-System/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Meowt | School Project</h1>
+    						<p>User Experience (UX)</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Project">
+          <!--<img src="posts/project/mosaic/mosaic.jpg" alt="mosaic">-->
+          <a href="https://github.com/aniisabihi/TNM097-Image-reproduction-project/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Mosaic | School Project</h1>
+    						<p>Image Reproduction and Image Quality</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Project">
+          <!--<img src="posts/project/humanfreedom/humanfreedom.png" alt="humanfreedom"> -->
+          <a href="https://aniisabihi.github.io/TNM048-Information-Visualization-Project/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Human Freedom Index | School Project</h1>
+    						<p>Information Visualization</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Project">
+          <!--<img src="posts/project/solarsystem/solarsystem.png" alt="solarsystem">-->
+          <a href="https://aniisabihi.github.io/Procedural-Solar-System/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Connex | School Project</h1>
+    						<p>Graphic Design and Communication</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Job">
+          <!--<img src="posts/job/summermatch/summermatch.png" alt="summermatch">-->
+          <a href="https://lead.se/sommarmatchen/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Summer Match | Summer Job</h1>
+    						<p>App Development</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Project">
+          <!--<img src="posts/project/TouchHockey/touchhockey.jpg" alt="touchhockey">-->
+          <a href="https://github.com/aniisabihi/TNM094-Bachelor-Project-TouchHockey" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>TouchHockey | Bachelor Project</h1>
+    						<p>Game Development</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Project">
+          <!--<img src="posts/project/prisma/prisma.jpg" alt="prisma">-->
+          <a href="https://github.com/aniisabihi/TNM085-Modelling-Project" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Prisma | School Project</h1>
+    						<p>Modelling Project</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Extracurricular">
+          <!--<img src="posts/extracurricular/nkpg/nkpg.jpg" alt="nkpgmatch">-->
+          <a href="https://www.facebook.com/nkpgmatchup/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>NKPG Match Up | Project Leader</h1>
+    						<p>Work Fair Project Group</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Job">
+        <!--  <img src="posts/job/ska/ska.png" alt="ska"> -->
+          <a href="http://www.skasektionen.nu/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>SKA Section | Short Term Job</h1>
+    						<p>Website development</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Extracurricular">
+          <!--<img src="posts/extracurricular/3cant/3cant.png" alt="3cant">-->
+          <a href="http://3cant.com/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>3Cant | School Event Committé</h1>
+    						<p>Vice President & Media Technology Advocate</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+        <li class="post" data-category="Extracurricular">
+          <!--<img src="posts/extracurricular/mt/mt.png" alt="mt">-->
+          <a href="https://medieteknik.nu/" target="_blank">
+            <div class="caption">
+    					<div class="blur"></div>
+    					<div class="caption-text">
+    						<h1>Media Technology | Board</h1>
+    						<p>Event & 3Cant Advocate</p>
+    					</div>
+    				</div>
+          </a>
+  			</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="position-absolute d-flex align-items-center justify-content-center text-black bg-blue skills-section" data-slideIn="to-top">
+    <button class="position-absolute skills-close" aria-label="Close Skills Section">✕</button>
+    <div class="d-flex chart-wrapper">
+      <ul class="chart-levels">
+        <li>Advanced</li>
+        <li>Intermediate</li>
+        <li>Beginner</li>
+        <li>Novice</li>
+      </ul>
+      <ul class="d-flex justify-content-around align-items-end flex-grow-1 text-center bg-black chart-skills">
+        <li class="position-relative bg-blue" data-height="80%">
+          <span class="position-absolute w-100">HTML</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="80%">
+          <span class="position-absolute w-100">CSS</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="80%">
+          <span class="position-absolute w-100">JavaScript</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="80%">
+          <span class="position-absolute w-100">C++</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="60%">
+          <span class="position-absolute w-100">C#</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="60%">
+          <span class="position-absolute w-100">Java</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="80%">
+          <span class="position-absolute w-100">Python</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="70%">
+          <span class="position-absolute w-100">React Native</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="70%">
+          <span class="position-absolute w-100">Matlab</span>
+        </li>
+        <li class="position-relative bg-blue" data-height="60%">
+          <span class="position-absolute w-100">GPU Programming</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <a href="mailto:aniisaaden@gmail.com" class="social">MAIL</a>
+    <a href="https://www.linkedin.com/in/aniisabihi/" class="social">LINKEDIN</a>
+    <a href="https://github.com/aniisabihi" class="social">GITHUB</a>
+    <div class="footer-right">
+      <a class="logo">&#169; ANIISA BIHI 2020</a>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function smallMenu() {
+      const x = document.getElementById("myHeader");
+      if (x.className === "page-header") {
+        x.className += " responsive";
+      } else {
+        x.className = "page-header";
+      }
+    }
+
+    const skillsLink = document.querySelector(".skills");
+    const skillsClose = document.querySelector(".skills-close");
+    const windowOpened = "window-opened";
+
+    skillsLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.body.classList.toggle(windowOpened);
+    });
+
+    skillsClose.addEventListener("click", () => {
+      document.body.classList.toggle(windowOpened);
+    });
+  </script>
+</body>
+</html>
