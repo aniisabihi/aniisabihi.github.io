@@ -3,6 +3,8 @@ Simple online portfolio created to present projects to employers.
 
 To-do:
 - Responsive updates
-- bitmoji image is a bit pixly
+- Change bitmoji images
+- Fix fixed footer at bottom
+- Fix Skills-page to be completely invisible
 - Grid images
-- Create individual pages with more information for each post
+- Fill individual pages with more information for each post

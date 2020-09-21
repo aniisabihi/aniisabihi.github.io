@@ -137,7 +137,7 @@ button {
 
 .page-header a:hover {
   color: var(--darkpink);
-  transition: color 0.3s;
+  transition: var(--transition-delay-step);
 }
 
 .page-header a.active {
@@ -153,7 +153,7 @@ button {
 
 .window-opened .page-header .logo {
   color: var(--black);
-  transition-delay: 0.8s;
+  transition: var(--transition-delay);
 }
 
 @media screen and (max-width: 700px) {
@@ -201,16 +201,16 @@ button {
   right: 0;
   bottom: 0;
   left: 0;
-  visibility:hidden;
-  opacity:0;
-  transition:visibility 0.3s linear,opacity 0.3s linear;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s linear,opacity 0.3s linear;
   transform: translateX(100%);
   transition: transform 1s;
 }
 
 .window-opened .skills-section {
-  visibility:visible;
-  opacity:1;
+  visibility: visible;
+  opacity: 1;
   transform: none;
 }
 
@@ -360,15 +360,15 @@ button {
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
 }
 .footer a.logo {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 .footer a.social:hover {
   color: var(--darkpink);
-  transition: color 0.3s;
+  transition: var(--transition-delay-step);
 }
 .footer-right {
   float: right;

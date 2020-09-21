@@ -1,0 +1,75 @@
+:root {
+  --black: #1a1a1a;
+  --white: #fff;
+  --blue: #dcfffb;
+  --darkblue: #c1e7e3;
+  --pink: #ffdcf4;
+  --darkpink: #dabfde;
+  --lilac: #c1bbdd;
+  --transition-delay: 0.85s;
+  --transition-delay-step: 0.3s;
+}
+.page-head {
+  overflow: hidden;
+  padding: 20px 10px;
+}
+.page-head a {
+  font-size: 18px;
+  font-weight: bold;
+  z-index: 1;
+  transition: color 0.3s;
+  float: left;
+  color: var(--black);
+  padding: 12px;
+  text-decoration: none;
+}
+.page-head a:hover {
+  color: var(--darkpink);
+  transition: var(--transition-delay-step);
+}
+h2 {
+  font-size: 20px;
+}
+.wrapper{
+  width:100%;
+  padding-top: 20px;
+  text-align: center;
+}
+.wrapper .content{
+  padding-left: 21%;
+  text-align: left;
+  width: 55%;
+}
+.fa-star{
+  color: var(--darkpink);
+}
+.content a :hover{
+  color: var(--darkpink);
+  transition: var(--transition-delay-step);
+}
+.p-skills {
+  font-size: 13px;
+}
+.p-date {
+  font-size: 13px;
+}
+.p-text {
+  font-size: 14px;
+}
+.p-links {
+  font-size: 25px;
+}
+.images{
+  width:60%;
+  margin:0px auto;
+}
+.slick-slide{
+  margin:10px;
+}
+.slick-slide img{
+  width:100%;
+  border: 2px solid #fff;
+}
+.slick-prev:before, .slick-next:before {
+    color: var(--black) !important;
+}
