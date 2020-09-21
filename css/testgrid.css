@@ -93,13 +93,11 @@ input[type="radio"] {
 
 .posts .post {
   background: var(--darkpink);
-  width: 400px;
+  width: auto;
   height: 350px;
 }
 
 .posts li{
-	float: left;
-	padding: 0px;
 	position: relative;
 	overflow: hidden;
 }
@@ -133,7 +131,7 @@ input[type="radio"] {
 	cursor: pointer;
 	position: absolute;
 	opacity: 0;
-	top:300px;
+	top:80%;
 	-webkit-transition:all 0.15s ease-in-out;
 	-moz-transition:all 0.15s ease-in-out;
 	-o-transition:all 0.15s ease-in-out;
@@ -166,7 +164,7 @@ input[type="radio"] {
 
 .posts .caption-text{
 	z-index: 10;
-	color: #fff;
+	color: var(--white);
 	position: absolute;
 	width: 400px;
 	height: 300px;
