@@ -234,18 +234,18 @@ button {
 
 .chart-wrapper {
   width: calc(100% - 40px);
-  max-width: 1000px;
+  max-width: 1200px;
 }
 
 .chart-levels li {
-  padding: 15px;
+  padding: 12px;
 }
 
 .chart-skills li {
   width: 5%;
   height: 0;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  /*border-top-left-radius: 10px;
+  border-top-right-radius: 10px;*/
   transition: height 0.65s cubic-bezier(0.51, 0.91, 0.24, 1.16);
 }
 
@@ -276,21 +276,21 @@ button {
 }
 
 .window-opened .chart-skills li:nth-child(5) {
-  height: 60%;
+  height: 75%;
   transition-delay: calc(
     var(--transition-delay) + var(--transition-delay-step) * 4
   );
 }
 
 .window-opened .chart-skills li:nth-child(6) {
-  height: 60%;
+  height: 75%;
   transition-delay: calc(
     var(--transition-delay) + var(--transition-delay-step) * 5
   );
 }
 
 .window-opened .chart-skills li:nth-child(7) {
-  height: 80%;
+  height: 70%;
   transition-delay: calc(
     var(--transition-delay) + var(--transition-delay-step) * 6
   );
@@ -304,7 +304,7 @@ button {
 }
 
 .window-opened .chart-skills li:nth-child(9) {
-  height: 70%;
+  height: 60%;
   transition-delay: calc(
     var(--transition-delay) + var(--transition-delay-step) * 8
   );
@@ -317,13 +317,20 @@ button {
   );
 }
 
+.window-opened .chart-skills li:nth-child(11) {
+  height: 60%;
+  transition-delay: calc(
+    var(--transition-delay) + var(--transition-delay-step) * 10
+  );
+}
+
 .chart-skills li::before {
   content: attr(data-height);
   position: absolute;
   top: 10px;
   left: 0;
   width: 100%;
-  font-size: 0.85rem;
+  font-size: 0.65rem;
   color: var(--black);
 }
 
