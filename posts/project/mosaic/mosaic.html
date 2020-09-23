@@ -15,10 +15,7 @@
         $(document).on('ready', function () {
             $(".images").slick({
                 dots: true,
-                infinite: true,
-                slidesToShow: 1,
-                autoplay:true,
-                autoplaySpeed: 3000
+                infinite: true
             });
         });
   </script>
@@ -34,31 +31,37 @@
 
   <!-- POST -->
   <div class="wrapper">
-    <h2>Mosaic | School Project</h2>
+    <h2>Mosaic | Group Project</h2>
     <div class="images slider">
-      <div><img src="1.gif" alt=""></div>
-      <div><img src="2.gif" alt=""></div>
-      <div><img src="3.gif" alt=""></div>
-      <div><img src="4.gif" alt=""></div>
+      <div class="widthImg"><img src="2.gif" alt=""></div>
+      <div class="widthImg"><img src="1.gif" alt=""></div>
+      <div class="widthImg"><img src="3.gif" alt=""></div>
+      <div class="widthImg"><img src="4.gif" alt=""></div>
     </div>
     <div class="content">
       <p class="p-skills">
         <i class="fa fa-star"></i> Matlab
       </p>
       <p class="p-date">
-        <i class="fa fa-calendar"></i> January 2019 - March 2019
+        <i class="fa fa-calendar"></i> February 2019 - March 2019
       </p>
       <p class="p-text">
+        This project was done by me and another student, in the master course ‘Image Reproduction
+        and Image Quality’. The purpose of the project was to reproduce an image using a database
+        of 250 images. The images were chosen so the database would have a wide range of images.
+        The goal was for the database to contain as many colours as possible. When an image is
+        reproduced, the most suitable images are selected from the database based on the colour
+        difference in the unit-independent colour system CIELAB. The reproduced image should
+        resemble the original image as much as possible from a long distance, but the small images
+        should be visible from a short distance. The smaller images that reproduce the original
+        image, the better the detailed representation of the original image will be.
       </p>
       <p class="p-links">
-        <a href="https://github.com/aniisabihi/TNM097-Image-reproduction-project/" target="_blank">
-          <i class="fa fa-globe"></i>
-        </a>
         <a href="https://github.com/aniisabihi/TNM097-Image-reproduction-project" target="_blank">
           <i class="fa fa-github"></i>
         </a>
         <a href="mosaic_report.pdf" target="_blank">
-          <i class="fa fa-file"></i>
+          <i class="fa fa-file-pdf-o"></i>
         </a>
       </p>
     </div>

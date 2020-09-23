@@ -59,15 +59,25 @@ h2 {
 .p-links {
   font-size: 25px;
 }
-.images{
-  width: 60%;
+.slider{
+  max-width: 70%;
   margin: 0 auto;
 }
 .slick-slide{
   margin: 10px;
 }
-.slick-slide img{
-  width: 100%;
+.heightImg img{
+  height: 70%;
+  max-height: 35vw;
+  margin: 0 auto;
+  object-fit: contain;
+  border: 2px solid #fff;
+}
+.widthImg img{
+  width: 80%;
+  max-height: 35vw;
+  margin: 0 auto;
+  object-fit: contain;
   border: 2px solid #fff;
 }
 .slick-prev:before, .slick-next:before {
