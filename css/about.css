@@ -31,7 +31,7 @@
   height: auto;
 }
 h1 {
-  font-size: 2vw;
+  font-size: 3vw;
 }
 p {
   font-size: 1.45vw;
@@ -39,7 +39,6 @@ p {
 .about {
   grid-area: about;
   text-align: left;
-  padding-right: 40px;
 }
 .about a {
   color: var(--darkpink);
@@ -86,7 +85,7 @@ input[type=submit]:hover {
 
 /* MQ- not perfect
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .grid-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -102,7 +101,7 @@ input[type=submit]:hover {
     text-align: center;
   }
   h1 {
-    font-size: 22px;
+    font-size: 20px;
   }
   p {
     font-size: 14px;

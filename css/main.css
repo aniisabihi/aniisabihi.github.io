@@ -12,10 +12,32 @@
   --transition-delay-step: 0.3s;
 }
 
+html, body, .wrapper {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
 body {
-  margin: 0;
   font-family: monospace;
   background-color: var(--white);
+}
+
+.wrapper {
+  display: table;
+  width:100%;
+}
+
+header, .footer, main {
+  display: block;
+}
+
+header, .footer, main {
+  display: table-row;
+}
+
+header, .footer{
+  height: 1px;
 }
 
 ul {
@@ -238,95 +260,20 @@ span {
 
 .chart-wrapper {
   width: calc(100% - 40px);
-  max-width: 1200px;
+  max-width: 1000px;
 }
 
 .chart-levels li {
-  padding: 12px;
+  padding: 20px;
   font-weight: bolder;
 }
 
 .chart-skills li {
   width: 5%;
   height: 0;
-  /*border-top-left-radius: 10px;
-  border-top-right-radius: 10px;*/
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   transition: height 0.65s cubic-bezier(0.51, 0.91, 0.24, 1.16);
-}
-
-.window-opened .chart-skills li:nth-child(1) {
-  height: 80%;
-  transition-delay: var(--transition-delay);
-}
-
-.window-opened .chart-skills li:nth-child(2) {
-  height: 80%;
-  transition-delay: calc(
-    var(--transition-delay) + var(--transition-delay-step)
-  );
-}
-
-.window-opened .chart-skills li:nth-child(3) {
-  height: 80%;
-  transition-delay: calc(
-    var(--transition-delay) + var(--transition-delay-step) * 2
-  );
-}
-
-.window-opened .chart-skills li:nth-child(4) {
-  height: 80%;
-  transition-delay: calc(
-    var(--transition-delay) + var(--transition-delay-step) * 3
-  );
-}
-
-.window-opened .chart-skills li:nth-child(5) {
-  height: 75%;
-  transition-delay: calc(
-    var(--transition-delay) + var(--transition-delay-step) * 4
-  );
-}
-
-.window-opened .chart-skills li:nth-child(6) {
-  height: 75%;
-  transition-delay: calc(
-    var(--transition-delay) + var(--transition-delay-step) * 5
-  );
-}
-
-.window-opened .chart-skills li:nth-child(7) {
-  height: 70%;
-  transition-delay: calc(
-    var(--transition-delay) + var(--transition-delay-step) * 6
-  );
-}
-
-.window-opened .chart-skills li:nth-child(8) {
-  height: 70%;
-  transition-delay: calc(
-    var(--transition-delay) + var(--transition-delay-step) * 7
-  );
-}
-
-.window-opened .chart-skills li:nth-child(9) {
-  height: 60%;
-  transition-delay: calc(
-    var(--transition-delay) + var(--transition-delay-step) * 8
-  );
-}
-
-.window-opened .chart-skills li:nth-child(10) {
-  height: 60%;
-  transition-delay: calc(
-    var(--transition-delay) + var(--transition-delay-step) * 9
-  );
-}
-
-.window-opened .chart-skills li:nth-child(11) {
-  height: 60%;
-  transition-delay: calc(
-    var(--transition-delay) + var(--transition-delay-step) * 10
-  );
 }
 
 .chart-skills li::before {
@@ -347,10 +294,6 @@ span {
 }
 
 @media screen and (max-width: 600px) {
-  html {
-    font-size: 12px;
-  }
-
   .chart-levels li {
     padding: 15px 10px 15px 0;
     font-size: 12px;
@@ -361,15 +304,83 @@ span {
   }
 }
 
+.window-opened .chart-skills li:nth-child(1) {
+  height: 80%;
+  transition-delay: var(--transition-delay);
+}
+
+.window-opened .chart-skills li:nth-child(2) {
+  height: 80%;
+  transition-delay: calc(
+          var(--transition-delay) + var(--transition-delay-step)
+  );
+}
+
+.window-opened .chart-skills li:nth-child(3) {
+  height: 80%;
+  transition-delay: calc(
+          var(--transition-delay) + var(--transition-delay-step) * 2
+  );
+}
+
+.window-opened .chart-skills li:nth-child(4) {
+  height: 80%;
+  transition-delay: calc(
+          var(--transition-delay) + var(--transition-delay-step) * 3
+  );
+}
+
+.window-opened .chart-skills li:nth-child(5) {
+  height: 75%;
+  transition-delay: calc(
+          var(--transition-delay) + var(--transition-delay-step) * 4
+  );
+}
+
+.window-opened .chart-skills li:nth-child(6) {
+  height: 75%;
+  transition-delay: calc(
+          var(--transition-delay) + var(--transition-delay-step) * 5
+  );
+}
+
+.window-opened .chart-skills li:nth-child(7) {
+  height: 70%;
+  transition-delay: calc(
+          var(--transition-delay) + var(--transition-delay-step) * 6
+  );
+}
+
+.window-opened .chart-skills li:nth-child(8) {
+  height: 70%;
+  transition-delay: calc(
+          var(--transition-delay) + var(--transition-delay-step) * 7
+  );
+}
+
+.window-opened .chart-skills li:nth-child(9) {
+  height: 60%;
+  transition-delay: calc(
+          var(--transition-delay) + var(--transition-delay-step) * 8
+  );
+}
+
+.window-opened .chart-skills li:nth-child(10) {
+  height: 60%;
+  transition-delay: calc(
+          var(--transition-delay) + var(--transition-delay-step) * 9
+  );
+}
+
+
 /* FOOTER
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .footer {
-   position: relative;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   overflow: hidden;
-   background-color: var(--pink);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--pink);
 }
 .footer a {
   float: left;
@@ -390,4 +401,14 @@ span {
 }
 .footer-right {
   float: right;
+}
+
+@media screen and (max-width: 600px) {
+  .footer a {
+    font-size: 12px;
+  }
+  .footer a.logo {
+    font-size: 12px;
+    font-weight: bold;
+  }
 }
