@@ -10,6 +10,35 @@
     --lilac: #c1bbdd;
 }
 
+html, body, .wrapper {
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+body {
+    margin:0;
+    font-family: monospace;
+    background-color: var(--white);
+}
+
+.wrapper {
+    display: table;
+    width: 100%;
+}
+
+header, .footer, main {
+    display: block;
+}
+
+header, .footer, main {
+    display: table-row;
+}
+
+header, .footer{
+    height: 1px;
+}
+
 * {
     margin: 0;
     padding: 0;

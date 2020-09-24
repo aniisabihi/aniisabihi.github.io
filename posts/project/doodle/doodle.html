@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aniisa Bihi</title>
-    <link rel="icon" href="../../../img/aniisa.png" type="image/icon type">
-    <link rel="stylesheet" type="text/css" href="../../../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../../../css/post.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
-    <script type="text/javascript">
-        $(document).on('ready', function () {
-            $(".images").slick({
-                dots: true,
-                infinite: true,
-                slidesToShow: 1,
-                autoplay:true,
-                autoplaySpeed: 3000
-            });
-        });
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aniisa Bihi</title>
+  <link rel="icon" href="../../../img/aniisa.png" type="image/icon type">
+  <link rel="stylesheet" type="text/css" href="../../../css/main.css">
+  <link rel="stylesheet" type="text/css" href="../../../css/post.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
+  <script type="text/javascript">
+    $(document).on('ready', function () {
+      $(".images").slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        autoplay:true,
+        autoplaySpeed: 3000
+      });
+    });
   </script>
 </head>
 <body>
 
+<div class="wrap">
   <!-- HEADER -->
   <header class="page-head" id="myHeader">
     <nav class="justify-content-between">
@@ -52,17 +53,17 @@
         <i class="fa fa-calendar"></i> September 2019 - October 2019
       </p>
       <p class="p-text">
-        This project was done in a group of 2 in the master course ‘Artificial Intelligence
-        for Interactive Media’. The goal was to create a game where the user was presented
-        with a word to draw, the implemented model would then guess the word. If the model
-        would guess the doodle correctly then a new word would appear for the user to draw.
-        To reach this goal a training model was created using Google’s data set and TensorFlows
-        tutorial for recurrent Neural Networks. Only 100 categories out of 345 were selected
+        I worked on this project in a group of 2 in the master course Artificial Intelligence
+        for Interactive Media. The goal was to create a game that presents the user
+        with a word to draw that the implemented model would then guess the word. If the model
+        guessed the doodle correct then a new word would appear for the user to draw.
+        To reach this goal a training model was created using Google's data set and TensorFlows
+        tutorial for recurrent Neural Networks. 100 categories out of 345 were selected
         from the data set and 6000 images per class were trained and tested for the model.
         The model was created out of three convolutional layers and two dense layers. Depending
         on the user’s doodle and that user’s perception of the object presented, the model will
-        perform differently. In the end, it became an abstract question on how one object actually
-        looks and how the majority of the population choose to represent them when faced with
+        perform differently. In the end, it became an abstract question on how one object looks
+        and how the majority of the population choose to represent them when faced with
         the task to draw that object.
       </p>
       <p class="p-links">
@@ -88,6 +89,7 @@
       <a class="logo">&#169; ANIISA BIHI 2020</a>
     </div>
   </div>
+</div>
 
 </body>
 </html>

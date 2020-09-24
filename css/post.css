@@ -9,6 +9,28 @@
   --transition-delay: 0.85s;
   --transition-delay-step: 0.3s;
 }
+html, body, .wrap {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+.wrap {
+  width: 100%;
+}
+
+header, .footer, main {
+  display: block;
+}
+
+header, .footer, main {
+  display: table-row;
+}
+
+.footer{
+  display: table;
+  height: 1px;
+}
 .page-head {
   overflow: hidden;
   padding: 20px 10px;

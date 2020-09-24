@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aniisa Bihi</title>
-    <link rel="icon" href="../../../img/aniisa.png" type="image/icon type">
-    <link rel="stylesheet" type="text/css" href="../../../css/main.css">
-    <link rel="stylesheet" type="text/css" href="../../../css/post.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
-    <script type="text/javascript">
-        $(document).on('ready', function () {
-            $(".images").slick({
-                dots: true,
-                infinite: true,
-                slidesToShow: 1,
-                autoplay:true,
-                autoplaySpeed: 3000
-            });
-        });
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aniisa Bihi</title>
+  <link rel="icon" href="../../../img/aniisa.png" type="image/icon type">
+  <link rel="stylesheet" type="text/css" href="../../../css/main.css">
+  <link rel="stylesheet" type="text/css" href="../../../css/post.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet" />
+  <script type="text/javascript">
+    $(document).on('ready', function () {
+      $(".images").slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        autoplay:true,
+        autoplaySpeed: 3000
+      });
+    });
   </script>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="page-head" id="myHeader">
-    <nav class="justify-content-between">
-      <a href="../../../index.html"><strong><i class="fa fa-arrow-left"></i> Go Back</strong></a>
-    </nav>
-  </header>
+<!-- HEADER -->
+<header class="page-head" id="myHeader">
+  <nav class="justify-content-between">
+    <a href="../../../index.html"><strong><i class="fa fa-arrow-left"></i> Go Back</strong></a>
+  </nav>
+</header>
 
+<div class="wrap">
   <!-- POST -->
   <div class="wrapper">
     <h2>Human Freedom Index | Group Project</h2>
@@ -52,16 +53,20 @@
         <i class="fa fa-calendar"></i> February 2019 - March 2019
       </p>
       <p class="p-text">
-        This project was done in a group of 3 students in the master course ‘Information Visualization’.
+        I worked on this project in a group of 3 students in the master course Information Visualization.
         The project consisted of the experimental process of creating a visualization of geospatial
         multivariate data using animations. A common problem with information visualization is to visualize
         multivariate data. My group wanted to test if animations or patterns could be used in an intuitive
-        way to visualize multiple variables in a way that is also user friendly. Different types of
-        animations and patterns were implemented and combined with simple colour scale visualizations.
+        way to visualize multiple variables in a way that is also user friendly.
+      </p>
+      <p class="p-text">
+        Different types of animations and patterns were implemented and combined with simple colour scale visualizations.
         The data set used is The Human Freedom Index’s data set. It is a comprehensive global measurement
         of human freedom collected from 162 countries around the world. The data set contains 79 different
         categories as indicators of personal, civil and economic freedom. Each category has an index that
         ranges between the values 0 to 10, where the lower the value the lesser freedom and vice versa.
+      </p>
+      <p class="p-text">
         The implementation was in the form of a web application, using JavaScript 6, HTML and CSS. The
         javascript library d3.js was used to manipulate the visualizations based on the data, this was
         done with the help of SVG. The world map was set to an SVG element and by using d3’s .attr() the
@@ -94,6 +99,7 @@
       <a class="logo">&#169; ANIISA BIHI 2020</a>
     </div>
   </div>
+</div>
 
 </body>
 </html>
