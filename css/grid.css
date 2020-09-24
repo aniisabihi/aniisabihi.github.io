@@ -1,154 +1,190 @@
 /* RESET RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 :root {
-  --black: #000000;
-  --white: #fff;
-  --blue: #dcfffb;
-  --darkblue: #c1e7e3;
-  --pink: #ffdcf4;
-  --darkpink: #dabfde;
-  --lilac: #c1bbdd;
+    --black: #000000;
+    --white: #fff;
+    --blue: #dcfffb;
+    --darkblue: #c1e7e3;
+    --pink: #ffdcf4;
+    --darkpink: #dabfde;
+    --lilac: #c1bbdd;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+    margin: 0;
+    padding: 0;
 }
 
 ol {
-  list-style: none;
+    list-style: none;
 }
 
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
-.author-archive {
-  padding: 1.5rem;
+.grid {
+    padding: 1.5rem;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 h1 a {
-  transition: all 0.1s;
+    transition: all 0.1s;
 }
 
 h1 a:hover {
-  background: var(--lilac);
-  color: var(--white);
-  transition: color 0.3s;
+    background: var(--lilac);
+    color: var(--white);
+    transition: color 0.3s;
 }
 
 input[type="radio"] {
-  position: absolute;
-  left: -9999px;
+    position: absolute;
+    left: -9999px;
 }
 
 
 /* FILTERS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .filters {
-  text-align: center;
-  margin-bottom: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .filters * {
-  display: inline-block;
+    display: inline-block;
 }
 
 .filters label {
-  padding: 0.5rem 1rem;
-  margin-bottom: 0.25rem;
-  border-radius: 2rem;
-  min-width: 50px;
-  line-height: normal;
-  cursor: pointer;
-  transition: all 0.1s;
-  font-size: 18px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.25rem;
+    border-radius: 2rem;
+    min-width: 50px;
+    line-height: normal;
+    cursor: pointer;
+    transition: all 0.1s;
+    font-size: 18px;
 }
 
 .filters label:hover {
-  background: var(--lilac);
-  color: var(--white);
-  transition: color 0.3s;
+    background: var(--lilac);
+    color: var(--white);
+    transition: color 0.3s;
 }
 
 
 /* POSTS
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .posts {
-  display: grid;
-  grid-gap: 1.5rem;
-  grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .posts .post {
-  background: white;
-  /*border: 1px solid rgba(0, 0, 0, 0.1);*/
+    background: var(--darkpink);
+    width: auto;
+    height: 40vh;
 }
 
-.posts .post:hover {
-  cursor: pointer;
+.posts li{
+    position: relative;
+    overflow: hidden;
+    animation-name: animateIn;
+    animation-duration: 350ms;
+    animation-delay: calc(var(--animation-order) * 100ms);
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
 }
 
-.posts > img {
-  width: 400px;
-  height: 300px;
+@keyframes animateIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.6) translateY(-8px);
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
-.posts .post-title {
-  font-size: 1.3rem;
+.posts li:hover .caption{
+    opacity: 1;
+    transform: translateY(-100px);
+    -webkit-transform:translateY(-100px);
+    -moz-transform:translateY(-100px);
+    -ms-transform:translateY(-100px);
+    -o-transform:translateY(-100px);
 }
 
-.posts .post-title:hover {
-  text-decoration: underline;
-  transition: color 0.3s;
+.posts li:hover img{
+    opacity: 1;
+    transform: translateY(-40px);
+    -webkit-transform:translateY(-40px);
+    -moz-transform:translateY(-40px);
+    -ms-transform:translateY(-40px);
+    -o-transform:translateY(-40px);
 }
 
-.posts figcaption {
-  padding: 1rem;
+.posts .caption{
+    cursor: pointer;
+    position: sticky;
+    opacity: 0;
+    top: 85%;
+    -webkit-transition:all 0.15s ease-in-out;
+    -moz-transition:all 0.15s ease-in-out;
+    -o-transition:all 0.15s ease-in-out;
+    -ms-transition:all 0.15s ease-in-out;
+    transition:all 0.15s ease-in-out;
 }
 
-.posts .post-categories {
-  margin-bottom: 0.75rem;
-  font-size: 0.75rem;
+.posts img{
+    margin: 0;
+    padding: 0;
+    float: left;
+    z-index: 0;
+    -webkit-transition:all 0.15s ease-in-out;
+    -moz-transition:all 0.15s ease-in-out;
+    -o-transition:all 0.15s ease-in-out;
+    -ms-transition:all 0.15s ease-in-out;
+    transition:all 0.15s ease-in-out;
 }
 
-.posts .post-categories * {
-  display: inline-block;
+.posts .blur{
+    background-color: var(--lilac);
+    width: 100vw;
+    height: 40vh;
+    z-index: 5;
+    position: absolute;
 }
 
-.posts .post-categories li {
-  margin-bottom: 0.2rem;
+.posts .caption-text h1{
+    text-transform: uppercase;
+    font-size: 16px;
 }
 
-.posts .post-categories a {
-  padding: 0.2rem 0.5rem;
-  border-radius: 1rem;
-  background: var(--lilac);
-  color: var(--white);
-  line-height: normal;
-  transition: all 0.1s;
+.posts .caption-text p{
+    font-size: 12px;
 }
 
-.posts .post-categories a:hover {
-  border: 1px solid black;
-  transition: color 0.3s;
+.posts .caption-text{
+    z-index: 10;
+    color: var(--white);
+    position: relative;
+    align-content: center;
+    text-align: center;
+    width: 100%;
+    top: 30px;
 }
 
 /* FILTERING RULES
@@ -157,30 +193,30 @@ input[type="radio"] {
 [value="Extracurricular"]:checked ~ .filters [for="Extracurricular"],
 [value="Job"]:checked ~ .filters [for="Job"],
 [value="Project"]:checked ~ .filters [for="Project"] {
-  background: var(--lilac);
-  color: var(--white);
+    background: var(--lilac);
+    color: var(--white);
 }
 
 [value="All"]:checked ~ .posts [data-category] {
-  display: block;
+    display: block;
 }
 
 [value="Extracurricular"]:checked ~ .posts .post:not([data-category~="Extracurricular"]),
 [value="Job"]:checked ~ .posts .post:not([data-category~="Job"]),
 [value="Project"]:checked ~ .posts .post:not([data-category~="Project"]) {
-  display: none;
+    display: none;
 }
 
 /* MQ
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 @media screen and (max-width: 650px) {
-  html {
-    font-size: 14px;
-  }
+    html {
+        font-size: 14px;
+    }
 
-  .posts {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .posts {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 * {box-sizing: border-box;}
