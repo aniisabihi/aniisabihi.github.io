@@ -53,6 +53,11 @@ header, .footer{
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .aniisa {
   grid-area: aniisa;
+  animation-name: animateIn;
+  animation-duration: 350ms;
+  animation-delay: calc(var(--animation-order) * 100ms);
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
 }
 .aniisa img {
   width: 85%;
@@ -67,6 +72,11 @@ p {
 .about {
   grid-area: about;
   text-align: left;
+  animation-name: animateIn;
+  animation-duration: 350ms;
+  animation-delay: calc(var(--animation-order) * 100ms);
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
 }
 .about a {
   color: var(--darkpink);
@@ -82,6 +92,11 @@ p {
   grid-area: contact;
   background-image: linear-gradient(var(--darkpink), var(--pink));
   padding: 20px;
+  animation-name: animateIn;
+  animation-duration: 350ms;
+  animation-delay: calc(var(--animation-order) * 100ms);
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
 }
 input[type=text], select, textarea {
   width: 100%;
@@ -109,6 +124,17 @@ input[type=submit]:hover {
   background-color: var(--lilac);
 }
 .form-right { float: right;}
+
+@keyframes animateIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(-8px);
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 
 
 /* MQ- not perfect
