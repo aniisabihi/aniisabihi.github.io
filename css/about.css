@@ -64,12 +64,15 @@ header, .footer{
   height: auto;
 }
 h1 {
-  font-size: 3vw;
+  font-size: 5vw;
 }
 p {
-  font-size: 1.45vw;
+  font-size: 2.05vw;
 }
 .about {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: 'abhandwritingregular', serif;
   grid-area: about;
   text-align: left;
   animation-name: animateIn;
@@ -89,6 +92,7 @@ p {
 /* CONTACT FORM
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .contact {
+  font-family: 'abhandwritingregular', serif;
   grid-area: contact;
   background-image: linear-gradient(var(--darkpink), var(--pink));
   padding: 20px;
@@ -98,8 +102,13 @@ p {
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
 }
+h2 {
+  font-size: 30px;
+}
 input[type=text], select, textarea {
+  font-family: 'abhandwritingregular', serif;
   width: 100%;
+  font-size: 24px;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -109,7 +118,8 @@ input[type=text], select, textarea {
   resize: vertical;
 }
 input[type=submit] {
-  font-size: 16px;
+  font-family: 'abhandwritingregular', serif;
+  font-size: 30px;
   font-weight: bold;
   width: 150px;
   height: 50px;
@@ -155,9 +165,9 @@ input[type=submit]:hover {
     text-align: center;
   }
   h1 {
-    font-size: 20px;
+    font-size: 35px;
   }
   p {
-    font-size: 14px;
+    font-size: 24px;
   }
 }
