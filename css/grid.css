@@ -169,7 +169,7 @@ input[type="radio"] {
     cursor: pointer;
     position: sticky;
     opacity: 0;
-    top: 85%;
+    top: 100%;
     -webkit-transition:all 0.15s ease-in-out;
     -moz-transition:all 0.15s ease-in-out;
     -o-transition:all 0.15s ease-in-out;
