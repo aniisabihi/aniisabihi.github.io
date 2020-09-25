@@ -277,8 +277,12 @@ span {
     font-size: 12px;
   }
 
+  .chart-skills li::before {
+    font-size: 0;
+  }
+
   span {
-    font-size: 10px;
+    font-size: 8px;
   }
 }
 
@@ -323,28 +327,28 @@ span {
 }
 
 .window-opened .chart-skills li:nth-child(7) {
-  height: 70%;
+  height: 65%;
   transition-delay: calc(
           var(--transition-delay) + var(--transition-delay-step) * 6
   );
 }
 
 .window-opened .chart-skills li:nth-child(8) {
-  height: 70%;
+  height: 65%;
   transition-delay: calc(
           var(--transition-delay) + var(--transition-delay-step) * 7
   );
 }
 
 .window-opened .chart-skills li:nth-child(9) {
-  height: 60%;
+  height: 50%;
   transition-delay: calc(
           var(--transition-delay) + var(--transition-delay-step) * 8
   );
 }
 
 .window-opened .chart-skills li:nth-child(10) {
-  height: 60%;
+  height: 50%;
   transition-delay: calc(
           var(--transition-delay) + var(--transition-delay-step) * 9
   );
