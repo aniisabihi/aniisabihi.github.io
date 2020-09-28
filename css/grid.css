@@ -192,7 +192,7 @@ input[type="radio"] {
 .posts .blur{
     background-color: var(--lilac);
     width: 50vw;
-    height: 20vh;
+    height: 25vh;
     z-index: 5;
     position: absolute;
 }
