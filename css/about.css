@@ -9,6 +9,13 @@
   --darkpink: #dabfde;
   --lilac: #c1bbdd;
 }
+
+body {
+  margin:0;
+  font-family: monospace;
+  background-color: var(--white);
+}
+
 html, body, .wrapper {
   margin:0;
   padding:0;
@@ -36,6 +43,10 @@ header, .footer, main {
 
 header, .footer{
   height: 1px;
+}
+
+.position-relative {
+  margin-left: -50px;
 }
 
 /* GRID
