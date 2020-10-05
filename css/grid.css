@@ -314,7 +314,7 @@ input[type="radio"] {
     cursor: pointer;
     position: sticky;
     opacity: 0;
-    top: 100%;
+    top: 80%;
     -webkit-transition:all 0.15s ease-in-out;
     -moz-transition:all 0.15s ease-in-out;
     -o-transition:all 0.15s ease-in-out;
@@ -337,7 +337,7 @@ input[type="radio"] {
 .posts .blur{
     background-color: var(--lilac);
     width: 50vw;
-    height: 25vh;
+    height: 110vh;
     z-index: 5;
     position: absolute;
 }
