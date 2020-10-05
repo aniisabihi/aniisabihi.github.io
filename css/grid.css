@@ -111,8 +111,153 @@ input[type="radio"] {
     transition: color 0.3s;
 }
 
+/* POST SPECIFIC GRID RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+#openspace {
+    background: #dabfde url(../illustrations/openspace.png) no-repeat center;
+    background-size: contain;
+}
+#openspace:hover{
+    /*background: #dabfde;*/
+}
 
-/* POSTS
+#wkit {
+    background: #dabfde url(../illustrations/wkit.png) no-repeat center;
+    background-size: contain;
+}
+#wkit:hover{
+    /*background: #dabfde;*/
+}
+
+#portfolio {
+    background: #dabfde url(../illustrations/portfolio.png) no-repeat center;
+    background-size: contain;
+ }
+#portfolio:hover{
+    /*background: #dabfde;*/
+}
+
+#solarsystem {
+    background: #dabfde url(../illustrations/solarsystem.png) no-repeat center;
+    background-size: contain;
+}
+#solarsystem:hover{
+    /*background: #dabfde;*/
+}
+
+#doodle {
+    background: #dabfde url(../illustrations/doodle.png) no-repeat center;
+    background-size: contain;
+}
+#doodle:hover{
+    /*background: #dabfde;*/
+}
+
+#summercamp {
+    background: #dabfde url(../illustrations/summercamp.png) no-repeat center;
+    background-size: contain;
+}
+#summercamp:hover{
+    /*background: #dabfde;*/
+}
+
+#mtd {
+    background: #dabfde url(../illustrations/mtd.png) no-repeat center;
+    background-size: contain;
+}
+#mtd:hover{
+    /*background: #dabfde;*/
+}
+
+#meowt {
+    background: #dabfde url(../illustrations/meowt.png) no-repeat center;
+    background-size: contain;
+}
+#meowt:hover{
+    /*background: #dabfde;*/
+}
+
+#mosaic {
+    background: #dabfde url(../illustrations/mosaic.png) no-repeat center;
+    background-size: cover;
+}
+#mosaic:hover{
+    /*background: #dabfde;*/
+}
+
+#humanfreedom {
+    background: #dabfde url(../illustrations/humanfreedom.png) no-repeat center;
+    background-size: contain;
+}
+#humanfreedom:hover{
+    /*background: #dabfde;*/
+}
+
+#connex {
+    background: #dabfde url(../illustrations/connex.png) no-repeat center;
+    background-size: contain;
+}
+#connex:hover{
+    /*background: #dabfde;*/
+}
+
+#summermatch {
+    background: #dabfde url(../illustrations/summermatch.png) no-repeat center;
+    background-size: contain;
+}
+#summermatch:hover{
+    /*background: #dabfde;*/
+}
+
+#touchhockey {
+    background: #dabfde url(../illustrations/touchhockey.png) no-repeat center;
+    background-size: contain;
+}
+#touchhockey:hover{
+    /*background: #dabfde;*/
+}
+
+#prism {
+    background: #dabfde url(../illustrations/prism.png) no-repeat center;
+    background-size: contain;
+}
+#prism:hover{
+    /*background: #dabfde;*/""
+}
+
+#nkpg {
+    background: #dabfde url(../illustrations/nkpg.png) no-repeat center;
+    background-size: contain;
+}
+#nkpg:hover{
+    /*background: #dabfde;*/
+}
+
+#ska {
+    background: #dabfde url(../illustrations/ska.png) no-repeat center;
+    background-size: contain;
+}
+#ska:hover{
+    /*background: #dabfde;*/
+}
+
+#cant {
+    background: #dabfde url(../illustrations/3cant.png) no-repeat center;
+    background-size: contain;
+}
+#cant:hover{
+    /*background: #dabfde;*/
+}
+
+#mt {
+    background: #dabfde url(../illustrations/mt.png) no-repeat center;
+    background-size: contain;
+}
+#mt:hover{
+    /*background: #dabfde;*/
+}
+
+/* GENERAL GRID RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .posts {
     display: grid;
@@ -121,7 +266,7 @@ input[type="radio"] {
 }
 
 .posts .post {
-    background: var(--darkpink);
+    background: #dabfde;
     width: auto;
     height: 40vh;
 }

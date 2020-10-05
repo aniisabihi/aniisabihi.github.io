@@ -1,6 +1,7 @@
 # aniisabihi.github.io
 Simple online portfolio created to present projects to employers.
 
-To-do:
+# TODO
 - Responsive updates
 - Grid images
+- Skills script 
