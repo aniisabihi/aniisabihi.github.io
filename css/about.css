@@ -116,7 +116,7 @@ p {
 h2 {
   font-size: 30px;
 }
-input[type=text], select, textarea {
+input[type=text], input[type=email], select, textarea {
   font-family: 'abhandwritingregular', serif;
   width: 100%;
   font-size: 24px;
@@ -128,7 +128,7 @@ input[type=text], select, textarea {
   margin-bottom: 16px;
   resize: vertical;
 }
-input[type=submit] {
+input[type=submit], .btn-danger {
   font-family: 'abhandwritingregular', serif;
   font-size: 30px;
   font-weight: bold;
@@ -141,7 +141,7 @@ input[type=submit] {
   border-radius: 4px;
   cursor: pointer;
 }
-input[type=submit]:hover {
+input[type=submit]:hover, .btn-danger:hover {
   background-color: var(--lilac);
 }
 .form-right { float: right;}
