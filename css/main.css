@@ -341,14 +341,14 @@ span {
 }
 
 .window-opened .chart-skills li:nth-child(9) {
-  height: 50%;
+  height: 60%;
   transition-delay: calc(
           var(--transition-delay) + var(--transition-delay-step) * 8
   );
 }
 
 .window-opened .chart-skills li:nth-child(10) {
-  height: 50%;
+  height: 60%;
   transition-delay: calc(
           var(--transition-delay) + var(--transition-delay-step) * 9
   );
