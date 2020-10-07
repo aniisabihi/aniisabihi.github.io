@@ -38,24 +38,62 @@
             <input type="radio" id="Extracurricular" name="categories" value="Extracurricular">
             <input type="radio" id="Job" name="categories" value="Job">
             <input type="radio" id="Project" name="categories" value="Project">
+            <input type="radio" id="JavaScript" name="categories" value="JavaScript">
+            <input type="radio" id="HTML" name="categories" value="HTML">
+            <input type="radio" id="CSS" name="categories" value="CSS">
+            <input type="radio" id="C++" name="categories" value="C++">
+            <input type="radio" id="Python" name="categories" value="Python">
+            <input type="radio" id="WordPress" name="categories" value="WordPress">
+            <input type="radio" id="Matlab" name="categories" value="Matlab">
+            <input type="radio" id="C#" name="categories" value="C#">
+            <input type="radio" id="OpenGL" name="categories" value="OpenGL">
 
-            <ol class="filters">
+            <ol class="filtersType">
                 <li>
-                    <label for="All">All</label>
+                    <label id="big" for="All">All</label>
                 </li>
                 <li>
-                    <label for="Extracurricular">Extracurricular</label>
+                    <label class="big" for="Extracurricular">Extracurricular</label>
                 </li>
                 <li>
-                    <label for="Job">Job</label>
+                    <label class="big" for="Job">Job</label>
                 </li>
                 <li>
-                    <label for="Project">Project</label>
+                    <label class="big" for="Project">Project</label>
+                </li>
+            </ol>
+            <ol class="filtersLanguage">
+                <li>
+                    <label class="small" for="JavaScript">JavaScript</label>
+                </li>
+                <li>
+                    <label class="small" for="HTML">HTML</label>
+                </li>
+                <li>
+                    <label for="CSS">CSS</label>
+                </li>
+                <li>
+                    <label for="C++">C++</label>
+                </li>
+                <li>
+                    <label for="Python">Python</label>
+                </li>
+                <li>
+                    <label for="WordPress">WordPress</label>
+                </li>
+                <li>
+                    <label for="Matlab">Matlab</label>
+                </li>
+                <li>
+                    <label for="C#">C#</label>
+                </li>
+                <li>
+                    <label for="OpenGL">OpenGL</label>
                 </li>
             </ol>
 
             <ol class="posts">
-                <li id="openspace" class="post" data-category="Job Project" style="--animation-order: 2;">
+                <li id="openspace" class="post" data-category="Job Project C++ Python OpenGL" style="--animation-order: 2;">
                     <div class="caption">
                         <div class="blur"></div>
                         <a href="posts/project/openspace/openspace.html">
@@ -66,7 +104,7 @@
                         </a>
                     </div>
                 </li>
-                <li id="wkit" class="post" data-category="Job" style="--animation-order: 1;">
+                <li id="wkit" class="post" data-category="Job WordPress JavaScript HTML CSS" style="--animation-order: 1;">
                     <div class="caption">
                         <div class="blur"></div>
                         <a href="posts/job/weknowit/weknowit.html">
@@ -77,7 +115,7 @@
                         </a>
                     </div>
                 </li>
-                <li id="portfolio" class="post" data-category="Project" style="--animation-order: 5;">
+                <li id="portfolio" class="post" data-category="Project JavaScript HTML CSS" style="--animation-order: 5;">
                     <div class="caption">
                         <div class="blur"></div>
                         <a href="posts/project/portfolio/portfolio.html">
@@ -88,7 +126,7 @@
                         </a>
                     </div>
                 </li>
-                <li id="solarsystem" class="post" data-category="Project" style="--animation-order: 4;">
+                <li id="solarsystem" class="post" data-category="Project JavaScript HTML CSS OpenGL" style="--animation-order: 4;">
                     <div class="caption">
                         <div class="blur"></div>
                         <a href="posts/project/solarsystem/solarsystem.html">
@@ -99,7 +137,7 @@
                         </a>
                     </div>
                 </li>
-                <li id="doodle" class="post" data-category="Project" style="--animation-order: 6;">
+                <li id="doodle" class="post" data-category="Project Python JavaScript HTML CSS" style="--animation-order: 6;">
                     <div class="caption">
                         <div class="blur"></div>
                         <a href="posts/project/doodle/doodle.html">
@@ -143,7 +181,7 @@
                         </a>
                     </div>
                 </li>
-                <li id="mosaic" class="post" data-category="Project" style="--animation-order: 5;">
+                <li id="mosaic" class="post" data-category="Project Matlab" style="--animation-order: 5;">
                     <div class="caption">
                         <div class="blur"></div>
                         <a href="posts/project/mosaic/mosaic.html">
@@ -154,7 +192,7 @@
                         </a>
                     </div>
                 </li>
-                <li id="humanfreedom" class="post" data-category="Project" style="--animation-order: 4;">
+                <li id="humanfreedom" class="post" data-category="Project JavaScript HTML CSS" style="--animation-order: 4;">
                     <div class="caption">
                         <div class="blur"></div>
                         <a href="posts/project/humanfreedom/humanfreedom.html">
@@ -176,7 +214,7 @@
                         </a>
                     </div>
                 </li>
-                <li id="summermatch" class="post" data-category="Job" style="--animation-order: 3;">
+                <li id="summermatch" class="post" data-category="Job JavaScript" style="--animation-order: 3;">
                     <div class="caption">
                         <div class="blur"></div>
                         <a href="posts/job/summermatch/summermatch.html">
@@ -187,7 +225,7 @@
                         </a>
                     </div>
                 </li>
-                <li id="touchhockey" class="post" data-category="Project" style="--animation-order: 2;">
+                <li id="touchhockey" class="post" data-category="Project C#" style="--animation-order: 2;">
                     <div class="caption">
                         <div class="blur"></div>
                         <a href="posts/project/touchhockey/touchhockey.html">
@@ -198,7 +236,7 @@
                         </a>
                     </div>
                 </li>
-                <li id="prism" class="post" data-category="Project" style="--animation-order: 1;">
+                <li id="prism" class="post" data-category="Project C++ Matlab" style="--animation-order: 1;">
                     <div class="caption">
                         <div class="blur"></div>
                         <a href="posts/project/prisma/prisma.html">
@@ -209,7 +247,7 @@
                         </a>
                     </div>
                 </li>
-                <li id="nkpg" class="post" data-category="Extracurricular" style="--animation-order: 5;">
+                <li id="nkpg" class="post" data-category="Extracurricular JavaScript HTML CSS" style="--animation-order: 5;">
                     <div class="caption">
                         <div class="blur"></div>
                         <a href="posts/extracurricular/nkpg/nkpg.html">
@@ -220,7 +258,7 @@
                         </a>
                     </div>
                 </li>
-                <li id="ska" class="post" data-category="Job" style="--animation-order: 4;">
+                <li id="ska" class="post" data-category="Job WordPress CSS" style="--animation-order: 4;">
                     <div class="caption">
                         <div class="blur"></div>
                         <a href="posts/job/ska/ska.html">
