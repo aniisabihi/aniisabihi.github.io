@@ -87,6 +87,7 @@ input[type="radio"] {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .filtersType {
     text-align: center;
+    margin-top: 3rem;
     margin-bottom: 1rem;
 }
 
@@ -389,19 +390,19 @@ input[type="radio"] {
 
 /* FILTERING RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-[value="All"]:checked ~ .filters [for="All"],
-[value="Extracurricular"]:checked ~ .filters [for="Extracurricular"],
-[value="Job"]:checked ~ .filters [for="Job"],
-[value="Project"]:checked ~ .filters [for="Project"],
-[value="JavaScript"]:checked ~ .filters [for="JavaScript"],
-[value="HTML"]:checked ~ .filters [for="HTML"],
-[value="CSS"]:checked ~ .filters [for="CSS"],
-[value="C++"]:checked ~ .filters [for="C++"],
-[value="Python"]:checked ~ .filters [for="Python"],
-[value="WordPress"]:checked ~ .filters [for="WordPress"],
-[value="Matlab"]:checked ~ .filters [for="Matlab"],
-[value="C#"]:checked ~ .filters [for="C#"],
-[value="OpenGL"]:checked ~ .filters [for="OpenGL"]{
+[value="All"]:checked ~ .filtersType [for="All"],
+[value="Extracurricular"]:checked ~ .filtersType [for="Extracurricular"],
+[value="Job"]:checked ~ .filtersType [for="Job"],
+[value="Project"]:checked ~ .filtersType [for="Project"],
+[value="JavaScript"]:checked ~ .filtersLanguage [for="JavaScript"],
+[value="HTML"]:checked ~ .filtersLanguage [for="HTML"],
+[value="CSS"]:checked ~ .filtersLanguage [for="CSS"],
+[value="C++"]:checked ~ .filtersLanguage [for="C++"],
+[value="Python"]:checked ~ .filtersLanguage [for="Python"],
+[value="WordPress"]:checked ~ .filtersLanguage [for="WordPress"],
+[value="Matlab"]:checked ~ .filtersLanguage [for="Matlab"],
+[value="C#"]:checked ~ .filtersLanguage [for="C#"],
+[value="OpenGL"]:checked ~ .filtersLanguage [for="OpenGL"]{
     background: var(--lilac);
     color: var(--white);
 }
