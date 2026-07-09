@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-export default function Header({ onOpenSkills }) {
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -24,17 +24,6 @@ export default function Header({ onOpenSkills }) {
           >
             WORK
           </Link>
-          <a
-            href='#skills'
-            className='skills'
-            onClick={(event) => {
-              event.preventDefault();
-              onOpenSkills();
-              setMenuOpen(false);
-            }}
-          >
-            SKILLS
-          </a>
           <Link
             to='/about'
             className={location.pathname === "/about" ? "active" : undefined}
