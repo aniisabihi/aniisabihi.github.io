@@ -158,16 +158,3 @@ export const POSTS = [
     animationOrder: 3,
   },
 ];
-
-export const SKILLS = [
-  { name: "JavaScript", height: "85%" },
-  { name: "HTML", height: "80%" },
-  { name: "CSS", height: "80%" },
-  { name: "C++", height: "80%" },
-  { name: "Python", height: "75%" },
-  { name: "WordPress", height: "75%" },
-  { name: "React Native", height: "65%" },
-  { name: "Matlab", height: "65%" },
-  { name: "C#", height: "60%" },
-  { name: "Java", height: "60%" },
-];
