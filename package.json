@@ -6,17 +6,35 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && cp dist/index.html dist/404.html",
-    "extract-posts": "node scripts/extract-posts.mjs",
-    "preview": "vite preview"
+    "build": "tsc --noEmit -p tsconfig.app.json && vite build && cp dist/index.html dist/404.html",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "extract-posts": "node scripts/extract-posts.mjs && node scripts/merge-posts.mjs",
+    "merge-posts": "node scripts/merge-posts.mjs",
+    "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.5.2",
+    "eslint": "^9.30.1",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2",
+    "sharp": "^0.34.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.35.1",
     "vite": "^6.3.5"
   }
 }

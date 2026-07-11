@@ -1,30 +1,33 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { NAV_LINKS, SITE } from "../config/site.js";
+import { NAV_LINKS, SITE } from "../config/site";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className='site-header'>
-      <nav className={`site-header__nav${menuOpen ? " is-open" : ""}`}>
-        <Link to='/' className='site-header__logo' onClick={closeMenu}>
-          <strong>{SITE.name}</strong>
+    <header className="site-header">
+      <nav
+        className={`site-header__nav${menuOpen ? " is-open" : ""}`}
+        aria-label="Main navigation"
+      >
+        <Link to="/" className="site-header__logo" onClick={closeMenu}>
+          <strong>{SITE.displayName}</strong>
         </Link>
 
         <button
-          type='button'
-          className='site-header__toggle'
+          type="button"
+          className="site-header__toggle"
           onClick={() => setMenuOpen((open) => !open)}
           aria-expanded={menuOpen}
-          aria-label='Toggle navigation menu'
+          aria-controls="site-nav-links"
+          aria-label="Toggle navigation menu"
         >
-          <i className='fa fa-bars' aria-hidden='true' />
+          <i className="fa fa-bars" aria-hidden="true" />
         </button>
 
-        <div className='site-header__links'>
+        <div id="site-nav-links" className="site-header__links">
           {NAV_LINKS.map(({ label, to }) => (
             <NavLink
               key={to}
@@ -40,9 +43,9 @@ export default function Header() {
           ))}
           <a
             href={SITE.resumePath}
-            target='_blank'
-            rel='noreferrer'
-            className='site-header__link'
+            target="_blank"
+            rel="noreferrer"
+            className="site-header__link"
             onClick={closeMenu}
           >
             RESUME

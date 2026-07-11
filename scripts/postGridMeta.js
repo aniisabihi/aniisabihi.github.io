@@ -1,161 +1,114 @@
-export const TYPE_FILTERS = ["All", "Extracurricular", "Job", "Project"];
-
-export const LANGUAGE_FILTERS = [
-  "JavaScript",
-  "HTML",
-  "CSS",
-  "C++",
-  "Python",
-  "WordPress",
-  "Matlab",
-  "C#",
-  "OpenGL",
-];
-
-export const POSTS = [
-  {
-    id: "openspace",
-    title: "OpenSpace | Master Thesis",
+/**
+ * Grid-only fields keyed by post id. Merged into postDetails by scripts/merge-posts.mjs.
+ */
+export const POST_GRID_META = {
+  openspace: {
     subtitle: "Astronomy Software Integration",
     thumbnail: "/illustrations/openspace.png",
     categories: ["Job", "Project", "C++", "Python", "OpenGL"],
     animationOrder: 2,
   },
-  {
-    id: "weknowit",
-    title: "We Know It | Part Time Job",
+  weknowit: {
     subtitle: "Web Development",
     thumbnail: "/illustrations/wkit.png",
     categories: ["Job", "WordPress", "JavaScript", "HTML", "CSS"],
     animationOrder: 1,
   },
-  {
-    id: "portfolio",
-    title: "Portfolio | Personal Project",
+  portfolio: {
     subtitle: "Web Development",
     thumbnail: "/illustrations/portfolio.png",
     categories: ["Project", "JavaScript", "HTML", "CSS"],
     animationOrder: 5,
   },
-  {
-    id: "solarsystem",
-    title: "Solar System | School Project",
+  solarsystem: {
     subtitle: "Procedural Methods for Images",
     thumbnail: "/illustrations/solarsystem.png",
     categories: ["Project", "JavaScript", "HTML", "CSS", "OpenGL"],
     animationOrder: 4,
   },
-  {
-    id: "doodle",
-    title: "Doodle | School Project",
+  doodle: {
     subtitle: "AI for Interactive Media",
     thumbnail: "/illustrations/doodle.png",
     categories: ["Project", "Python", "JavaScript", "HTML", "CSS"],
     animationOrder: 6,
   },
-  {
-    id: "summercamp",
-    title: "Code Summer Camp | Summer Job",
+  summercamp: {
     subtitle: "Programming Coaching",
     thumbnail: "/illustrations/summercamp.png",
     categories: ["Job"],
     animationOrder: 3,
   },
-  {
-    id: "mtd",
-    title: "Media Technology Days | Project Leader",
+  mtd: {
     subtitle: "Work Fair Project Group",
     thumbnail: "/illustrations/mtd.png",
     categories: ["Extracurricular"],
     animationOrder: 2,
   },
-  {
-    id: "meowt",
-    title: "Meowt | School Project",
+  meowt: {
     subtitle: "Structural Methods for User Experience (UX)",
     thumbnail: "/illustrations/meowt.png",
     categories: ["Project"],
     animationOrder: 1,
   },
-  {
-    id: "mosaic",
-    title: "Mosaic | School Project",
+  mosaic: {
     subtitle: "Image Reproduction and Image Quality",
     thumbnail: "/illustrations/mosaic.png",
     thumbnailSize: "cover",
     categories: ["Project", "Matlab"],
     animationOrder: 5,
   },
-  {
-    id: "humanfreedom",
-    title: "Human Freedom Index | School Project",
+  humanfreedom: {
     subtitle: "Information Visualization",
     thumbnail: "/illustrations/humanfreedom.png",
     categories: ["Project", "JavaScript", "HTML", "CSS"],
     animationOrder: 4,
   },
-  {
-    id: "connex",
-    title: "Connex | School Project",
+  connex: {
     subtitle: "Graphic Design and Communication",
     thumbnail: "/illustrations/connex.png",
     categories: ["Project"],
     animationOrder: 6,
   },
-  {
-    id: "summermatch",
-    title: "Summer Match | Summer Job",
+  summermatch: {
     subtitle: "App Development",
     thumbnail: "/illustrations/summermatch.png",
     categories: ["Job", "JavaScript"],
     animationOrder: 3,
   },
-  {
-    id: "touchhockey",
-    title: "TouchHockey | Bachelor Project",
+  touchhockey: {
     subtitle: "Game Development",
     thumbnail: "/illustrations/touchhockey.png",
     categories: ["Project", "C#"],
     animationOrder: 2,
   },
-  {
-    id: "prisma",
-    title: "Prism | School Project",
+  prisma: {
     subtitle: "Modelling and Simulation",
     thumbnail: "/illustrations/prism.png",
     categories: ["Project", "C++", "Matlab"],
     animationOrder: 1,
   },
-  {
-    id: "nkpg",
-    title: "NKPG Match Up | Project Leader",
+  nkpg: {
     subtitle: "Work Fair Project Group",
     thumbnail: "/illustrations/nkpg.png",
     categories: ["Extracurricular", "JavaScript", "HTML", "CSS"],
     animationOrder: 5,
   },
-  {
-    id: "ska",
-    title: "SKA | Short Term Job",
+  ska: {
     subtitle: "Web development",
     thumbnail: "/illustrations/ska.png",
     categories: ["Job", "WordPress", "CSS"],
     animationOrder: 4,
   },
-  {
-    id: "3cant",
-    title: "3Cant | School Event Committee",
+  "3cant": {
     subtitle: "Vice President & Media Technology Advocate",
     thumbnail: "/illustrations/3cant.png",
     categories: ["Extracurricular"],
     animationOrder: 6,
   },
-  {
-    id: "mt",
-    title: "Media Technology | Board",
+  mt: {
     subtitle: "Event & 3Cant Advocate",
     thumbnail: "/illustrations/mt.png",
     categories: ["Extracurricular"],
     animationOrder: 3,
   },
-];
+};

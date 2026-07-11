@@ -65,3 +65,19 @@ ol {
   animation: fade-rise 350ms ease both;
   animation-delay: calc(var(--animation-order, 0) * 100ms);
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:focus-visible {
+  outline: 3px solid var(--lilac);
+  outline-offset: 2px;
+}

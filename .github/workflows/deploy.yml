@@ -28,6 +28,8 @@ jobs:
       - run: corepack enable
       - run: yarn install --immutable
       - run: yarn build
+        env:
+          VITE_FORMSPREE_FORM_ID: ${{ vars.VITE_FORMSPREE_FORM_ID || 'maqgrrgn' }}
 
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,55 +1,59 @@
 # aniisabihi.github.io
 
-React portfolio site deployed to GitHub Pages.
+React + TypeScript portfolio deployed to GitHub Pages.
 
 ## Development
 
 ```bash
 yarn install
+cp .env.example .env.local   # optional — Formspree + site URL
 yarn dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173).
+## Scripts
 
-## Build
+| Command                | Description                                            |
+| ---------------------- | ------------------------------------------------------ |
+| `yarn dev`             | Local dev server                                       |
+| `yarn build`           | Typecheck + production build                           |
+| `yarn preview`         | Preview production build                               |
+| `yarn lint`            | ESLint                                                 |
+| `yarn format`          | Prettier write                                         |
+| `yarn optimize-images` | Compress images in `public/`                           |
+| `yarn extract-posts`   | Regenerate post content from legacy HTML (if restored) |
+| `yarn merge-posts`     | Merge `postDetails.js` + grid meta → `posts.ts`        |
 
-```bash
-yarn build
-yarn preview
-```
+## Contact form
 
-## Post content
+1. Create a form at [formspree.io](https://formspree.io)
+2. Copy `.env.example` → `.env.local`
+3. Set `VITE_FORMSPREE_FORM_ID=your_form_id`
 
-Project page content is extracted from legacy HTML into `src/data/postDetails.js`:
-
-```bash
-yarn extract-posts
-```
-
-Run this if you add or edit files under `public/posts/` (images only — pages are React routes).
+Without it, the form shows a fallback message with a mailto link.
 
 ## Deployment
 
-Pushes to `main` or `master` trigger the GitHub Actions workflow in `.github/workflows/deploy.yml`.
+Push to `main`/`master` → GitHub Actions (`.github/workflows/deploy.yml`).
 
-1. Open **Settings → Pages**
-2. Set **Source** to **GitHub Actions**
-
-Live site: [https://aniisabihi.github.io](https://aniisabihi.github.io)
+**Settings → Pages → Source:** GitHub Actions
 
 ## Structure
 
 ```
 src/
-  components/   Header, Footer, PostCard, FilterBar, ImageCarousel
+  components/   UI (Header, PostCard, ImageCarousel, PageMeta, ContactForm)
   config/       Site constants
-  data/         posts.js (grid metadata), postDetails.js (page content)
-  pages/        Work, About, PostDetail, NotFound
-  styles/       Layered CSS
+  data/
+    posts.ts         Single source — grid + project detail content
+    postDetails.js   Generated intermediate (yarn extract-posts)
+  pages/        Route pages
+  types/        TypeScript types
+  styles/       CSS layers
 public/
-  posts/        Project images (per project folder)
-  img/          Profile images
+  posts/        Project images
   illustrations/ Grid thumbnails
+  img/          Profile images
+scripts/        extract-posts, merge-posts, optimize-images
 ```
 
 ## Routes
@@ -59,3 +63,17 @@ public/
 | `/`             | Work grid       |
 | `/about`        | About + contact |
 | `/work/:postId` | Project detail  |
+
+Legacy URLs like `/posts/project/openspace/openspace.html` redirect to `/work/openspace`.
+
+## Post content workflow
+
+Edit **`src/data/posts.ts`** directly for day-to-day updates.
+
+To re-import from legacy HTML (if you restore files under `public/posts/**/*.html`):
+
+```bash
+yarn extract-posts   # writes postDetails.js + merges into posts.ts
+```
+
+Grid-only fields (thumbnail, categories, animation order) live in `scripts/postGridMeta.js`.
