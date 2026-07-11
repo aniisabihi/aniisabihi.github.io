@@ -4,9 +4,11 @@ import Footer from "./Footer.jsx";
 
 export default function Layout() {
   return (
-    <div className='wrapper'>
+    <div className='site'>
       <Header />
-      <Outlet />
+      <main className='site__main'>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );
