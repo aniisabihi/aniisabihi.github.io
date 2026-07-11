@@ -12,35 +12,54 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: yarn
 
-      - run: corepack enable
-      - run: yarn install --immutable
-      - run: yarn build
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Build
+        run: yarn build
         env:
           VITE_FORMSPREE_FORM_ID: ${{ vars.VITE_FORMSPREE_FORM_ID || 'maqgrrgn' }}
 
-      - uses: actions/upload-pages-artifact@v3
+      - name: Verify build output
+        run: |
+          test -f dist/index.html || (echo "Missing dist/index.html" && exit 1)
+          test -f dist/404.html || (echo "Missing dist/404.html" && exit 1)
+          test -s dist/index.html || (echo "dist/index.html is empty" && exit 1)
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
   deploy:
     needs: build
+    if: ${{ needs.build.result == 'success' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
