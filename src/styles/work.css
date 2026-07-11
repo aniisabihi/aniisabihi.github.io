@@ -109,6 +109,18 @@
     background var(--transition-medium);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .post-card__overlay,
+  .post-card__title,
+  .post-card__subtitle {
+    transition: none;
+  }
+
+  .post-card__link:hover {
+    transform: none;
+  }
+}
+
 .post-card__link:hover .post-card__overlay,
 .post-card__link:focus-visible .post-card__overlay {
   opacity: 1;

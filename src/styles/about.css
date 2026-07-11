@@ -139,6 +139,33 @@
   color: var(--white);
 }
 
+.contact-form__field-error {
+  margin: 0;
+  font-family: var(--font-accent);
+  font-size: 0.95rem;
+  color: #6b1d1d;
+}
+
+.contact-form__feedback {
+  margin: var(--space-4) 0 0;
+  font-family: var(--font-accent);
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.contact-form__feedback a {
+  color: var(--black);
+  text-decoration: underline;
+}
+
+.contact-form__feedback--success {
+  color: var(--black);
+}
+
+.contact-form__feedback--error {
+  color: #6b1d1d;
+}
+
 @media (max-width: 820px) {
   .about-page__hero {
     grid-template-columns: 1fr;
