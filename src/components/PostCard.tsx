@@ -17,7 +17,9 @@ export default function PostCard({ post }: PostCardProps) {
           className="post-card__media"
           style={{
             backgroundImage: `url(${post.thumbnail})`,
-            backgroundSize: post.thumbnailSize ?? "contain",
+            backgroundSize: post.thumbnailScale
+              ? `${post.thumbnailScale}% auto`
+              : (post.thumbnailSize ?? "contain"),
           }}
         >
           <div className="post-card__overlay">

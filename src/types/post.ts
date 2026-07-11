@@ -17,6 +17,8 @@ export type Post = {
   subtitle: string;
   thumbnail: string;
   thumbnailSize?: "contain" | "cover";
+  /** Grid thumbnail scale as % width when logo needs tighter fit (default: contain) */
+  thumbnailScale?: number;
   categories: string[];
   animationOrder: number;
   date: string;
@@ -30,6 +32,10 @@ export type TypeFilter = "All" | "Extracurricular" | "Job" | "Project";
 
 export type LanguageFilter =
   | "JavaScript"
+  | "TypeScript"
+  | "React"
+  | "Java"
+  | "PHP"
   | "HTML"
   | "CSS"
   | "C++"

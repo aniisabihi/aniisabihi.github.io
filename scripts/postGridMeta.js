@@ -2,6 +2,33 @@
  * Grid-only fields keyed by post id. Merged into postDetails by scripts/merge-posts.mjs.
  */
 export const POST_GRID_META = {
+  haus: {
+    subtitle: "Headless commerce · WordPress · Dev tooling",
+    thumbnail: "/illustrations/haus.png",
+    thumbnailScale: 72,
+    categories: [
+      "Job",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "WordPress",
+      "HTML",
+      "CSS",
+    ],
+    animationOrder: 1,
+  },
+  vogue: {
+    subtitle: "Digital platform · First in-house developer",
+    thumbnail: "/illustrations/vogue.png",
+    categories: ["Job", "JavaScript", "React", "HTML", "CSS"],
+    animationOrder: 2,
+  },
+  capgemini: {
+    subtitle: "Ignite Graduate Program · Telia placement",
+    thumbnail: "/illustrations/capgemini.png",
+    categories: ["Job", "JavaScript", "HTML", "CSS", "Java"],
+    animationOrder: 3,
+  },
   openspace: {
     subtitle: "Astronomy Software Integration",
     thumbnail: "/illustrations/openspace.png",
