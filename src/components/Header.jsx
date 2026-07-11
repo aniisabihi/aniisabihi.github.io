@@ -1,46 +1,51 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { NAV_LINKS, SITE } from "../config/site.js";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
 
-  const toggleMenu = () => setMenuOpen((open) => !open);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header
-      className={`page-header${menuOpen ? " responsive" : ""}`}
-      id='myHeader'
-    >
-      <nav className='justify-content-between'>
-        <Link to='/' className='logo' onClick={() => setMenuOpen(false)}>
-          <strong>ANIISA BIHI</strong>
+    <header className='site-header'>
+      <nav className={`site-header__nav${menuOpen ? " is-open" : ""}`}>
+        <Link to='/' className='site-header__logo' onClick={closeMenu}>
+          <strong>{SITE.name}</strong>
         </Link>
-        <div className='header-right'>
-          <Link
-            to='/'
-            className={location.pathname === "/" ? "active" : undefined}
-            onClick={() => setMenuOpen(false)}
-          >
-            WORK
-          </Link>
-          <Link
-            to='/about'
-            className={location.pathname === "/about" ? "active" : undefined}
-            onClick={() => setMenuOpen(false)}
-          >
-            ABOUT
-          </Link>
-          <a href='/AniisaBihi_CV.pdf' target='_blank' rel='noreferrer'>
-            RESUME
-          </a>
+
+        <button
+          type='button'
+          className='site-header__toggle'
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-expanded={menuOpen}
+          aria-label='Toggle navigation menu'
+        >
+          <i className='fa fa-bars' aria-hidden='true' />
+        </button>
+
+        <div className='site-header__links'>
+          {NAV_LINKS.map(({ label, to }) => (
+            <NavLink
+              key={to}
+              to={to}
+              end={to === "/"}
+              className={({ isActive }) =>
+                isActive ? "site-header__link is-active" : "site-header__link"
+              }
+              onClick={closeMenu}
+            >
+              {label}
+            </NavLink>
+          ))}
           <a
-            href='#menu'
-            className='icon'
-            onClick={toggleMenu}
-            aria-label='Toggle menu'
+            href={SITE.resumePath}
+            target='_blank'
+            rel='noreferrer'
+            className='site-header__link'
+            onClick={closeMenu}
           >
-            <i className='fa fa-bars' />
+            RESUME
           </a>
         </div>
       </nav>

@@ -1,0 +1,31 @@
+:root {
+  --black: #1a1a1a;
+  --white: #ffffff;
+  --blue: #dcfffb;
+  --darkblue: #c1e7e3;
+  --pink: #ffdcf4;
+  --darkpink: #dabfde;
+  --lilac: #c1bbdd;
+  --border: rgba(26, 26, 26, 0.08);
+
+  --font-body: monospace;
+  --font-accent: "abhandwritingregular", serif;
+
+  --max-width: 1100px;
+  --header-height: 4.5rem;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+
+  --radius-sm: 6px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 10px 30px rgba(26, 26, 26, 0.08);
+  --transition-fast: 150ms ease;
+  --transition-medium: 250ms ease;
+}

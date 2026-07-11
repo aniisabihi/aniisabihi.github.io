@@ -1,10 +1,13 @@
 import { useMemo, useState } from "react";
+import FilterBar from "../components/FilterBar.jsx";
+import PostCard from "../components/PostCard.jsx";
 import { LANGUAGE_FILTERS, POSTS, TYPE_FILTERS } from "../data/posts.js";
 
 function matchesFilter(categories, activeFilter) {
   if (activeFilter === "All") {
     return true;
   }
+
   return categories.includes(activeFilter);
 }
 
@@ -18,6 +21,7 @@ export default function Work() {
       const matchesLanguage = languageFilter
         ? post.categories.includes(languageFilter)
         : true;
+
       return matchesType && matchesLanguage;
     });
   }, [typeFilter, languageFilter]);
@@ -33,60 +37,40 @@ export default function Work() {
   };
 
   return (
-    <section className='grid'>
-      <div className='container'>
-        <ol className='filtersType'>
-          {TYPE_FILTERS.map((filter) => (
-            <li key={filter}>
-              <button
-                type='button'
-                className={
-                  typeFilter === filter && !languageFilter
-                    ? "is-active"
-                    : undefined
-                }
-                onClick={() => selectType(filter)}
-              >
-                {filter}
-              </button>
-            </li>
-          ))}
-        </ol>
-        <ol className='filtersLanguage'>
-          {LANGUAGE_FILTERS.map((filter) => (
-            <li key={filter}>
-              <button
-                type='button'
-                className={languageFilter === filter ? "is-active" : undefined}
-                onClick={() => selectLanguage(filter)}
-              >
-                {filter}
-              </button>
-            </li>
-          ))}
-        </ol>
+    <section className='work-page'>
+      <div className='work-page__inner'>
+        <header className='work-page__header'>
+          <h1 className='work-page__title'>Selected work</h1>
+          <p className='work-page__intro'>
+            Projects, jobs, and extracurricular work across web development,
+            visualization, and software engineering.
+          </p>
+        </header>
 
-        <ol className='posts'>
+        <div className='work-page__filters'>
+          <FilterBar
+            filters={TYPE_FILTERS}
+            activeFilter={languageFilter ? null : typeFilter}
+            onSelect={selectType}
+            variant='type'
+          />
+          <FilterBar
+            filters={LANGUAGE_FILTERS}
+            activeFilter={languageFilter}
+            onSelect={selectLanguage}
+            variant='language'
+          />
+        </div>
+
+        <ul className='post-grid'>
           {visiblePosts.map((post) => (
-            <li
-              key={post.id}
-              id={post.id}
-              className='post'
-              data-category={post.categories.join(" ")}
-              style={{ "--animation-order": post.animationOrder }}
-            >
-              <div className='caption'>
-                <div className='blur' />
-                <a href={post.href}>
-                  <div className='caption-text'>
-                    <h1>{post.title}</h1>
-                    <p>{post.subtitle}</p>
-                  </div>
-                </a>
-              </div>
-            </li>
+            <PostCard key={post.id} post={post} />
           ))}
-        </ol>
+        </ul>
+
+        {visiblePosts.length === 0 && (
+          <p className='work-page__empty'>No projects match these filters.</p>
+        )}
       </div>
     </section>
   );

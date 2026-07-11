@@ -1,18 +1,27 @@
+import { SITE, SOCIAL_LINKS } from "../config/site.js";
+
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <div className='footer'>
-      <a href='mailto:aniisaaden@gmail.com' className='social'>
-        MAIL
-      </a>
-      <a href='https://www.linkedin.com/in/aniisabihi/' className='social'>
-        LINKEDIN
-      </a>
-      <a href='https://github.com/aniisabihi' className='social'>
-        GITHUB
-      </a>
-      <div className='footer-right'>
-        <span className='logo'>&#169; ANIISA BIHI 2020</span>
+    <footer className='site-footer'>
+      <div className='site-footer__inner'>
+        <div className='site-footer__links'>
+          {SOCIAL_LINKS.map(({ label, href, external }) => (
+            <a
+              key={label}
+              href={href}
+              className='site-footer__link'
+              {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+        <p className='site-footer__copy'>
+          &copy; {SITE.name} {year}
+        </p>
       </div>
-    </div>
+    </footer>
   );
 }
