@@ -18,34 +18,44 @@ yarn build
 yarn preview
 ```
 
+## Post content
+
+Project page content is extracted from legacy HTML into `src/data/postDetails.js`:
+
+```bash
+yarn extract-posts
+```
+
+Run this if you add or edit files under `public/posts/` (images only — pages are React routes).
+
 ## Deployment
 
 Pushes to `main` or `master` trigger the GitHub Actions workflow in `.github/workflows/deploy.yml`.
 
-To enable deployment:
-
-1. Open the repository **Settings → Pages**
+1. Open **Settings → Pages**
 2. Set **Source** to **GitHub Actions**
 
-Project pages live at [https://aniisabihi.github.io](https://aniisabihi.github.io).
+Live site: [https://aniisabihi.github.io](https://aniisabihi.github.io)
 
 ## Structure
 
 ```
 src/
-  components/   Shared UI (Header, Footer, PostCard, FilterBar)
-  config/       Site constants and navigation
-  data/         Portfolio post metadata
-  pages/        Route-level pages (Work, About, NotFound)
-  styles/       Layered CSS (tokens, base, layout, work, about)
+  components/   Header, Footer, PostCard, FilterBar, ImageCarousel
+  config/       Site constants
+  data/         posts.js (grid metadata), postDetails.js (page content)
+  pages/        Work, About, PostDetail, NotFound
+  styles/       Layered CSS
 public/
-  posts/        Static project detail pages
+  posts/        Project images (per project folder)
   img/          Profile images
-  illustrations/ Project thumbnails
+  illustrations/ Grid thumbnails
 ```
 
-## Notes
+## Routes
 
-- The React app handles `/` and `/about`.
-- Individual project pages remain static HTML under `public/posts/` for now.
-- Shared design tokens live in `src/styles/tokens.css` and `public/css/main.css`.
+| Path            | Page            |
+| --------------- | --------------- |
+| `/`             | Work grid       |
+| `/about`        | About + contact |
+| `/work/:postId` | Project detail  |

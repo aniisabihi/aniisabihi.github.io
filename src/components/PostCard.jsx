@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 export default function PostCard({ post }) {
   return (
     <li
       className='post-card'
       style={{ "--animation-order": post.animationOrder }}
     >
-      <a href={post.href} className='post-card__link'>
+      <Link to={`/work/${post.id}`} className='post-card__link'>
         <div
           className='post-card__media'
           style={{
@@ -17,7 +19,7 @@ export default function PostCard({ post }) {
             <p className='post-card__subtitle'>{post.subtitle}</p>
           </div>
         </div>
-      </a>
+      </Link>
     </li>
   );
 }

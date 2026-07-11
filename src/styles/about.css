@@ -26,7 +26,6 @@
 .about-page__photo img {
   width: 100%;
   border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-card);
 }
 
 .about-page__bio {
@@ -41,7 +40,7 @@
 
 .about-page__bio p {
   margin: 0 0 var(--space-4);
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-size: clamp(1.25rem, 2.05vw, 1.5rem);
   line-height: 1.65;
 }
 
@@ -64,21 +63,20 @@
 .about-page__contact h2 {
   margin: 0 0 var(--space-2);
   font-family: var(--font-accent);
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.75rem, 3vw, 1.875rem);
 }
 
 .about-page__contact-intro {
   margin: 0 0 var(--space-5);
-  max-width: 36rem;
   font-family: var(--font-accent);
-  font-size: 1rem;
+  font-size: clamp(1.15rem, 1.75vw, 1.35rem);
   line-height: 1.6;
 }
 
 .contact-form {
   display: grid;
   gap: var(--space-4);
-  max-width: 36rem;
+  width: 100%;
 }
 
 .contact-form__field {
@@ -88,7 +86,7 @@
 
 .contact-form__label {
   font-family: var(--font-accent);
-  font-size: 0.95rem;
+  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
 }
 
 .contact-form input,
@@ -99,7 +97,7 @@
   border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.88);
   font-family: var(--font-accent);
-  font-size: 1rem;
+  font-size: clamp(1.15rem, 1.75vw, 1.5rem);
   transition:
     border-color var(--transition-fast),
     box-shadow var(--transition-fast);
@@ -129,7 +127,7 @@
   background: var(--darkpink);
   color: var(--black);
   font-family: var(--font-accent);
-  font-size: 1.05rem;
+  font-size: clamp(1.25rem, 2vw, 1.875rem);
   font-weight: 700;
   transition:
     background var(--transition-fast),
@@ -150,6 +148,17 @@
   .about-page__photo {
     max-width: 18rem;
     margin: 0 auto;
+  }
+
+  .about-page__bio p {
+    font-size: 1.35rem;
+  }
+
+  .about-page__contact-intro,
+  .contact-form__label,
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1.35rem;
   }
 
   .contact-form__actions {
