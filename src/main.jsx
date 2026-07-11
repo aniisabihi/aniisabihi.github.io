@@ -7,6 +7,7 @@ import "./styles/base.css";
 import "./styles/layout.css";
 import "./styles/work.css";
 import "./styles/about.css";
+import "./styles/post-detail.css";
 import "./styles/font.css";
 
 createRoot(document.getElementById("root")).render(
