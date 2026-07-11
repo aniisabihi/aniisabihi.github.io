@@ -90,7 +90,7 @@
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea {x
   width: 100%;
   padding: 0.85rem 1rem;
   border: 1px solid rgba(26, 26, 26, 0.12);
