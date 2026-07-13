@@ -1,3 +1,5 @@
+import StackIcon from "./StackIcon";
+
 type FilterBarProps = {
   filters: readonly string[];
   activeFilter: string | null;
@@ -21,7 +23,10 @@ export default function FilterBar({
             onClick={() => onSelect(filter)}
             aria-pressed={activeFilter === filter}
           >
-            {filter}
+            {variant === "language" && filter !== "All" ? (
+              <StackIcon name={filter} size={14} showLabel={false} />
+            ) : null}
+            <span>{filter}</span>
           </button>
         </li>
       ))}

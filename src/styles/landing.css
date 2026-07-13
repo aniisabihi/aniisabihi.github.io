@@ -192,6 +192,32 @@
   color: var(--text-muted);
 }
 
+.stack-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.stack-chip--text {
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.stack-chip__icon {
+  flex-shrink: 0;
+}
+
+.stack-chip__label {
+  font-size: inherit;
+}
+
+.filter-bar button .stack-chip {
+  pointer-events: none;
+}
+
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
