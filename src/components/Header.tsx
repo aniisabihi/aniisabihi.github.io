@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { NAV_SECTIONS, SECTION_IDS, SITE } from "../config/site";
+import { useUi } from "../context/UiContext";
 import { useScrollSpy } from "../hooks/useScrollSpy";
 import { useSectionNav } from "../hooks/useSectionNav";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { goToSection } = useSectionNav();
+  const { openCv } = useUi();
   const activeSection = useScrollSpy([
     SECTION_IDS.about,
     SECTION_IDS.work,
@@ -56,15 +58,16 @@ export default function Header() {
               {label}
             </button>
           ))}
-          <a
-            href={SITE.resumePath}
-            target="_blank"
-            rel="noreferrer"
+          <button
+            type="button"
             className="site-header__link"
-            onClick={closeMenu}
+            onClick={() => {
+              openCv();
+              closeMenu();
+            }}
           >
             RESUME
-          </a>
+          </button>
         </div>
       </nav>
     </header>
