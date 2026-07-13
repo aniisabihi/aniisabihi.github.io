@@ -22,11 +22,15 @@ export default function FilterBar({
             className={activeFilter === filter ? "is-active" : undefined}
             onClick={() => onSelect(filter)}
             aria-pressed={activeFilter === filter}
+            aria-label={
+              variant === "language" && filter !== "All" ? filter : undefined
+            }
           >
             {variant === "language" && filter !== "All" ? (
-              <StackIcon name={filter} size={14} showLabel={false} />
-            ) : null}
-            <span>{filter}</span>
+              <StackIcon name={filter} size={18} showLabel={false} />
+            ) : (
+              <span>{filter}</span>
+            )}
           </button>
         </li>
       ))}
