@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { UiProvider } from "../context/UiContext";
+import CvOverlay from "./CvOverlay";
 import Footer from "./Footer";
 import Header from "./Header";
 
@@ -15,6 +16,7 @@ export default function Layout() {
           <Outlet />
         </main>
         <Footer />
+        <CvOverlay />
       </div>
     </UiProvider>
   );

@@ -1,5 +1,6 @@
 .landing-page {
   position: relative;
+  z-index: 1;
 }
 
 .landing-section {
@@ -96,8 +97,11 @@
 
 .hero-section__terminal-slot {
   position: absolute;
-  inset: 0;
+  inset: auto 0 0 0;
   z-index: 0;
+  display: flex;
+  justify-content: center;
+  transform: translateY(12%);
 }
 
 .hero-section__avatar {
