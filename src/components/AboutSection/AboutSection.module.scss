@@ -1,24 +1,32 @@
 .about {
-  padding-block: var(--space-8);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
+  padding-top: var(--space-8);
   background: var(--pink-soft);
   overflow-x: clip;
 }
 
 .inner {
-  max-width: none;
-  padding: var(--space-8) var(--space-5) var(--space-8) 0;
+  position: relative;
+  z-index: 1;
+  flex: 1;
   display: grid;
   grid-template-columns: clamp(18rem, 34vw, 28rem) minmax(0, 1fr);
-  gap: clamp(var(--space-4), 3vw, var(--space-6));
-  align-items: center;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 var(--space-5) 0 0;
 }
 
 .photo {
-  position: relative;
-  justify-self: start;
-  align-self: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
   width: clamp(18rem, 34vw, 28rem);
-  max-width: none;
   margin: 0;
   padding: 0;
 
@@ -51,9 +59,11 @@
 }
 
 .bio {
+  grid-column: 2;
   font-family: var(--font-accent);
   max-width: 42rem;
-  padding-right: var(--space-5);
+  padding: 0 0 var(--space-8);
+  align-self: start;
 
   h2 {
     margin: 0 0 var(--space-4);
@@ -64,7 +74,7 @@
   p {
     margin: 0 0 var(--space-4);
     font-size: clamp(1.2rem, 2vw, 1.45rem);
-    line-height: 1.65;
+    line-height: 1.2;
   }
 }
 
@@ -86,20 +96,21 @@
 
 @media (max-width: 900px) {
   .inner {
-    grid-template-columns: 1fr;
-    padding: var(--space-8) var(--space-5) var(--space-8) 0;
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 0 var(--space-5) min(16rem, 72vw) 0;
   }
 
   .photo {
     width: min(16rem, 72vw);
-    margin: 0;
-    justify-self: start;
   }
 
   .bio {
+    grid-column: auto;
+    order: 1;
     max-width: none;
-    padding-right: 0;
+    padding: 0 0 var(--space-8);
     text-align: left;
   }
 }

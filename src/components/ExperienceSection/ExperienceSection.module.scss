@@ -8,17 +8,9 @@
 }
 
 .title {
-  margin: 0 0 var(--space-3);
+  margin-bottom: 0;
   font-size: clamp(1.75rem, 3.5vw, 2.25rem);
   letter-spacing: 0.02em;
-}
-
-.intro {
-  margin: 0 auto;
-  max-width: 42rem;
-  color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.6;
 }
 
 .filters {
