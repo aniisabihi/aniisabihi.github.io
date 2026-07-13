@@ -1,4 +1,3 @@
-import CodeBackground from "../components/CodeBackground";
 import AboutSection from "../components/sections/AboutSection";
 import ContactSection from "../components/sections/ContactSection";
 import ExperienceSection from "../components/sections/ExperienceSection";
@@ -12,7 +11,6 @@ export default function Landing() {
 
   return (
     <div className="landing-page">
-      <CodeBackground />
       <PageMeta
         title={SITE.name}
         description={SITE.defaultDescription}

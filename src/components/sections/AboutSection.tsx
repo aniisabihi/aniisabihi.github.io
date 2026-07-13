@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import AboutCodeDecor from "../AboutCodeDecor";
 import { SECTION_IDS } from "../../config/site";
 import { useUi } from "../../context/UiContext";
 
@@ -11,6 +12,7 @@ export default function AboutSection() {
       className="landing-section landing-section--about"
       aria-labelledby="about-heading"
     >
+      <AboutCodeDecor />
       <div className="landing-section__inner about-section__inner">
         <div
           className="about-section__photo fade-rise"
@@ -55,7 +57,11 @@ export default function AboutSection() {
           </p>
           <p>
             Feel free to check out{" "}
-            <button type="button" className="about-section__resume" onClick={openCv}>
+            <button
+              type="button"
+              className="about-section__resume"
+              onClick={openCv}
+            >
               my resume
             </button>{" "}
             or reach out below.

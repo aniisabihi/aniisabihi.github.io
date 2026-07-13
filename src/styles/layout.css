@@ -86,8 +86,8 @@
 
 .site-footer {
   margin-top: auto;
-  background: var(--pink);
-  border-top: 1px solid var(--border);
+  background: var(--gradient-section-end);
+  border-top: none;
 }
 
 .site-footer__inner {

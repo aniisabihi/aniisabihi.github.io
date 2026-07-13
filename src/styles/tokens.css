@@ -10,6 +10,13 @@
   --text: #1a1a1a;
   --text-muted: rgba(26, 26, 26, 0.72);
   --surface: #fafafa;
+  --gradient-section: linear-gradient(
+    180deg,
+    var(--white) 0%,
+    var(--pink) 50%,
+    color-mix(in srgb, var(--lilac) 35%, var(--white)) 100%
+  );
+  --gradient-section-end: color-mix(in srgb, var(--lilac) 35%, var(--white));
 
   --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
   --font-accent: "abhandwritingregular", serif;

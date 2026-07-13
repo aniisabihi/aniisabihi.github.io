@@ -14,7 +14,6 @@
   background-color: var(--darkpink);
   background-repeat: no-repeat;
   background-position: center;
-  border-bottom: 1px solid var(--border);
 }
 
 .post-detail__hero-overlay {
@@ -209,10 +208,7 @@
   width: 100%;
   max-height: min(70vh, 32rem);
   margin: 0 auto;
-  border: 2px solid var(--white);
   border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-card);
-  background: var(--black);
 }
 
 .post-detail__video-caption {
@@ -227,17 +223,13 @@
   align-items: center;
   justify-content: center;
   min-height: 14rem;
-  padding: var(--space-4);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
+  padding: 0;
 }
 
 .carousel__image {
   display: block;
   margin: 0 auto;
   object-fit: contain;
-  border: 2px solid var(--white);
-  box-shadow: var(--shadow-card);
 }
 
 .carousel__image--width {

@@ -1,5 +1,4 @@
 import type { CSSProperties } from "react";
-import CodeTerminal from "../CodeTerminal";
 import { SECTION_IDS } from "../../config/site";
 import { useSectionNav } from "../../hooks/useSectionNav";
 
@@ -47,9 +46,6 @@ export default function HeroSection() {
           className="hero-section__visual fade-rise"
           style={{ "--animation-order": 2 } as CSSProperties}
         >
-          <div className="hero-section__terminal-slot">
-            <CodeTerminal />
-          </div>
           <img
             className="hero-section__avatar"
             src="/img/aniisa_hi.PNG"
