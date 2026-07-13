@@ -285,7 +285,7 @@ const LEGACY_POSTS: Post[] = [
     ],
     subtitle: "Web development",
     thumbnail: "/illustrations/ska.png",
-    categories: ["Job", "WordPress", "CSS"],
+    categories: ["Work", "WordPress", "CSS"],
     animationOrder: 4,
   },
   {
@@ -332,7 +332,7 @@ const LEGACY_POSTS: Post[] = [
     ],
     subtitle: "Programming Coaching",
     thumbnail: "/illustrations/summercamp.png",
-    categories: ["Job"],
+    categories: ["Work"],
     animationOrder: 3,
   },
   {
@@ -376,7 +376,7 @@ const LEGACY_POSTS: Post[] = [
     ],
     subtitle: "App Development",
     thumbnail: "/illustrations/summermatch.png",
-    categories: ["Job", "JavaScript"],
+    categories: ["Work", "JavaScript"],
     animationOrder: 3,
   },
   {
@@ -421,7 +421,7 @@ const LEGACY_POSTS: Post[] = [
     ],
     subtitle: "Web Development",
     thumbnail: "/illustrations/wkit.png",
-    categories: ["Job", "WordPress", "JavaScript", "HTML", "CSS"],
+    categories: ["Work", "WordPress", "JavaScript", "HTML", "CSS"],
     animationOrder: 1,
   },
   {
@@ -769,7 +769,7 @@ const LEGACY_POSTS: Post[] = [
     ],
     subtitle: "Astronomy Software Integration",
     thumbnail: "/illustrations/openspace.png",
-    categories: ["Job", "Project", "C++", "Python", "OpenGL"],
+    categories: ["Work", "Project", "C++", "Python", "OpenGL"],
     animationOrder: 2,
   },
   {
@@ -998,7 +998,7 @@ export const POSTS_BY_ID = Object.fromEntries(
 export const TYPE_FILTERS = [
   "All",
   "Extracurricular",
-  "Job",
+  "Work",
   "Project",
 ] as const;
 

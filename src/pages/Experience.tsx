@@ -54,8 +54,8 @@ export default function Experience() {
         <header className="experience-page__header">
           <h1 className="experience-page__title">Experiences</h1>
           <p className="experience-page__intro">
-            Projects, jobs, and extracurricular work across web development,
-            visualization, and software engineering.
+            Work, projects, and extracurricular activities across web
+            development, visualization, and software engineering.
           </p>
         </header>
 

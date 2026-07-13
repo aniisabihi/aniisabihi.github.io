@@ -41,7 +41,7 @@ export const POSTS_BY_ID = Object.fromEntries(
   POSTS.map((post) => [post.id, post]),
 ) as Record<string, Post>;
 
-export const TYPE_FILTERS = ["All", "Extracurricular", "Job", "Project"] as const;
+export const TYPE_FILTERS = ["All", "Extracurricular", "Work", "Project"] as const;
 
 export const LANGUAGE_FILTERS = [
   "JavaScript",

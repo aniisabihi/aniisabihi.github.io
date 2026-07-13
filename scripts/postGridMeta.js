@@ -7,7 +7,7 @@ export const POST_GRID_META = {
     thumbnail: "/illustrations/haus.png",
     thumbnailScale: 72,
     categories: [
-      "Job",
+      "Work",
       "JavaScript",
       "TypeScript",
       "React",
@@ -20,25 +20,25 @@ export const POST_GRID_META = {
   vogue: {
     subtitle: "Digital platform · First in-house developer",
     thumbnail: "/illustrations/vogue.png",
-    categories: ["Job", "JavaScript", "React", "HTML", "CSS"],
+    categories: ["Work", "JavaScript", "React", "HTML", "CSS"],
     animationOrder: 2,
   },
   capgemini: {
     subtitle: "Ignite Graduate Program · Telia placement",
     thumbnail: "/illustrations/capgemini.png",
-    categories: ["Job", "JavaScript", "HTML", "CSS", "Java"],
+    categories: ["Work", "JavaScript", "HTML", "CSS", "Java"],
     animationOrder: 3,
   },
   openspace: {
     subtitle: "Astronomy Software Integration",
     thumbnail: "/illustrations/openspace.png",
-    categories: ["Job", "Project", "C++", "Python", "OpenGL"],
+    categories: ["Work", "Project", "C++", "Python", "OpenGL"],
     animationOrder: 2,
   },
   weknowit: {
     subtitle: "Web Development",
     thumbnail: "/illustrations/wkit.png",
-    categories: ["Job", "WordPress", "JavaScript", "HTML", "CSS"],
+    categories: ["Work", "WordPress", "JavaScript", "HTML", "CSS"],
     animationOrder: 1,
   },
   portfolio: {
@@ -62,7 +62,7 @@ export const POST_GRID_META = {
   summercamp: {
     subtitle: "Programming Coaching",
     thumbnail: "/illustrations/summercamp.png",
-    categories: ["Job"],
+    categories: ["Work"],
     animationOrder: 3,
   },
   mtd: {
@@ -99,7 +99,7 @@ export const POST_GRID_META = {
   summermatch: {
     subtitle: "App Development",
     thumbnail: "/illustrations/summermatch.png",
-    categories: ["Job", "JavaScript"],
+    categories: ["Work", "JavaScript"],
     animationOrder: 3,
   },
   touchhockey: {
@@ -123,7 +123,7 @@ export const POST_GRID_META = {
   ska: {
     subtitle: "Web development",
     thumbnail: "/illustrations/ska.png",
-    categories: ["Job", "WordPress", "CSS"],
+    categories: ["Work", "WordPress", "CSS"],
     animationOrder: 4,
   },
   "3cant": {

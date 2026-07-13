@@ -28,7 +28,7 @@ export type Post = {
   links: PostLink[];
 };
 
-export type TypeFilter = "All" | "Extracurricular" | "Job" | "Project";
+export type TypeFilter = "All" | "Extracurricular" | "Work" | "Project";
 
 export type LanguageFilter =
   | "JavaScript"

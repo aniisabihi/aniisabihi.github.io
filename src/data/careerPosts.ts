@@ -43,7 +43,7 @@ export const CAREER_POSTS: Post[] = [
     thumbnail: "/illustrations/haus.png",
     thumbnailScale: 72,
     categories: [
-      "Job",
+      "Work",
       "JavaScript",
       "TypeScript",
       "React",
@@ -94,7 +94,7 @@ export const CAREER_POSTS: Post[] = [
       },
     ],
     thumbnail: "/illustrations/vogue.png",
-    categories: ["Job", "JavaScript", "React", "HTML", "CSS"],
+    categories: ["Work", "JavaScript", "React", "HTML", "CSS"],
     animationOrder: 2,
   },
   {
@@ -132,7 +132,7 @@ export const CAREER_POSTS: Post[] = [
       { href: "https://www.linkedin.com/company/capgemini/", icon: "linkedin" },
     ],
     thumbnail: "/illustrations/capgemini.png",
-    categories: ["Job", "JavaScript", "HTML", "CSS", "Java"],
+    categories: ["Work", "JavaScript", "HTML", "CSS", "Java"],
     animationOrder: 3,
   },
 ];
