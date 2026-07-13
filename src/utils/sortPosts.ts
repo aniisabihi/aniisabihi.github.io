@@ -1,5 +1,23 @@
 import type { Post } from "../types/post";
 
+function buildCareerGridOrder(careerPosts: Post[]): Map<string, number> {
+  const order = new Map<string, number>();
+  let index = 0;
+
+  if (careerPosts.some((post) => post.id === "haus")) {
+    order.set("haus", index++);
+  }
+
+  for (const post of careerPosts) {
+    if (post.id === "haus") {
+      continue;
+    }
+    order.set(post.id, index++);
+  }
+
+  return order;
+}
+
 const MONTH_INDEX: Record<string, number> = {
   january: 0,
   february: 1,
@@ -50,8 +68,26 @@ function getPostDateSortKey(date: string): { end: number; start: number } {
   };
 }
 
-export function sortPostsByDate(posts: Post[]): Post[] {
+export function sortPostsByDate(
+  posts: Post[],
+  careerPosts: Post[] = [],
+): Post[] {
+  const careerGridOrder = buildCareerGridOrder(careerPosts);
+
   return [...posts].sort((left, right) => {
+    const leftOrder = careerGridOrder.get(left.id);
+    const rightOrder = careerGridOrder.get(right.id);
+    const leftCurated = leftOrder !== undefined;
+    const rightCurated = rightOrder !== undefined;
+
+    if (leftCurated && rightCurated) {
+      return leftOrder - rightOrder;
+    }
+
+    if (leftCurated !== rightCurated) {
+      return leftCurated ? -1 : 1;
+    }
+
     const leftKey = getPostDateSortKey(left.date);
     const rightKey = getPostDateSortKey(right.date);
 

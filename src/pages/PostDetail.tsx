@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import ImageCarousel from "../components/ImageCarousel";
 import PageMeta from "../components/PageMeta";
+import PostVideos from "../components/PostVideos";
 import { POSTS_BY_ID } from "../data/posts";
 
 function RichParagraph({ html }: { html: string }) {
@@ -71,6 +72,7 @@ export default function PostDetail() {
         </header>
 
         <ImageCarousel images={post.images} />
+        <PostVideos videos={post.videos ?? []} />
 
         <div className="post-detail__content">
           {post.paragraphs.map((paragraph) => (

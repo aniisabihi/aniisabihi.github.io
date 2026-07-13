@@ -104,6 +104,36 @@
   margin: 0 auto;
 }
 
+.post-detail__videos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  max-width: 52rem;
+  margin: var(--space-5) auto 0;
+}
+
+.post-detail__video-figure {
+  margin: 0;
+}
+
+.post-detail__video {
+  display: block;
+  width: min(100%, 42rem);
+  max-height: min(70vh, 32rem);
+  margin: 0 auto;
+  border: 2px solid var(--white);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  background: var(--black);
+}
+
+.post-detail__video-caption {
+  margin-top: var(--space-3);
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(26, 26, 26, 0.72);
+}
+
 .carousel__viewport {
   display: flex;
   align-items: center;

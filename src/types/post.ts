@@ -4,6 +4,11 @@ export type PostImage = {
   variant: "width" | "height";
 };
 
+export type PostVideo = {
+  src: string;
+  title?: string;
+};
+
 export type PostLink = {
   href: string;
   icon: string;
@@ -24,6 +29,7 @@ export type Post = {
   date: string;
   skills: string[];
   images: PostImage[];
+  videos?: PostVideo[];
   paragraphs: string[];
   links: PostLink[];
 };

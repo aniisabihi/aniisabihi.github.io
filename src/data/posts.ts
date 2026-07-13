@@ -986,10 +986,10 @@ const LEGACY_POSTS: Post[] = [
 ];
 
 /** Portfolio posts — grid + detail content. Career roles in careerPosts.ts; legacy entries via yarn extract-posts */
-export const POSTS: Post[] = sortPostsByDate([
-  ...CAREER_POSTS,
-  ...LEGACY_POSTS,
-]);
+export const POSTS: Post[] = sortPostsByDate(
+  [...CAREER_POSTS, ...LEGACY_POSTS],
+  CAREER_POSTS,
+);
 
 export const POSTS_BY_ID = Object.fromEntries(
   POSTS.map((post) => [post.id, post]),
