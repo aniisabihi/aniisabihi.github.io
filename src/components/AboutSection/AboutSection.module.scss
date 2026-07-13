@@ -1,25 +1,35 @@
 .about {
   padding-block: var(--space-8);
   background: var(--pink-soft);
+  overflow-x: clip;
 }
 
 .inner {
-  padding-block: 0;
+  max-width: none;
+  padding: var(--space-8) var(--space-5) var(--space-8) 0;
   display: grid;
-  grid-template-columns: minmax(0, 10rem) minmax(0, 1fr);
-  gap: var(--space-6);
-  align-items: start;
+  grid-template-columns: clamp(18rem, 34vw, 28rem) minmax(0, 1fr);
+  gap: clamp(var(--space-4), 3vw, var(--space-6));
+  align-items: center;
 }
 
 .photo {
   position: relative;
-  max-width: 12rem;
-  margin: 0 auto;
+  justify-self: start;
+  align-self: center;
+  width: clamp(18rem, 34vw, 28rem);
+  max-width: none;
+  margin: 0;
+  padding: 0;
 
   &::before {
     content: "";
     position: absolute;
-    inset: -12%;
+    width: 120%;
+    aspect-ratio: 1;
+    left: 0;
+    top: 50%;
+    translate: 0 -50%;
     border-radius: 50%;
     background: radial-gradient(
       circle,
@@ -28,18 +38,22 @@
       transparent 72%
     );
     z-index: 0;
+    pointer-events: none;
   }
 
   img {
     position: relative;
     z-index: 1;
+    display: block;
     width: 100%;
-    border-radius: var(--radius-sm);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   }
 }
 
 .bio {
   font-family: var(--font-accent);
+  max-width: 42rem;
+  padding-right: var(--space-5);
 
   h2 {
     margin: 0 0 var(--space-4);
@@ -73,10 +87,19 @@
 @media (max-width: 900px) {
   .inner {
     grid-template-columns: 1fr;
-    text-align: center;
+    padding: var(--space-8) var(--space-5) var(--space-8) 0;
+    align-items: start;
   }
 
   .photo {
-    max-width: 11rem;
+    width: min(16rem, 72vw);
+    margin: 0;
+    justify-self: start;
+  }
+
+  .bio {
+    max-width: none;
+    padding-right: 0;
+    text-align: left;
   }
 }
