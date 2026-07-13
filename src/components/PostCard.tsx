@@ -12,7 +12,7 @@ export default function PostCard({ post }: PostCardProps) {
       className="post-card"
       style={{ "--animation-order": post.animationOrder } as CSSProperties}
     >
-      <Link to={`/work/${post.id}`} className="post-card__link">
+      <Link to={`/experience/${post.id}`} className="post-card__link">
         <div
           className="post-card__media"
           style={{

@@ -15,10 +15,16 @@
     />
     <script>
       (function () {
-        var match = location.pathname.match(
-          /\/posts\/(?:[^/]+\/)+([^/]+)\.html$/,
-        );
-        if (match) location.replace("/work/" + match[1]);
+        var path = location.pathname;
+        var postsMatch = path.match(/\/posts\/(?:[^/]+\/)+([^/]+)\.html$/);
+        if (postsMatch) {
+          location.replace("/experience/" + postsMatch[1]);
+          return;
+        }
+        var workMatch = path.match(/^\/work\/([^/]+)\/?$/);
+        if (workMatch) {
+          location.replace("/experience/" + workMatch[1]);
+        }
       })();
     </script>
   </head>

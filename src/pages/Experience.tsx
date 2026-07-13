@@ -14,7 +14,7 @@ function matchesFilter(categories: string[], activeFilter: string) {
   return categories.includes(activeFilter);
 }
 
-export default function Work() {
+export default function Experience() {
   const [typeFilter, setTypeFilter] = useState<TypeFilter>("All");
   const [languageFilter, setLanguageFilter] = useState<LanguageFilter | null>(
     null,
@@ -44,22 +44,22 @@ export default function Work() {
   };
 
   return (
-    <section className="work-page">
+    <section className="experience-page">
       <PageMeta
         title={SITE.name}
         description={SITE.defaultDescription}
         path="/"
       />
-      <div className="work-page__inner">
-        <header className="work-page__header">
-          <h1 className="work-page__title">Selected work</h1>
-          <p className="work-page__intro">
+      <div className="experience-page__inner">
+        <header className="experience-page__header">
+          <h1 className="experience-page__title">Experiences</h1>
+          <p className="experience-page__intro">
             Projects, jobs, and extracurricular work across web development,
             visualization, and software engineering.
           </p>
         </header>
 
-        <div className="work-page__filters">
+        <div className="experience-page__filters">
           <FilterBar
             filters={TYPE_FILTERS}
             activeFilter={languageFilter ? null : typeFilter}
@@ -81,7 +81,9 @@ export default function Work() {
         </ul>
 
         {visiblePosts.length === 0 && (
-          <p className="work-page__empty">No projects match these filters.</p>
+          <p className="experience-page__empty">
+            No projects match these filters.
+          </p>
         )}
       </div>
     </section>

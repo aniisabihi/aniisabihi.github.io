@@ -26,12 +26,12 @@ export default function PostDetail() {
       <section className="post-detail post-detail--missing">
         <PageMeta
           title="Project not found"
-          path={postId ? `/work/${postId}` : "/"}
+          path={postId ? `/experience/${postId}` : "/"}
         />
         <div className="post-detail__inner">
           <h1>Project not found</h1>
           <Link to="/" className="post-detail__back">
-            Back to work
+            Back to experiences
           </Link>
         </div>
       </section>
@@ -44,11 +44,12 @@ export default function PostDetail() {
         title={post.title}
         description={post.subtitle}
         image={post.images[0]?.src ?? post.thumbnail}
-        path={`/work/${post.id}`}
+        path={`/experience/${post.id}`}
       />
       <div className="post-detail__inner">
         <Link to="/" className="post-detail__back">
-          <i className="fa fa-arrow-left" aria-hidden="true" /> Back to work
+          <i className="fa fa-arrow-left" aria-hidden="true" /> Back to
+          experiences
         </Link>
 
         <header className="post-detail__header">

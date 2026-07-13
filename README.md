@@ -58,13 +58,13 @@ scripts/        extract-posts, merge-posts, optimize-images
 
 ## Routes
 
-| Path            | Page            |
-| --------------- | --------------- |
-| `/`             | Work grid       |
-| `/about`        | About + contact |
-| `/work/:postId` | Project detail  |
+| Path                  | Page             |
+| --------------------- | ---------------- |
+| `/`                   | Experiences grid |
+| `/about`              | About + contact  |
+| `/experience/:postId` | Project detail   |
 
-Legacy URLs like `/posts/project/openspace/openspace.html` redirect to `/work/openspace`.
+Legacy URLs like `/posts/project/openspace/openspace.html` and `/work/openspace` redirect to `/experience/openspace`.
 
 ## Post content workflow
 

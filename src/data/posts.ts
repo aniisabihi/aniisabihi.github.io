@@ -1,4 +1,5 @@
 import type { Post } from "../types/post";
+import { sortPostsByDate } from "../utils/sortPosts";
 import { CAREER_POSTS } from "./careerPosts";
 
 const LEGACY_POSTS: Post[] = [
@@ -801,7 +802,7 @@ const LEGACY_POSTS: Post[] = [
       },
     ],
     paragraphs: [
-      "This project intends to show potential employers the work I have done in the past. The idea was to create a simple and colourful portfolio that shows off my personality and creativity. The colours are some of my favourite pastel colours and represent the bubbly side of myself. I also made all the illustrations on the work-page, with some of them being based of existing logos.",
+      "This project intends to show potential employers the work I have done in the past. The idea was to create a simple and colourful portfolio that shows off my personality and creativity. The colours are some of my favourite pastel colours and represent the bubbly side of myself. I also made all the illustrations on the experience-page, with some of them being based of existing logos.",
       "This project also allowed me to try out Slick.js for the first time, a fully responsive & flexible jQuery carousel plugin. I also created a font of my handwriting that I used in my about page to make it more personal.",
       "The images shown are mockups of the website that I created before development, and the colour scheme I chose.",
     ],
@@ -985,7 +986,10 @@ const LEGACY_POSTS: Post[] = [
 ];
 
 /** Portfolio posts — grid + detail content. Career roles in careerPosts.ts; legacy entries via yarn extract-posts */
-export const POSTS: Post[] = [...CAREER_POSTS, ...LEGACY_POSTS];
+export const POSTS: Post[] = sortPostsByDate([
+  ...CAREER_POSTS,
+  ...LEGACY_POSTS,
+]);
 
 export const POSTS_BY_ID = Object.fromEntries(
   POSTS.map((post) => [post.id, post]),

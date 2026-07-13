@@ -20,7 +20,7 @@ export const SOCIAL_LINKS = [
 ] as const;
 
 export const NAV_LINKS = [
-  { label: "WORK", to: "/" },
+  { label: "EXPERIENCES", to: "/" },
   { label: "ABOUT", to: "/about" },
 ] as const;
 
