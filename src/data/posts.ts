@@ -1013,7 +1013,5 @@ export const LANGUAGE_FILTERS = [
   "C++",
   "Python",
   "WordPress",
-  "Matlab",
   "C#",
-  "OpenGL",
 ] as const;
