@@ -19,10 +19,10 @@ export const CAREER_POSTS: Post[] = [
     ],
     images: [],
     paragraphs: [
-      "<strong>haus-workflow</strong> is a two-repository system I designed and maintain to solve a specific infrastructure problem in AI-assisted development: keeping coding agents (Claude Code) equipped with accurate, non-stale project context across many repositories, without relying on manual config upkeep.",
-      "The <strong>CLI</strong> runs a three-stage pipeline: <strong>scan → recommend → apply</strong>. The scanner walks a repo with <code>fast-glob</code>, filtering sensitive paths, then runs a typed, data-driven detection registry to infer role, stack, package manager, and dependency signals. The recommender is a <strong>binary policy-gate engine</strong> with no confidence scores or fuzzy ranking — each catalog item passes through hard include/exclude gates before positive match signals determine eligibility, which keeps the recommendation logic auditable. The apply stage writes generated config and layers in <strong>hash-based lockfile tracking</strong> so hand-edits survive untouched on every update.",
-      "The <strong>catalog</strong> is a separate, independently versioned repository holding the authoritative content. Every skill, agent, and template is registered in a JSON-schema-validated manifest, with explicit provenance tracking distinguishing first-party content from automated upstream imports. Content is fetched by the CLI at runtime through GitHub API tree listing, decoupling catalog updates from CLI release cycles.",
-      "Security runs as a first-class part of the pipeline: a guard-hook layer intercepts dangerous bash invocations and restricts file access, with <code>permissions.deny</code> rules derived programmatically from the same source lists. Architectural decisions are captured as ADRs, and every release runs a full verify gate before publishing to npm.",
+      "<strong>haus-workflow</strong> is a two-repository system I designed and maintain to solve a specific infrastructure problem in AI-assisted development. The goal is keeping coding agents (Claude Code) equipped with accurate, non-stale project context at scale, across many repositories, without relying on manual config upkeep.",
+      "The <strong>CLI</strong> runs a three-stage pipeline: <strong>scan → recommend → apply</strong>. The scanner walks a repo with <code>fast-glob</code>, filtering out sensitive paths, then runs a typed, data-driven detection-registry (<code>DetectionRule[]</code>) to infer role, stack, package manager, and dependency signals. It cross-references those signals against the catalog manifest so scanner logic and catalog content can't silently diverge. The recommender is a <strong>binary policy-gate engine</strong> with no confidence scores or fuzzy ranking. Each catalog item passes through hard include/exclude gates (unsupported stack, curation/risk tier, source trust, sensitive content, required role) before positive match signals determine eligibility, which keeps the recommendation logic auditable. The apply stage writes generated config and layers in <strong>hash-based lockfile tracking</strong>. On every update it diffs the previous lockfile against the current manifest and only deletes items whose on-disk content still matches the recorded hash. Hand-edits survive untouched.",
+      "The <strong>catalog</strong> is a separate, independently versioned repository that holds the authoritative content. Every skill, agent, and template is registered in a JSON-schema-validated manifest, with explicit provenance tracking distinguishing first-party content from automated, script-synced imports of upstream open-source collections. It runs its own CI: schema/frontmatter validation, lint, and format gates via Lefthook. There's also a Docusaurus-generated documentation site. Content is fetched by the CLI at runtime through a single recursive GitHub tree listing per sync, then cached locally. That decouples catalog updates from CLI release cycles, so the two repos ship on independent cadences without version lockstep.",
+      "Security runs as a first-class part of the pipeline, not an afterthought. A guard-hook layer intercepts dangerous bash invocations and restricts file access. The <code>permissions.deny</code> rules are derived programmatically from those same source lists, so enforcement and documentation can't drift apart. A namespaced settings-merge strategy lets the installer extend a user's global Claude config while still guaranteeing a scoped, clean uninstall. Architectural decisions across both repos are captured as ADRs, and every release runs a full verify gate (TypeScript strict typecheck, ESLint, esbuild bundling, the Node test runner, and c8 coverage enforcement) before publishing to npm.",
     ],
     links: [
       {
@@ -55,10 +55,10 @@ export const CAREER_POSTS: Post[] = [
     ],
     images: [],
     paragraphs: [
-      'The public documentation platform for <a href="https://wearehaustech.github.io/" target="_blank">Haus Tech</a>, built on Docusaurus 3 and React 19. It is the one place that covers four product lines — Vendure e-commerce plugins, WordPress plugins, a headless storefront React SDK, and an internal CLI/workflow tool — pulling content live from six separate source repositories.',
-      "I built a push-based sync architecture to avoid manually copying documentation between repos. Each source repo runs a GitHub Actions workflow that pushes its markdown/MDX docs directly to this site's <code>main</code> branch via a scoped SSH deploy key, so documentation changes go live without a manual PR step.",
-      "The site layers config-driven content visibility (per-section show/hide flags resolved at build time), generated plugin/storefront metadata JSON, and an AI-readable content index (<code>llms.txt</code> + per-package READMEs) on top of the synced docs. To tailor the browsing experience beyond Docusaurus defaults, I swizzled core theme components (<code>DocItem</code>, <code>Footer</code>, <code>TOC</code>) and built custom React components: <code>PluginCards</code> for plugin catalog browsing and <code>WordPressWidgetCards</code> for the Elementor widget catalog.",
-      "The project also integrates Algolia DocSearch, enforces lint/typecheck/format gates in CI on every PR, and deploys automatically to GitHub Pages via OIDC on merge to <code>main</code>.",
+      'The public documentation platform for <a href="https://wearehaustech.github.io/" target="_blank">Haus Tech</a>, built on Docusaurus 3 and React 19. It\'s the one place that covers four product lines (Vendure e-commerce plugins, WordPress plugins, a headless storefront React SDK, and an internal CLI/workflow tool), pulling content live from six separate source repositories.',
+      "I built a push-based sync architecture to avoid manually copying documentation between repos. Each source repo runs a GitHub Actions workflow that pushes its markdown/MDX docs directly to this site's <code>main</code> branch via a scoped SSH deploy key, and documentation changes go live without a manual PR step.",
+      "The site itself layers config-driven content visibility (per-section show/hide flags resolved at build time), generated plugin/storefront metadata JSON, and an AI-readable content index (<code>llms.txt</code> + per-package READMEs) on top of the synced docs.",
+      "To tailor the browsing experience beyond Docusaurus defaults, I swizzled core theme components (<code>DocItem</code>, <code>Footer</code>, <code>TOC</code>) and built two custom React components: <code>PluginCards</code> for plugin catalog browsing and <code>WordPressWidgetCards</code> for the Elementor widget catalog. The project also integrates Algolia DocSearch, enforces lint/typecheck/format gates in CI on every PR, and deploys automatically to GitHub Pages via OIDC on merge to <code>main</code>.",
     ],
     links: [
       { href: "https://wearehaustech.github.io/", icon: "globe" },
@@ -95,9 +95,9 @@ export const CAREER_POSTS: Post[] = [
     ],
     images: [],
     paragraphs: [
-      "Haus Storefront is a WordPress plugin I was the sole developer on through its first phase, later growing it with a team, that lets store owners build fully commerce-enabled pages in Elementor without writing code. Under the hood it is a hybrid of two runtimes: PHP registers ~30 native Elementor widgets (cart, checkout, product listings, variant selectors, search, filters, order history, and more), while each widget mounts a React 19 component into an isolated shadow-root host on the page, keeping storefront styling untouched by theme CSS.",
-      "All commerce data — products, pricing, inventory, orders — comes from a headless Vendure Shop API over GraphQL; the plugin has no database of its own for product data and stays fully decoupled from the storefront's presentation layer.",
-      "I built the data-provider layer that maps WordPress admin settings into a typed Vendure client configuration, wired Stripe for payments, and set up i18next-based translations with a migration system so every locale key ships with an auditable changelog. Alongside the widget library, I built a standalone React admin SPA for merchants to configure API credentials, theming, and feature flags outside the WordPress admin UI.",
+      "Haus Storefront is a WordPress plugin I was the sole developer on through its first phase, later growing it with a team, that lets store owners build fully commerce-enabled pages in Elementor without writing code. Under the hood it's a hybrid of two runtimes. PHP registers ~30 native Elementor widgets (cart, checkout, product listings, variant selectors, search, filters, order history, and more), while each widget mounts a React 19 component into an isolated shadow-root host on the page, keeping storefront styling untouched by theme CSS.",
+      "All commerce data (products, pricing, inventory, orders) comes from a headless Vendure Shop API over GraphQL; the plugin has no database of its own for product data and stays fully decoupled from the storefront's presentation layer.",
+      "I built the data-provider layer that maps WordPress admin settings into a typed Vendure client configuration, wired Stripe for payments, and set up i18next-based translations with a migration system, which means every locale key ships with an auditable changelog. Alongside the widget library, I built a standalone React admin SPA for merchants to configure API credentials, theming, and feature flags outside the WordPress admin UI.",
       "The project is built with Vite (one bundle per widget), TypeScript throughout, Radix UI primitives, and TanStack Query for data fetching, with a CI pipeline enforcing typecheck, lint, and build gates on every change.",
     ],
     links: [
@@ -129,10 +129,10 @@ export const CAREER_POSTS: Post[] = [
     ],
     images: [],
     paragraphs: [
-      "<strong>CloudMood</strong> is a weather app built around a simple idea: instead of showing a forecast as numbers and icons, render it as an animated scene you can actually watch. A user searches for any city, and the app fetches live conditions from the OpenWeatherMap API through a typed service layer that distinguishes invalid-city, invalid-key, rate-limit, and network/timeout failures instead of surfacing one generic error.",
-      "That data drives a Canvas-based rendering system I built from scratch — rain, snow, thunderstorm, cloud, and star effects, each with its intensity calculated from the actual weather description and cloud-coverage values rather than a fixed animation. Star visibility, for instance, checks real sunrise/sunset timestamps and current cloud coverage to decide whether and how many stars should show.",
-      "All the effects share a single custom canvas-animation hook with a recycling particle system, which keeps rain and snow smooth without pulling in a dedicated animation library. On top of the live-data path, I added manual override controls that let a user toggle any weather effect or sky mode (day, night, sunrise/sunset, golden hour, blue hour) independently of what is actually happening in the searched city.",
-      "The app is built with Next.js App Router, React, and TypeScript, styled with Tailwind CSS v4, and kept deliberately light on dependencies. Accessibility was a first-class concern — ARIA labelling, skip links, and full keyboard navigation across the search and control components.",
+      "<strong>CloudMood</strong> is a weather app built around a simple idea: instead of showing a forecast as numbers and icons, render it as an animated scene you can actually watch.",
+      "A user searches for any city, and the app fetches live conditions from the OpenWeatherMap API: temperature, description, cloud coverage, and sunrise/sunset times, all through a typed service layer that distinguishes invalid-city, invalid-key, rate-limit, and network/timeout failures instead of surfacing one generic error. That data drives a Canvas-based rendering system I built from scratch, with rain, snow, thunderstorm, cloud, and star effects, each with its intensity calculated from the actual weather description and cloud-coverage values rather than a fixed animation. Star visibility, for instance, checks real sunrise/sunset timestamps and current cloud coverage to decide whether and how many stars should show. A clear night in the fetched city ends up looking noticeably different from an overcast one.",
+      "All the effects share a single custom canvas-animation hook with a recycling particle system, which keeps rain and snow smooth without pulling in a dedicated animation library. The entire visual layer is hand-built on top of the Canvas API. On top of the live-data path, I added manual override controls that let a user toggle any weather effect or sky mode (day, night, sunrise/sunset, golden hour, blue hour) independently of what's actually happening in the searched city, letting the visuals double as an exploration tool, not just a forecast display.",
+      "The app is built with Next.js App Router, React, and TypeScript, styled with Tailwind CSS v4, and kept deliberately light on dependencies (no state or animation library beyond the framework). Accessibility was a first-class concern here, not an afterthought, with ARIA labelling, skip links, and full keyboard navigation across the search and control components.",
     ],
     links: [
       { href: "https://cloudmood.vercel.app", icon: "globe" },
@@ -166,9 +166,9 @@ export const CAREER_POSTS: Post[] = [
     images: [],
     paragraphs: [
       "<strong>Rock Paper Scissors AI</strong> is a browser-based take on the classic game, built to explore how far you can get an opponent to feel genuinely adaptive using statistics before reaching for machine learning.",
-      "The game offers three difficulty tiers. Easy is a plain random baseline. Medium runs a purely statistical model: it counts move frequencies for short histories, then switches to a first-order Markov chain once enough history exists, falling back to frequency counting when transition data is thin. Hard builds a 20-feature vector each round (move frequencies, transition probabilities, win/loss reaction patterns, streak and switch-repeat ratios, recency-weighted bias) and feeds it to an incrementally-trained ml5.js neural network that retrains every five rounds.",
-      "The more interesting engineering problem turned out to be resilience, not accuracy. ml5.js 0.12.2 has a known compatibility bug with the TensorFlow.js version it depends on, which can prevent the neural network from initializing at all. I wrapped the ML path in fallback logic that catches the failure and switches to a hand-written weighted heuristic, blending recent-game frequency, overall frequency, and Markov transition probability — keeping the adaptive AI working and still explaining its reasoning to the player, whether or not the neural net actually loads.",
-      "The codebase separates game rules, the AI/prediction engine, and UI state cleanly, and includes a manual browser-console test harness that simulates known player patterns to sanity-check the AI's predictions before shipping changes.",
+      "The game offers three difficulty tiers. Easy is a plain random baseline. Medium runs a purely statistical model: it counts move frequencies for short histories, then switches to a first-order Markov chain (a transition table mapping the player's last move to their most likely next move) once enough history exists, falling back to frequency counting when transition data is thin. Hard goes further, building a 20-feature vector each round (move frequencies, transition probabilities, win/loss reaction patterns, streak and switch-repeat ratios, recency-weighted bias) and feeding it to an incrementally-trained ml5.js neural network that retrains every five rounds.",
+      "The more interesting engineering problem turned out to be resilience, not accuracy. ml5.js 0.12.2 has a known compatibility bug with the TensorFlow.js version it depends on, which can prevent the neural network from initializing at all. I wrapped the ML path in fallback logic that catches the failure and switches to a hand-written weighted heuristic, blending recent-game frequency, overall frequency, and Markov transition probability. That keeps the adaptive AI working and still explaining its reasoning to the player, whether or not the neural net actually loads.",
+      "The codebase separates game rules, the AI/prediction engine, and UI state cleanly (dedicated modules for game logic and adaptive AI, a React Context for sharing AI state, custom hooks for game state), and includes a manual browser-console test harness that simulates known player patterns to sanity-check the AI's predictions before shipping changes.",
     ],
     links: [
       {
@@ -191,6 +191,42 @@ export const CAREER_POSTS: Post[] = [
     animationOrder: 2,
   },
   {
+    id: "portfolio-react",
+    slug: "project-portfolio-react",
+    category: "project",
+    title: "Portfolio | React Rebuild",
+    subtitle: "Static HTML → React SPA · Personal site",
+    date: "July 2026",
+    skills: [
+      "TypeScript",
+      "React",
+      "Vite",
+      "SASS",
+      "React Router",
+      "GitHub Actions",
+    ],
+    images: [],
+    paragraphs: [
+      "I built the first version of this portfolio in 2020 as a static HTML site: separate pages for work and about, a jQuery + Slick.js image carousel on project detail pages, CSS-only filter tabs on the grid, and a PHP contact form with PHPMailer. It did the job, but every content update meant editing duplicated HTML, the stack had drifted far from what I use professionally, and the site no longer reflected how I actually build things.",
+      "The rebuild is a <strong>React 19 + TypeScript + Vite</strong> single-page app. The old multi-page layout became one scroll landing with hash-linked sections (hero, about, experiences, contact), scroll-spy navigation, and client-side routing to <code>/experience/:postId</code> detail pages. Styling moved to co-located SASS modules on top of shared design tokens, keeping the pastel palette and handwriting font that defined the original brand.",
+      "Content got the same structural treatment. Legacy project pages were consolidated into typed post data in <code>posts.ts</code>, with recent roles and side projects living in <code>careerPosts.ts</code>. An <code>extract-posts</code> script can still parse old HTML if needed, but day-to-day edits go straight into TypeScript. The experience grid picked up dual filters (category + stack, with Simple Icons), a custom accessible <code>ImageCarousel</code> replaced Slick, and detail pages got hero headers with skill chips.",
+      "Around that core I added the pieces a portfolio needs in 2026: a Formspree-backed contact form (no more PHP hosting), an in-page CV overlay, animated hero code decor, runtime OG meta per route, and GitHub Actions deploy to Pages with an SPA <code>404.html</code> fallback plus redirects from legacy <code>/posts/.../*.html</code> URLs. The handdrawn illustrations on the grid stayed, including this one, so the site feels like an evolution of the 2020 version rather than a rebrand.",
+    ],
+    links: [
+      {
+        href: "https://aniisabihi.github.io",
+        icon: "globe",
+      },
+      {
+        href: "https://github.com/aniisabihi/aniisabihi.github.io",
+        icon: "github",
+      },
+    ],
+    thumbnail: "/illustrations/portfolio.png",
+    categories: ["Project", "TypeScript", "React", "JavaScript", "HTML", "CSS"],
+    animationOrder: 3,
+  },
+  {
     id: "haus-storefront-components",
     slug: "work-haus-storefront-components",
     category: "work",
@@ -209,9 +245,9 @@ export const CAREER_POSTS: Post[] = [
     images: [],
     paragraphs: [
       "<strong>Haus Storefront Components</strong> is a headless, TypeScript-first component library for building e-commerce storefronts across web and native platforms, structured as an Nx monorepo publishing ~23 scoped npm packages under <code>@haus-storefront-react/*</code>.",
-      "I joined during the initial conversion of the codebase from a traditional, UI-coupled setup into a headless model, where components own logic and state while consumers own markup, and I have continued maintaining and expanding it since. The architecture is layered: a generic data/SDK layer (<code>core</code>) sits beneath commerce-platform providers (including a Vendure/GraphQL integration), which in turn support shared store-domain components and hooks for cart, checkout, product listings, and search. Cross-component coordination runs through a typed event bus, and the data layer is SSR-safe by design.",
-      "Working on this project has meant balancing library-author concerns — versioned public APIs, backwards compatibility, documentation kept in sync via Docusaurus — with hands-on feature work across React and React Native (Expo), using TanStack Query for data on web and native and TanStack Router for routing on web.",
-      "Beyond components, I own the project's documentation system end to end. I designed the README structure and template used consistently across every published package, wrote the content, and built out mock-data and live-preview examples so each headless component ships with a working demo rather than static prose. I also set up the pipeline that syncs these package READMEs into our public Docusaurus site, keeping consumer-facing docs updated automatically as the library changes.",
+      "I joined during the initial conversion of the codebase from a traditional, UI-coupled setup into a headless model, where components own logic and state while consumers own markup, and I've continued maintaining and expanding it since. The architecture is layered, with a generic data/SDK layer (<code>core</code>) sitting beneath commerce-platform providers (including a Vendure/GraphQL integration), which in turn support shared store-domain components and hooks for cart, checkout, product listings, and search. Cross-component coordination runs through a typed event bus, avoiding shared global state, and the data layer is SSR-safe by design.",
+      "Working on this project has meant balancing library-author concerns (versioned public APIs, backwards compatibility, documentation kept in sync via Docusaurus) with hands-on feature work across React and React Native (Expo), using TanStack Query for data on web and native and TanStack Router for routing on web. Along the way I've built real depth in headless architecture patterns, monorepo tooling (Nx, Yarn 4 workspaces), and designing components other teams consume.",
+      "Beyond components, I own the project's documentation system end to end. I designed the README structure and template used consistently across every published package, wrote the content, and built out mock-data and mock-example sets so each headless component ships with a working, live preview rather than static prose. I also set up the pipeline that syncs these package READMEs into our public Docusaurus site, keeping consumer-facing docs updated automatically as the library changes.",
     ],
     links: [
       {
@@ -243,9 +279,9 @@ export const CAREER_POSTS: Post[] = [
     ],
     images: [],
     paragraphs: [
-      "This project involved re-architecting an existing collection of 11 independently-published Vendure e-commerce plugins (<code>@haus-tech/*</code>) from a legacy Lerna + Jest setup into a modern Nx monorepo.",
-      "The migration introduced per-package Nx project configurations (<code>build</code>, <code>test</code>, <code>lint</code>, <code>upgrade:vendure</code>, <code>version</code> targets), a shared TypeScript base config with strict settings, and a switch from Jest to Vitest for faster test execution via SWC. Each plugin kept its own independent semantic versioning, changelog, and README, driven by Conventional Commits and Nx Release, so packages ship on their own cadence without coupling releases across the library.",
-      "I also built supporting tooling: scripts to bump plugin versions and sync README version frontmatter automatically, plus a GitHub Actions workflow to push release tags. The result was affected-only builds/tests/lints in CI, consistent developer tooling across all packages, and a repeatable release pipeline for the whole plugin library.",
+      "This project involved re-architecting an existing collection of 11 independently-published Vendure e-commerce plugins (<code>@haus-tech/*</code>) from a legacy Lerna + Jest setup into a modern Nx monorepo. The migration introduced per-package Nx project configurations (<code>build</code>, <code>test</code>, <code>lint</code>, <code>upgrade:vendure</code>, <code>version</code> targets), a shared TypeScript base config with strict settings, and a switch from Jest to Vitest for faster test execution via SWC.",
+      "Each plugin kept its own independent semantic versioning, changelog, and README, driven by Conventional Commits and Nx Release, so packages ship on their own cadence without coupling releases across the library. I also built supporting tooling: scripts to bump plugin versions and sync README version frontmatter automatically, plus a GitHub Actions workflow to push release tags.",
+      "The result was affected-only builds/tests/lints in CI, consistent developer tooling across all packages, and a repeatable release pipeline for the whole plugin library.",
     ],
     links: [
       {
@@ -287,10 +323,10 @@ export const CAREER_POSTS: Post[] = [
       },
     ],
     paragraphs: [
-      'I\'m a full-stack developer at <a href="https://haus.se/" target="_blank">Haus Tech</a>, working across headless commerce, WordPress plugin development, and internal developer-tooling infrastructure.',
-      "My day-to-day spans TypeScript and React on the storefront side, PHP and WordPress where our commerce stack meets the CMS, and the tooling that keeps multiple repos and teams aligned — shared config, documentation, and automation to cut repeat work and config drift.",
-      "After time away from the workforce for health reasons, I returned in March 2025 through a structured work-training placement at Haus Tech, arranged in cooperation with Arbetsförmedlingen and Försäkringskassan. I started at 25% and built back up to full-time, working throughout as a full member of the development team — same stand-ups, customer projects, and sprint planning as everyone else.",
-      "What ties the role together is a focus on reliable delivery across headless commerce and platform work: modern TypeScript/React frontends, Vendure and GraphQL on the commerce side, and practical developer experience so teams can ship without fighting the setup.",
+      'I\'m a full-stack developer at <a href="https://haus.se/" target="_blank">Haus Tech</a>, working across headless commerce, WordPress plugin development, and internal dev-tooling infrastructure.',
+      "On the commerce side, I contributed to converting our storefront component library to a headless architecture and have maintained it since (a TypeScript/React/React Native Nx monorepo shipping ~23 npm packages for cart, checkout, product, and search logic). I was also sole developer through the first phase of a WordPress plugin bringing that same headless commerce (Vendure/GraphQL) into Elementor, building ~30 custom React 19 widgets before growing the project with a team. Alongside that, I led the migration of an 11-package Vendure plugin monorepo from Lerna/Jest to Nx + Vitest.",
+      "Outside client work, I design and maintain internal infrastructure. haus-workflow is a CLI and content catalog that automates AI-agent context setup across our repos, with policy-gate recommendation logic and hash-based drift detection. I also built our public documentation hub, which unifies docs for four product lines across six source repos. What ties this together is a dislike of repeat work and config drift across teams, whether that's a shared lint/config package, a doc-sync pipeline, or a lockfile that reconciles upstream changes without overwriting hand-edits.",
+      "After time away from the workforce for health reasons, I returned in March 2025 through a structured work-training placement at Haus Tech, arranged in cooperation with Arbetsförmedlingen and Försäkringskassan. I started at 25% and built back up to full-time, working the entire way as a full member of the development team: same stand-ups, same customer projects, same sprint planning as everyone else.",
     ],
     links: [
       { href: "https://haus.se/", icon: "globe" },
@@ -338,9 +374,8 @@ export const CAREER_POSTS: Post[] = [
       },
     ],
     paragraphs: [
-      '<a href="https://voguescandinavia.com/" target="_blank">Vogue Scandinavia</a> is the Nordic edition of Vogue — an early-stage media startup covering Sweden, Denmark, Norway, Finland, and Iceland across print, digital, and social. I joined as the first in-house developer, brought in to move frontend development in-house from the outsourced team in Stockholm that had built the platform.',
-      "My first weeks were spent alongside that team learning the platforms and the logic behind the services, before taking ownership of the frontend as an internally maintained product. I worked across the digital platform in React, Next.js, and Redux, with Sass and Tailwind for styling and Strapi as the headless CMS.",
-      "The role reached beyond pure frontend: I integrated REST APIs, handled the technical side of marketing campaigns, and worked with site analytics through Google Analytics and Google Ads. As the sole in-house developer I sat close to the product, reporting to the Head of Technology and collaborating day to day with the creative and commercial teams.",
+      '<a href="https://voguescandinavia.com/" target="_blank">Vogue Scandinavia</a> is the Nordic edition of Vogue, an early-stage media startup covering Sweden, Denmark, Norway, Finland, and Iceland across print, digital, and social. I joined as the first in-house developer, brought in to move frontend development in-house from the outsourced team in Stockholm that had built the platform. My first weeks were spent alongside that team learning the platforms and the logic behind the services, before taking ownership of the frontend as an internally maintained product.',
+      "I worked across the digital platform in React, Next.js, and Redux, with Sass and Tailwind for styling and Strapi as the headless CMS. The role reached beyond pure frontend, and I integrated REST APIs, handled the technical side of marketing campaigns, and worked with site analytics through Google Analytics and Google Ads. As the sole in-house developer I sat close to the product, reporting to the Head of Technology and collaborating day to day with the creative and commercial teams.",
     ],
     links: [
       { href: "https://voguescandinavia.com/", icon: "globe" },
@@ -383,9 +418,9 @@ export const CAREER_POSTS: Post[] = [
     ],
     paragraphs: [
       'I started my career at <a href="https://www.capgemini.com/" target="_blank">Capgemini</a>, joining through the Ignite Graduate Program with a focus on Innovative Tech and Digital Customer Experience. Most of my time there was spent on client placement at <a href="https://www.telia.se/" target="_blank">Telia</a>, as a developer and test & quality specialist on a Capgemini DevOps delivery team.',
-      "The team built and maintained Telia's internal order-management applications, working inside a large SAFe Agile Release Train. I contributed across the full development cycle but held primary responsibility for testing and quality, covering both manual and automated testing so that what shipped to the client stayed reliable.",
-      "I joined the Telia project at its start, which meant helping shape the initial project structure and taking part in months of knowledge-transfer sessions with the application's previous development team before we took full ownership.",
-      "Alongside the Telia placement I also handled an internal Capgemini assignment supporting the R2D2 staffing system in Sweden, coordinating consultant profiles and reporting across practice heads, account managers, and team leads. This period is also where I earned my Professional Scrum Master I (PSM I) certification and a SAFe Practitioner certification (since lapsed).",
+      "The team built and maintained Telia's internal order-management applications, working inside a large SAFe Agile Release Train. I contributed across the full development cycle but held primary responsibility for testing and quality, covering both manual and automated testing to keep what shipped to the client reliable. I joined the project at its start, which meant helping shape the initial project structure and taking part in months of knowledge-transfer sessions with the application's previous development team before we took full ownership.",
+      "Alongside the Telia placement I also handled an internal Capgemini assignment supporting the R2D2 staffing system in Sweden, coordinating consultant profiles and reporting across practice heads, account managers, and team leads. It was outside the technical track, but it gave me early practice in communication, ownership, and keeping a lot of moving parts organized.",
+      "This period is also where I earned my Professional Scrum Master I (PSM I) certification and a SAFe Practitioner certification (since lapsed), and where I got comfortable with the enterprise Agile way of working: release trains, DevOps pipelines, and quality as a shared responsibility.",
     ],
     links: [
       { href: "https://www.capgemini.com/", icon: "globe" },
