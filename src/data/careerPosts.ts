@@ -4,8 +4,8 @@ import type { Post } from "../types/post";
 export const CAREER_POSTS: Post[] = [
   {
     id: "haus",
-    slug: "job-haus",
-    category: "job",
+    slug: "work-haus",
+    category: "work",
     title: "Haus Tech | Full-Stack Developer",
     subtitle: "Headless commerce · WordPress · Dev tooling",
     date: "March 2025 – Present",
@@ -21,7 +21,7 @@ export const CAREER_POSTS: Post[] = [
     ],
     images: [
       {
-        src: "/posts/job/haus/1.png",
+        src: "/posts/work/haus/1.png",
         alt: "Haus Tech",
         variant: "width",
       },
@@ -55,8 +55,8 @@ export const CAREER_POSTS: Post[] = [
   },
   {
     id: "vogue",
-    slug: "job-vogue",
-    category: "job",
+    slug: "work-vogue",
+    category: "work",
     title: "Vogue Scandinavia | Frontend Developer",
     subtitle: "Digital platform · First in-house developer",
     date: "August 2022 – January 2023",
@@ -72,7 +72,7 @@ export const CAREER_POSTS: Post[] = [
     ],
     images: [
       {
-        src: "/posts/job/vogue/1.png",
+        src: "/posts/work/vogue/1.png",
         alt: "Vogue Scandinavia",
         variant: "width",
       },
@@ -99,8 +99,8 @@ export const CAREER_POSTS: Post[] = [
   },
   {
     id: "capgemini",
-    slug: "job-capgemini",
-    category: "job",
+    slug: "work-capgemini",
+    category: "work",
     title: "Capgemini | Software Engineer",
     subtitle: "Ignite Graduate Program · Telia placement",
     date: "February 2021 – July 2022",
@@ -116,7 +116,7 @@ export const CAREER_POSTS: Post[] = [
     ],
     images: [
       {
-        src: "/posts/job/capgemini/1.jpg",
+        src: "/posts/work/capgemini/1.jpg",
         alt: "Capgemini",
         variant: "width",
       },

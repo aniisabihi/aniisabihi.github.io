@@ -219,39 +219,39 @@ export const POST_DETAILS = [
   },
   {
     id: "ska",
-    slug: "job-ska",
-    category: "job",
+    slug: "work-ska",
+    category: "work",
     title: "SKA | Web Developer",
     date: "December 2017 - May 2018",
     skills: ["WordPress", "HTML", "CSS", "Client Relations"],
     images: [
       {
-        src: "/posts/job/ska/1.png",
+        src: "/posts/work/ska/1.png",
         alt: "ska",
         variant: "width",
       },
       {
-        src: "/posts/job/ska/2.png",
+        src: "/posts/work/ska/2.png",
         alt: "ska",
         variant: "width",
       },
       {
-        src: "/posts/job/ska/3.png",
+        src: "/posts/work/ska/3.png",
         alt: "ska",
         variant: "width",
       },
       {
-        src: "/posts/job/ska/4.png",
+        src: "/posts/work/ska/4.png",
         alt: "ska",
         variant: "width",
       },
       {
-        src: "/posts/job/ska/5.png",
+        src: "/posts/work/ska/5.png",
         alt: "ska",
         variant: "width",
       },
       {
-        src: "/posts/job/ska/6.png",
+        src: "/posts/work/ska/6.png",
         alt: "ska",
         variant: "width",
       },
@@ -268,29 +268,29 @@ export const POST_DETAILS = [
   },
   {
     id: "summercamp",
-    slug: "job-summercamp",
-    category: "job",
+    slug: "work-summercamp",
+    category: "work",
     title: "Code Summer Camp | Programming Coach",
     date: "June 2019",
     skills: ["Teaching", "HTML", "CSS", "JavaScript"],
     images: [
       {
-        src: "/posts/job/summercamp/1.jpg",
+        src: "/posts/work/summercamp/1.jpg",
         alt: "summercamp",
         variant: "width",
       },
       {
-        src: "/posts/job/summercamp/2.jpg",
+        src: "/posts/work/summercamp/2.jpg",
         alt: "summercamp",
         variant: "width",
       },
       {
-        src: "/posts/job/summercamp/3.jpg",
+        src: "/posts/work/summercamp/3.jpg",
         alt: "summercamp",
         variant: "width",
       },
       {
-        src: "/posts/job/summercamp/4.jpg",
+        src: "/posts/work/summercamp/4.jpg",
         alt: "summercamp",
         variant: "width",
       },
@@ -311,29 +311,29 @@ export const POST_DETAILS = [
   },
   {
     id: "summermatch",
-    slug: "job-summermatch",
-    category: "job",
+    slug: "work-summermatch",
+    category: "work",
     title: "Summer Match | App Developer",
     date: "June 2018 - August 2018",
     skills: ["JavaScript", "React Native", "Client Relations"],
     images: [
       {
-        src: "/posts/job/summermatch/1.gif",
+        src: "/posts/work/summermatch/1.gif",
         alt: "summermatch",
         variant: "width",
       },
       {
-        src: "/posts/job/summermatch/2.png",
+        src: "/posts/work/summermatch/2.png",
         alt: "summermatch",
         variant: "width",
       },
       {
-        src: "/posts/job/summermatch/3.gif",
+        src: "/posts/work/summermatch/3.gif",
         alt: "summermatch",
         variant: "width",
       },
       {
-        src: "/posts/job/summermatch/4.png",
+        src: "/posts/work/summermatch/4.png",
         alt: "summermatch",
         variant: "width",
       },
@@ -351,19 +351,19 @@ export const POST_DETAILS = [
   },
   {
     id: "weknowit",
-    slug: "job-weknowit",
-    category: "job",
+    slug: "work-weknowit",
+    category: "work",
     title: "We Know IT | Webb Consultant",
     date: "April 2020 - November 2020",
     skills: ["WordPress", "HTML", "CSS", "JavaScript"],
     images: [
       {
-        src: "/posts/job/weknowit/1.png",
+        src: "/posts/work/weknowit/1.png",
         alt: "weknowit",
         variant: "width",
       },
       {
-        src: "/posts/job/weknowit/2.png",
+        src: "/posts/work/weknowit/2.png",
         alt: "weknowit",
         variant: "width",
       },
