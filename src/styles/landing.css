@@ -283,35 +283,6 @@
   background-position: center;
 }
 
-.post-card__badges {
-  position: absolute;
-  top: var(--space-3);
-  left: var(--space-3);
-  right: var(--space-3);
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-2);
-  z-index: 1;
-}
-
-.post-card__badge,
-.post-card__date {
-  padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-pill);
-  background: rgba(26, 26, 26, 0.72);
-  color: var(--white);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.post-card__date {
-  text-transform: none;
-  letter-spacing: 0.02em;
-  font-weight: 500;
-}
-
 .post-card__overlay {
   position: absolute;
   inset: 0;
@@ -394,13 +365,12 @@
 
 /* Contact */
 .landing-section--contact {
-  padding-bottom: var(--space-8);
+  padding-block: var(--space-8);
+  background: linear-gradient(135deg, var(--darkpink), var(--pink));
 }
 
 .contact-section__inner {
-  padding: var(--space-6);
-  border-radius: var(--radius-sm);
-  background: linear-gradient(135deg, var(--darkpink), var(--pink));
+  padding-block: 0;
 }
 
 .contact-section__inner h2 {
