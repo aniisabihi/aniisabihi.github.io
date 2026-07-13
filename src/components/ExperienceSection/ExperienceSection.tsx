@@ -55,10 +55,6 @@ export default function ExperienceSection() {
           <h2 id="work-heading" className={styles.title}>
             Experiences
           </h2>
-          <p className={styles.intro}>
-            Work, projects, and extracurricular activities across web
-            development, visualization, and software engineering.
-          </p>
         </header>
 
         <div className={styles.filters}>
