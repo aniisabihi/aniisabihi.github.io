@@ -4,6 +4,7 @@ import { NAV_SECTIONS, SECTION_IDS, SITE } from "../config/site";
 import { useUi } from "../context/UiContext";
 import { useScrollSpy } from "../hooks/useScrollSpy";
 import { useSectionNav } from "../hooks/useSectionNav";
+import styles from "./Header.module.scss";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,18 +24,18 @@ export default function Header() {
   };
 
   return (
-    <header className="site-header">
+    <header className={styles.header}>
       <nav
-        className={`site-header__nav${menuOpen ? " is-open" : ""}`}
+        className={`${styles.nav}${menuOpen ? ` ${styles.open}` : ""}`}
         aria-label="Main navigation"
       >
-        <Link to="/" className="site-header__logo" onClick={closeMenu}>
+        <Link to="/" className={styles.logo} onClick={closeMenu}>
           <strong>{SITE.displayName}</strong>
         </Link>
 
         <button
           type="button"
-          className="site-header__toggle"
+          className={styles.toggle}
           onClick={() => setMenuOpen((open) => !open)}
           aria-expanded={menuOpen}
           aria-controls="site-nav-links"
@@ -43,15 +44,15 @@ export default function Header() {
           <i className="fa fa-bars" aria-hidden="true" />
         </button>
 
-        <div id="site-nav-links" className="site-header__links">
+        <div id="site-nav-links" className={styles.links}>
           {NAV_SECTIONS.map(({ label, sectionId }) => (
             <button
               key={sectionId}
               type="button"
               className={
                 activeSection === sectionId
-                  ? "site-header__link is-active"
-                  : "site-header__link"
+                  ? `${styles.link} ${styles.active}`
+                  : styles.link
               }
               onClick={() => handleSectionClick(sectionId)}
             >
@@ -60,7 +61,7 @@ export default function Header() {
           ))}
           <button
             type="button"
-            className="site-header__link"
+            className={styles.link}
             onClick={() => {
               openCv();
               closeMenu();

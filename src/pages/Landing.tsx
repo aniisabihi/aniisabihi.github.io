@@ -5,12 +5,13 @@ import HeroSection from "../components/sections/HeroSection";
 import PageMeta from "../components/PageMeta";
 import { SITE } from "../config/site";
 import { useHashScroll } from "../hooks/useHashScroll";
+import styles from "./Landing.module.scss";
 
 export default function Landing() {
   useHashScroll();
 
   return (
-    <div className="landing-page">
+    <div className={styles.page}>
       <PageMeta
         title={SITE.name}
         description={SITE.defaultDescription}

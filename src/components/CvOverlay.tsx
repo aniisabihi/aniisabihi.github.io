@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { SITE } from "../config/site";
 import { useUi } from "../context/UiContext";
+import styles from "./CvOverlay.module.scss";
 
 export default function CvOverlay() {
   const { cvOpen, closeCv } = useUi();
@@ -34,28 +35,20 @@ export default function CvOverlay() {
   }
 
   return (
-    <div
-      className="cv-overlay"
-      role="presentation"
-      onClick={closeCv}
-    >
+    <div className={styles.overlay} role="presentation" onClick={closeCv}>
       <div
-        className="cv-overlay__dialog"
+        className={styles.dialog}
         role="dialog"
         aria-modal="true"
         aria-label="Resume"
         onClick={(event) => event.stopPropagation()}
       >
-        <div className="cv-overlay__toolbar">
-          <a
-            className="cv-overlay__action"
-            href={SITE.resumePath}
-            download
-          >
+        <div className={styles.toolbar}>
+          <a className={styles.action} href={SITE.resumePath} download>
             Download
           </a>
           <a
-            className="cv-overlay__action"
+            className={styles.action}
             href={SITE.resumePath}
             target="_blank"
             rel="noreferrer"
@@ -65,7 +58,7 @@ export default function CvOverlay() {
           <button
             ref={closeButtonRef}
             type="button"
-            className="cv-overlay__close"
+            className={styles.close}
             onClick={closeCv}
             aria-label="Close resume"
           >
@@ -73,13 +66,13 @@ export default function CvOverlay() {
           </button>
         </div>
 
-        <div className="cv-overlay__viewer">
+        <div className={styles.viewer}>
           <iframe
-            className="cv-overlay__frame"
+            className={styles.frame}
             src={SITE.resumePath}
             title="Aniisa Bihi resume"
           />
-          <p className="cv-overlay__fallback">
+          <p className={styles.fallback}>
             PDF preview not available?{" "}
             <a href={SITE.resumePath} download>
               Download the resume

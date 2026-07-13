@@ -2,6 +2,8 @@ import type { CSSProperties } from "react";
 import HeroCodeDecor from "../HeroCodeDecor";
 import { SECTION_IDS } from "../../config/site";
 import { useSectionNav } from "../../hooks/useSectionNav";
+import landing from "./LandingSection.module.scss";
+import styles from "./HeroSection.module.scss";
 
 export default function HeroSection() {
   const { goToSection } = useSectionNav();
@@ -9,34 +11,34 @@ export default function HeroSection() {
   return (
     <section
       id={SECTION_IDS.hero}
-      className="landing-section landing-section--hero"
+      className={`${landing.section} ${styles.hero}`}
       aria-labelledby="hero-heading"
     >
       <HeroCodeDecor />
-      <div className="landing-section__inner hero-section__inner">
+      <div className={`${landing.inner} ${styles.inner}`}>
         <div
-          className="hero-section__content fade-rise"
+          className={`${styles.content} fade-rise`}
           style={{ "--animation-order": 1 } as CSSProperties}
         >
-          <p className="hero-section__eyebrow">Software Engineer</p>
-          <h1 id="hero-heading" className="hero-section__title">
+          <p className={styles.eyebrow}>Software Engineer</p>
+          <h1 id="hero-heading" className={styles.title}>
             Aniisa Bihi
           </h1>
-          <p className="hero-section__tagline">
+          <p className={styles.tagline}>
             Building headless commerce platforms, developer tooling, and
             interactive web experiences.
           </p>
-          <div className="hero-section__actions">
+          <div className={styles.actions}>
             <button
               type="button"
-              className="hero-section__cta hero-section__cta--primary"
+              className={styles.ctaPrimary}
               onClick={() => goToSection(SECTION_IDS.work)}
             >
               View experiences
             </button>
             <button
               type="button"
-              className="hero-section__cta hero-section__cta--secondary"
+              className={styles.ctaSecondary}
               onClick={() => goToSection(SECTION_IDS.contact)}
             >
               Get in touch
