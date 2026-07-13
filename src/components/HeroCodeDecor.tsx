@@ -1,3 +1,5 @@
+import styles from "./HeroCodeDecor.module.scss";
+
 const DECOR_LINES = [
   {
     text: "import { coffee } from 'morning'",
@@ -62,7 +64,7 @@ type DecorLineStyle = {
 
 export default function HeroCodeDecor() {
   return (
-    <div className="hero-code-decor" aria-hidden="true">
+    <div className={styles.root} aria-hidden="true">
       {DECOR_LINES.map((line) => {
         const style: DecorLineStyle = {
           top: line.top,
@@ -77,7 +79,7 @@ export default function HeroCodeDecor() {
         }
 
         return (
-          <span key={line.text} className="hero-code-decor__line" style={style}>
+          <span key={line.text} className={styles.line} style={style}>
             {line.text}
           </span>
         );

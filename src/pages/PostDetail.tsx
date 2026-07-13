@@ -6,6 +6,7 @@ import PostVideos from "../components/PostVideos";
 import StackIcon from "../components/StackIcon";
 import { POSTS_BY_ID } from "../data/posts";
 import { useSectionNav } from "../hooks/useSectionNav";
+import styles from "./PostDetail.module.scss";
 
 const CATEGORY_LABELS: Record<string, string> = {
   work: "Work",
@@ -16,7 +17,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 function RichParagraph({ html }: { html: string }) {
   return (
     <p
-      className="post-detail__paragraph"
+      className={styles.paragraph}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );
@@ -33,16 +34,16 @@ export default function PostDetail() {
 
   if (!post) {
     return (
-      <section className="post-detail post-detail--missing">
+      <section className={styles.missing}>
         <PageMeta
           title="Project not found"
           path={postId ? `/experience/${postId}` : "/"}
         />
-        <div className="post-detail__inner">
+        <div className={styles.inner}>
           <h1>Project not found</h1>
           <button
             type="button"
-            className="post-detail__back"
+            className={styles.back}
             onClick={() => goToSection("work")}
           >
             Back to experiences
@@ -52,13 +53,11 @@ export default function PostDetail() {
     );
   }
 
-  const categoryLabel =
-    CATEGORY_LABELS[post.category] ?? post.category;
-  const hasMedia =
-    post.images.length > 0 || (post.videos?.length ?? 0) > 0;
+  const categoryLabel = CATEGORY_LABELS[post.category] ?? post.category;
+  const hasMedia = post.images.length > 0 || (post.videos?.length ?? 0) > 0;
 
   return (
-    <article className="post-detail fade-rise">
+    <article className={`${styles.root} fade-rise`}>
       <PageMeta
         title={post.title}
         description={post.subtitle}
@@ -67,7 +66,7 @@ export default function PostDetail() {
       />
 
       <header
-        className="post-detail__hero"
+        className={styles.hero}
         style={{
           backgroundImage: `url(${post.thumbnail})`,
           backgroundSize: post.thumbnailScale
@@ -75,34 +74,39 @@ export default function PostDetail() {
             : (post.thumbnailSize ?? "contain"),
         }}
       >
-        <div className="post-detail__hero-overlay">
-          <div className="post-detail__inner post-detail__hero-inner">
+        <div className={styles.heroOverlay}>
+          <div className={`${styles.inner} ${styles.heroInner}`}>
             <button
               type="button"
-              className="post-detail__back"
+              className={styles.back}
               onClick={() => goToSection("work")}
             >
               <i className="fa fa-arrow-left" aria-hidden="true" /> Back to
               experiences
             </button>
 
-            <div className="post-detail__hero-meta">
-              <span className="post-detail__badge">{categoryLabel}</span>
+            <div className={styles.heroMeta}>
+              <span className={styles.badge}>{categoryLabel}</span>
               {post.date && (
-                <p className="post-detail__date">
-                  <i className="fa fa-calendar" aria-hidden="true" /> {post.date}
+                <p className={styles.date}>
+                  <i className="fa fa-calendar" aria-hidden="true" />{" "}
+                  {post.date}
                 </p>
               )}
             </div>
 
-            <h1 className="post-detail__title">{post.title}</h1>
-            <p className="post-detail__subtitle">{post.subtitle}</p>
+            <h1 className={styles.title}>{post.title}</h1>
+            <p className={styles.subtitle}>{post.subtitle}</p>
 
             {post.skills.length > 0 && (
-              <ul className="post-detail__skills" aria-label="Skills">
+              <ul className={styles.skills} aria-label="Skills">
                 {post.skills.map((skill) => (
                   <li key={skill}>
-                    <StackIcon name={skill} size={15} />
+                    <StackIcon
+                      name={skill}
+                      size={15}
+                      className={styles.skillChip}
+                    />
                   </li>
                 ))}
               </ul>
@@ -111,27 +115,22 @@ export default function PostDetail() {
         </div>
       </header>
 
-      <div className="post-detail__inner">
-        <div
-          className={`post-detail__body${hasMedia ? " post-detail__body--with-media" : ""}`}
-        >
+      <div className={styles.inner}>
+        <div className={hasMedia ? styles.bodyWithMedia : styles.body}>
           {hasMedia && (
-            <div className="post-detail__media">
+            <div className={styles.media}>
               <ImageCarousel images={post.images} />
               <PostVideos videos={post.videos ?? []} />
             </div>
           )}
 
-          <div className="post-detail__content">
+          <div className={styles.content}>
             {post.paragraphs.map((paragraph) => (
-              <RichParagraph
-                key={paragraph.slice(0, 40)}
-                html={paragraph}
-              />
+              <RichParagraph key={paragraph.slice(0, 40)} html={paragraph} />
             ))}
 
             {post.links.length > 0 && (
-              <div className="post-detail__links">
+              <div className={styles.links}>
                 {post.links.map((link) => (
                   <a
                     key={link.href}

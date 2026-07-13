@@ -1,0 +1,22 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.text {
+  composes: chip;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.label {
+  font-size: inherit;
+}

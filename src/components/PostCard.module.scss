@@ -1,0 +1,115 @@
+.card {
+  animation: fade-rise 350ms ease both;
+  animation-delay: calc(var(--animation-order, 0) * 80ms);
+}
+
+.link {
+  display: block;
+  height: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--transition-medium),
+    box-shadow var(--transition-medium);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(26, 26, 26, 0.14);
+  }
+
+  &:hover .overlay,
+  &:focus-visible .overlay {
+    opacity: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(193, 187, 221, 0.15) 10%,
+      rgba(26, 26, 26, 0.88) 100%
+    );
+  }
+
+  &:hover .title,
+  &:hover .subtitle,
+  &:focus-visible .title,
+  &:focus-visible .subtitle {
+    transform: translateY(0);
+  }
+}
+
+.media {
+  position: relative;
+  min-height: 16rem;
+  aspect-ratio: 4 / 3;
+  background-color: var(--darkpink);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  padding: var(--space-4);
+  background: transparent;
+  color: var(--white);
+  opacity: 0;
+  transition:
+    opacity var(--transition-medium),
+    background var(--transition-medium);
+}
+
+.title {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transform: translateY(6px);
+  transition: transform var(--transition-medium);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.88);
+  transform: translateY(6px);
+  transition: transform var(--transition-medium);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .title,
+  .subtitle {
+    transition: none;
+  }
+
+  .link:hover {
+    transform: none;
+  }
+}
+
+@media (hover: none) {
+  .overlay {
+    opacity: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(26, 26, 26, 0.05) 20%,
+      rgba(26, 26, 26, 0.78) 100%
+    );
+  }
+
+  .title,
+  .subtitle {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .media {
+    min-height: 14rem;
+  }
+}

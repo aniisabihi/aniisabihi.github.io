@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import type { Post } from "../types/post";
 import { Link } from "react-router-dom";
+import styles from "./PostCard.module.scss";
 
 type PostCardProps = {
   post: Post;
@@ -9,12 +10,12 @@ type PostCardProps = {
 export default function PostCard({ post }: PostCardProps) {
   return (
     <li
-      className="post-card"
+      className={styles.card}
       style={{ "--animation-order": post.animationOrder } as CSSProperties}
     >
-      <Link to={`/experience/${post.id}`} className="post-card__link">
+      <Link to={`/experience/${post.id}`} className={styles.link}>
         <div
-          className="post-card__media"
+          className={styles.media}
           style={{
             backgroundImage: `url(${post.thumbnail})`,
             backgroundSize: post.thumbnailScale
@@ -22,9 +23,9 @@ export default function PostCard({ post }: PostCardProps) {
               : (post.thumbnailSize ?? "contain"),
           }}
         >
-          <div className="post-card__overlay">
-            <h3 className="post-card__title">{post.title}</h3>
-            <p className="post-card__subtitle">{post.subtitle}</p>
+          <div className={styles.overlay}>
+            <h3 className={styles.title}>{post.title}</h3>
+            <p className={styles.subtitle}>{post.subtitle}</p>
           </div>
         </div>
       </Link>

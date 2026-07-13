@@ -4,6 +4,8 @@ import PostCard from "../PostCard";
 import { SECTION_IDS } from "../../config/site";
 import { LANGUAGE_FILTERS, POSTS, TYPE_FILTERS } from "../../data/posts";
 import type { LanguageFilter, TypeFilter } from "../../types/post";
+import landing from "./LandingSection.module.scss";
+import styles from "./ExperienceSection.module.scss";
 
 function matchesFilter(categories: string[], activeFilter: string) {
   if (activeFilter === "All") {
@@ -45,21 +47,21 @@ export default function ExperienceSection() {
   return (
     <section
       id={SECTION_IDS.work}
-      className="landing-section landing-section--work"
+      className={landing.section}
       aria-labelledby="work-heading"
     >
-      <div className="landing-section__inner experience-section__inner">
-        <header className="experience-section__header">
-          <h2 id="work-heading" className="experience-section__title">
+      <div className={`${landing.inner} ${styles.inner}`}>
+        <header className={styles.header}>
+          <h2 id="work-heading" className={styles.title}>
             Experiences
           </h2>
-          <p className="experience-section__intro">
+          <p className={styles.intro}>
             Work, projects, and extracurricular activities across web
             development, visualization, and software engineering.
           </p>
         </header>
 
-        <div className="experience-section__filters">
+        <div className={styles.filters}>
           <FilterBar
             filters={TYPE_FILTERS}
             activeFilter={languageFilter ? null : typeFilter}
@@ -74,16 +76,14 @@ export default function ExperienceSection() {
           />
         </div>
 
-        <ul className="post-grid">
+        <ul className={styles.postGrid}>
           {visiblePosts.map((post) => (
             <PostCard key={post.id} post={post} />
           ))}
         </ul>
 
         {visiblePosts.length === 0 && (
-          <p className="experience-section__empty">
-            No projects match these filters.
-          </p>
+          <p className={styles.empty}>No projects match these filters.</p>
         )}
       </div>
     </section>

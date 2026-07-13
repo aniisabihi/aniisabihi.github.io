@@ -1,15 +1,13 @@
 import { useForm, ValidationError } from "@formspree/react";
 import { FORMSPREE_FORM_ID } from "../config/forms";
+import styles from "./ContactForm.module.scss";
 
 export default function ContactForm() {
   const [state, handleSubmit] = useForm(FORMSPREE_FORM_ID);
 
   if (state.succeeded) {
     return (
-      <p
-        className="contact-form__feedback contact-form__feedback--success"
-        role="status"
-      >
+      <p className={styles.feedbackSuccess} role="status">
         Thanks! Your message was sent successfully.
       </p>
     );
@@ -17,9 +15,9 @@ export default function ContactForm() {
 
   return (
     <>
-      <form className="contact-form" onSubmit={handleSubmit} noValidate>
-        <label className="contact-form__field">
-          <span className="contact-form__label">Name</span>
+      <form className={styles.form} onSubmit={handleSubmit} noValidate>
+        <label className={styles.field}>
+          <span className={styles.label}>Name</span>
           <input
             type="text"
             name="name"
@@ -31,11 +29,11 @@ export default function ContactForm() {
             prefix="Name"
             field="name"
             errors={state.errors}
-            className="contact-form__field-error"
+            className={styles.fieldError}
           />
         </label>
-        <label className="contact-form__field">
-          <span className="contact-form__label">Email</span>
+        <label className={styles.field}>
+          <span className={styles.label}>Email</span>
           <input
             type="email"
             name="email"
@@ -47,11 +45,11 @@ export default function ContactForm() {
             prefix="Email"
             field="email"
             errors={state.errors}
-            className="contact-form__field-error"
+            className={styles.fieldError}
           />
         </label>
-        <label className="contact-form__field">
-          <span className="contact-form__label">Message</span>
+        <label className={styles.field}>
+          <span className={styles.label}>Message</span>
           <textarea
             name="message"
             rows={4}
@@ -62,13 +60,13 @@ export default function ContactForm() {
             prefix="Message"
             field="message"
             errors={state.errors}
-            className="contact-form__field-error"
+            className={styles.fieldError}
           />
         </label>
-        <div className="contact-form__actions">
+        <div className={styles.actions}>
           <button
             type="submit"
-            className="contact-form__submit"
+            className={styles.submit}
             disabled={state.submitting}
           >
             {state.submitting ? "Sending..." : "Send"}
@@ -76,10 +74,7 @@ export default function ContactForm() {
         </div>
       </form>
 
-      <ValidationError
-        errors={state.errors}
-        className="contact-form__feedback contact-form__feedback--error"
-      />
+      <ValidationError errors={state.errors} className={styles.feedbackError} />
     </>
   );
 }

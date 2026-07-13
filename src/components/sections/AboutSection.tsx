@@ -1,6 +1,8 @@
 import type { CSSProperties } from "react";
 import { SECTION_IDS } from "../../config/site";
 import { useUi } from "../../context/UiContext";
+import landing from "./LandingSection.module.scss";
+import styles from "./AboutSection.module.scss";
 
 export default function AboutSection() {
   const { openCv } = useUi();
@@ -8,19 +10,19 @@ export default function AboutSection() {
   return (
     <section
       id={SECTION_IDS.about}
-      className="landing-section landing-section--about"
+      className={`${landing.section} ${styles.about}`}
       aria-labelledby="about-heading"
     >
-      <div className="landing-section__inner about-section__inner">
+      <div className={`${landing.inner} ${styles.inner}`}>
         <div
-          className="about-section__photo fade-rise"
+          className={`${styles.photo} fade-rise`}
           style={{ "--animation-order": 1 } as CSSProperties}
         >
           <img src="/img/aniisa_hi.PNG" alt="Aniisa Bihi" />
         </div>
 
         <div
-          className="about-section__bio fade-rise"
+          className={`${styles.bio} fade-rise`}
           style={{ "--animation-order": 2 } as CSSProperties}
         >
           <h2 id="about-heading">I&apos;m Aniisa</h2>
@@ -55,11 +57,7 @@ export default function AboutSection() {
           </p>
           <p>
             Feel free to check out{" "}
-            <button
-              type="button"
-              className="about-section__resume"
-              onClick={openCv}
-            >
+            <button type="button" className={styles.resume} onClick={openCv}>
               my resume
             </button>{" "}
             or reach out below.

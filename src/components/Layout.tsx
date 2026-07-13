@@ -3,16 +3,17 @@ import { UiProvider } from "../context/UiContext";
 import CvOverlay from "./CvOverlay";
 import Footer from "./Footer";
 import Header from "./Header";
+import styles from "./Layout.module.scss";
 
 export default function Layout() {
   return (
     <UiProvider>
-      <div className="site">
-        <a href="#main-content" className="skip-link">
+      <div className={styles.site}>
+        <a href="#main-content" className={styles.skipLink}>
           Skip to main content
         </a>
         <Header />
-        <main id="main-content" className="site__main">
+        <main id="main-content" className={styles.main}>
           <Outlet />
         </main>
         <Footer />

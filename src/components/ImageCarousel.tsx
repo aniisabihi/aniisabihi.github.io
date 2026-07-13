@@ -1,5 +1,6 @@
 import { KeyboardEvent, useEffect, useState } from "react";
 import type { PostImage } from "../types/post";
+import styles from "./ImageCarousel.module.scss";
 
 type ImageCarouselProps = {
   images: PostImage[];
@@ -58,7 +59,7 @@ export default function ImageCarousel({
 
   return (
     <div
-      className="carousel"
+      className={styles.root}
       role="region"
       aria-roledescription="carousel"
       aria-label="Project images"
@@ -69,15 +70,15 @@ export default function ImageCarousel({
       onMouseEnter={() => setAutoplay(false)}
       onMouseLeave={() => setAutoplay(true)}
     >
-      <div className="carousel__viewport">
+      <div className={styles.viewport}>
         <img
           key={activeImage.src}
           src={activeImage.src}
           alt={activeImage.alt}
           className={
             activeImage.variant === "height"
-              ? "carousel__image carousel__image--height"
-              : "carousel__image carousel__image--width"
+              ? styles.imageHeight
+              : styles.imageWidth
           }
         />
       </div>
@@ -86,7 +87,7 @@ export default function ImageCarousel({
         <>
           <button
             type="button"
-            className="carousel__control carousel__control--prev"
+            className={styles.controlPrev}
             onClick={goPrev}
             aria-label="Previous image"
           >
@@ -94,17 +95,13 @@ export default function ImageCarousel({
           </button>
           <button
             type="button"
-            className="carousel__control carousel__control--next"
+            className={styles.controlNext}
             onClick={goNext}
             aria-label="Next image"
           >
             ›
           </button>
-          <div
-            className="carousel__dots"
-            role="tablist"
-            aria-label="Image slides"
-          >
+          <div className={styles.dots} role="tablist" aria-label="Image slides">
             {images.map((image, index) => (
               <button
                 key={image.src}
@@ -113,8 +110,8 @@ export default function ImageCarousel({
                 aria-selected={index === activeIndex}
                 className={
                   index === activeIndex
-                    ? "carousel__dot is-active"
-                    : "carousel__dot"
+                    ? `${styles.dot} ${styles.active}`
+                    : styles.dot
                 }
                 onClick={() => goTo(index)}
                 aria-label={`Show image ${index + 1} of ${images.length}`}

@@ -1,0 +1,25 @@
+.videos {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin: 0;
+}
+
+.videoFigure {
+  margin: 0;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  max-height: min(70vh, 32rem);
+  margin: 0 auto;
+  border-radius: var(--radius-sm);
+}
+
+.videoCaption {
+  margin-top: var(--space-3);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}

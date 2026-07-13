@@ -1,4 +1,5 @@
 import { getStackIcon } from "../config/stackIcons";
+import styles from "./StackIcon.module.scss";
 
 type StackIconProps = {
   name: string;
@@ -17,21 +18,21 @@ export default function StackIcon({
 
   if (!Icon) {
     return (
-      <span className={`stack-chip stack-chip--text${className ? ` ${className}` : ""}`}>
+      <span className={className ? `${styles.text} ${className}` : styles.text}>
         {name}
       </span>
     );
   }
 
   return (
-    <span className={`stack-chip${className ? ` ${className}` : ""}`}>
+    <span className={className ? `${styles.chip} ${className}` : styles.chip}>
       <Icon
         size={size}
         color="default"
         aria-hidden="true"
-        className="stack-chip__icon"
+        className={styles.icon}
       />
-      {showLabel && <span className="stack-chip__label">{name}</span>}
+      {showLabel && <span className={styles.label}>{name}</span>}
     </span>
   );
 }
