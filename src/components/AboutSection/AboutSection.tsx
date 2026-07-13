@@ -17,7 +17,7 @@ export default function AboutSection() {
         className={`${styles.photo} fade-rise`}
         style={{ "--animation-order": 1 } as CSSProperties}
       >
-        <img src="/img/aniisa_hi.PNG" alt="Aniisa Bihi" />
+        <img src="/img/aniisa_hey.png" alt="Aniisa Bihi" />
       </div>
 
       <div className={styles.inner}>
