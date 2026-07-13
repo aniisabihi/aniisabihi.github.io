@@ -43,9 +43,11 @@ export default function AboutSection() {
           </p>
           <p>
             Before Haus I was the first in-house developer at Vogue Scandinavia,
-            taking ownership of the React/Next.js platform from an agency-built
-            codebase. I got my start through Capgemini&apos;s Ignite program,
-            doing enterprise Java at Telia.
+            brought in to move frontend development in-house from an outsourced
+            Stockholm dev team and build out the React/Next.js/Redux platform. I
+            got my start at Capgemini through the Ignite Graduate Program, with
+            most of that time spent at Telia on a DevOps team building internal
+            order-management applications.
           </p>
           <p>
             Off the clock: friends, crocheting, cuddling my cat, documentaries,
