@@ -1,5 +1,4 @@
 import type { CSSProperties } from "react";
-import AboutCodeDecor from "../AboutCodeDecor";
 import { SECTION_IDS } from "../../config/site";
 import { useUi } from "../../context/UiContext";
 
@@ -12,13 +11,12 @@ export default function AboutSection() {
       className="landing-section landing-section--about"
       aria-labelledby="about-heading"
     >
-      <AboutCodeDecor />
       <div className="landing-section__inner about-section__inner">
         <div
           className="about-section__photo fade-rise"
           style={{ "--animation-order": 1 } as CSSProperties}
         >
-          <img src="/img/aniisa_hey.PNG" alt="Aniisa Bihi" />
+          <img src="/img/aniisa_hi.PNG" alt="Aniisa Bihi" />
         </div>
 
         <div

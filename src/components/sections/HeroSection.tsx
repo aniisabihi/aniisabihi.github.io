@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import HeroCodeDecor from "../HeroCodeDecor";
 import { SECTION_IDS } from "../../config/site";
 import { useSectionNav } from "../../hooks/useSectionNav";
 
@@ -11,6 +12,7 @@ export default function HeroSection() {
       className="landing-section landing-section--hero"
       aria-labelledby="hero-heading"
     >
+      <HeroCodeDecor />
       <div className="landing-section__inner hero-section__inner">
         <div
           className="hero-section__content fade-rise"
@@ -40,17 +42,6 @@ export default function HeroSection() {
               Get in touch
             </button>
           </div>
-        </div>
-
-        <div
-          className="hero-section__visual fade-rise"
-          style={{ "--animation-order": 2 } as CSSProperties}
-        >
-          <img
-            className="hero-section__avatar"
-            src="/img/aniisa_hi.PNG"
-            alt=""
-          />
         </div>
       </div>
     </section>
