@@ -26,6 +26,11 @@
   color: rgba(138, 98, 156, 0.5);
 }
 
+.hero-code-decor__line:nth-child(3n) {
+  font-style: italic;
+  color: rgba(97, 75, 120, 0.48);
+}
+
 @keyframes hero-code-float {
   0%,
   100% {
