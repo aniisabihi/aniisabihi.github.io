@@ -1,0 +1,77 @@
+import type { ComponentType, SVGProps } from "react";
+import {
+  SiAlgolia,
+  SiCplusplus,
+  SiCss,
+  SiD3,
+  SiExpo,
+  SiGithubactions,
+  SiGraphql,
+  SiHtml5,
+  SiJavascript,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiNx,
+  SiOpenjdk,
+  SiPhp,
+  SiPython,
+  SiReact,
+  SiRedux,
+  SiSass,
+  SiSharp,
+  SiStrapi,
+  SiStripe,
+  SiTailwindcss,
+  SiTensorflow,
+  SiThreedotjs,
+  SiTypescript,
+  SiUnity,
+  SiVitest,
+  SiWordpress,
+} from "@icons-pack/react-simple-icons";
+
+export type StackIconComponent = ComponentType<
+  SVGProps<SVGSVGElement> & { size?: number | string; color?: string }
+>;
+
+export const STACK_ICON_MAP: Record<string, StackIconComponent> = {
+  JavaScript: SiJavascript,
+  TypeScript: SiTypescript,
+  React: SiReact,
+  Java: SiOpenjdk,
+  PHP: SiPhp,
+  HTML: SiHtml5,
+  CSS: SiCss,
+  "C++": SiCplusplus,
+  Python: SiPython,
+  WordPress: SiWordpress,
+  "C#": SiSharp,
+  "Next.js": SiNextdotjs,
+  "Node.js": SiNodedotjs,
+  GraphQL: SiGraphql,
+  Redux: SiRedux,
+  Sass: SiSass,
+  Strapi: SiStrapi,
+  Unity: SiUnity,
+  "d3.js": SiD3,
+  WebGL: SiThreedotjs,
+  "Three.js": SiThreedotjs,
+  Nx: SiNx,
+  Vitest: SiVitest,
+  "Tailwind CSS": SiTailwindcss,
+  Stripe: SiStripe,
+  Algolia: SiAlgolia,
+  "GitHub Actions": SiGithubactions,
+  TensorFlow: SiTensorflow,
+  "TensorFlow.js": SiTensorflow,
+  Expo: SiExpo,
+  Docusaurus: SiReact,
+  MDX: SiReact,
+  Vendure: SiGraphql,
+  "TanStack Query": SiReact,
+  "React Native": SiReact,
+};
+
+export function getStackIcon(name: string): StackIconComponent | undefined {
+  return STACK_ICON_MAP[name];
+}
