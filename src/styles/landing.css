@@ -15,15 +15,24 @@
 
 /* Hero */
 .landing-section--hero {
+  position: relative;
+  overflow: hidden;
   padding-top: var(--space-5);
 }
 
 .hero-section__inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
-  gap: var(--space-8);
-  align-items: center;
-  min-height: min(78vh, 44rem);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: min(62vh, 36rem);
+}
+
+.hero-section__content {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
 }
 
 .hero-section__eyebrow {
@@ -88,18 +97,30 @@
   color: var(--darkpink);
 }
 
-.hero-section__visual {
-  position: relative;
-  display: grid;
-  place-items: center;
-  min-height: 20rem;
+/* About */
+.landing-section--about {
+  padding-block: var(--space-8);
+  background: var(--gradient-section);
 }
 
-.hero-section__visual::before {
+.about-section__inner {
+  padding-block: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 10rem) minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.about-section__photo {
+  position: relative;
+  max-width: 12rem;
+  margin: 0 auto;
+}
+
+.about-section__photo::before {
   content: "";
   position: absolute;
-  width: min(100%, 20rem);
-  aspect-ratio: 1;
+  inset: -12%;
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -110,35 +131,9 @@
   z-index: 0;
 }
 
-.hero-section__avatar {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 16rem);
-}
-
-/* About */
-.landing-section--about {
-  position: relative;
-  overflow: hidden;
-  padding-block: var(--space-8);
-  background: var(--gradient-section);
-}
-
-.about-section__inner {
-  position: relative;
-  z-index: 1;
-  padding-block: 0;
-  display: grid;
-  grid-template-columns: minmax(0, 10rem) minmax(0, 1fr);
-  gap: var(--space-6);
-  align-items: start;
-}
-
-.about-section__photo {
-  max-width: 10rem;
-}
-
 .about-section__photo img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   border-radius: var(--radius-sm);
 }
@@ -501,9 +496,13 @@
 
 @media (max-width: 900px) {
   .hero-section__inner {
-    grid-template-columns: 1fr;
     min-height: auto;
     text-align: center;
+    align-items: center;
+  }
+
+  .hero-section__content {
+    margin-inline: auto;
   }
 
   .hero-section__tagline {
@@ -514,19 +513,13 @@
     justify-content: center;
   }
 
-  .hero-section__visual {
-    order: -1;
-    min-height: 14rem;
-  }
-
   .about-section__inner {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
   .about-section__photo {
-    max-width: 9rem;
-    margin: 0 auto;
+    max-width: 11rem;
   }
 
   .post-grid {
