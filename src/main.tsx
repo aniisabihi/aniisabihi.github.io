@@ -7,6 +7,7 @@ import "./styles/base.css";
 import "./styles/layout.css";
 import "./styles/experience.css";
 import "./styles/about.css";
+import "./styles/landing.css";
 import "./styles/post-detail.css";
 import "./styles/font.css";
 

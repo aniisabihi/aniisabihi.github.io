@@ -1,10 +1,24 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { NAV_LINKS, SITE } from "../config/site";
+import { Link } from "react-router-dom";
+import { NAV_SECTIONS, SECTION_IDS, SITE } from "../config/site";
+import { useScrollSpy } from "../hooks/useScrollSpy";
+import { useSectionNav } from "../hooks/useSectionNav";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { goToSection } = useSectionNav();
+  const activeSection = useScrollSpy([
+    SECTION_IDS.about,
+    SECTION_IDS.work,
+    SECTION_IDS.contact,
+  ]);
+
   const closeMenu = () => setMenuOpen(false);
+
+  const handleSectionClick = (sectionId: string) => {
+    goToSection(sectionId);
+    closeMenu();
+  };
 
   return (
     <header className="site-header">
@@ -28,18 +42,19 @@ export default function Header() {
         </button>
 
         <div id="site-nav-links" className="site-header__links">
-          {NAV_LINKS.map(({ label, to }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={to === "/"}
-              className={({ isActive }) =>
-                isActive ? "site-header__link is-active" : "site-header__link"
+          {NAV_SECTIONS.map(({ label, sectionId }) => (
+            <button
+              key={sectionId}
+              type="button"
+              className={
+                activeSection === sectionId
+                  ? "site-header__link is-active"
+                  : "site-header__link"
               }
-              onClick={closeMenu}
+              onClick={() => handleSectionClick(sectionId)}
             >
               {label}
-            </NavLink>
+            </button>
           ))}
           <a
             href={SITE.resumePath}
