@@ -28,7 +28,7 @@ export default function AboutSection() {
           <h2 id="about-heading">I&apos;m Aniisa</h2>
           <p>
             I&apos;m a software engineer building mostly headless commerce
-            platforms, developer tooling, interactive web experiences and the
+            platforms, developer & AI tooling, interactive web experiences and the
             occasional side project for fun. I care about reliable delivery,
             clear developer experience, and interfaces that hold up for real
             users.
