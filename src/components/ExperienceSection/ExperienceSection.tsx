@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import FilterBar from "../FilterBar";
 import PostCard from "../PostCard";
-import { SECTION_IDS } from "../../config/site";
-import { LANGUAGE_FILTERS, POSTS, TYPE_FILTERS } from "../../data/posts";
+import { restPosts } from "../../data/featured";
+import { LANGUAGE_FILTERS, TYPE_FILTERS } from "../../data/posts";
 import type { LanguageFilter, TypeFilter } from "../../types/post";
 import landing from "../LandingSection/LandingSection.module.scss";
 import styles from "./ExperienceSection.module.scss";
@@ -22,7 +22,7 @@ export default function ExperienceSection() {
   );
 
   const visiblePosts = useMemo(() => {
-    return POSTS.filter((post) => {
+    return restPosts.filter((post) => {
       const matchesType = matchesFilter(post.categories, typeFilter);
       const matchesLanguage = languageFilter
         ? post.categories.includes(languageFilter)
@@ -46,14 +46,13 @@ export default function ExperienceSection() {
 
   return (
     <section
-      id={SECTION_IDS.work}
       className={landing.section}
-      aria-labelledby="work-heading"
+      aria-labelledby="more-experiences-heading"
     >
       <div className={`${landing.inner} ${styles.inner}`}>
         <header className={styles.header}>
-          <h2 id="work-heading" className={styles.title}>
-            Experiences
+          <h2 id="more-experiences-heading" className={styles.title}>
+            More experiences
           </h2>
         </header>
 

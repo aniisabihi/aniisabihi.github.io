@@ -3,14 +3,25 @@ import type { Post } from "../../types/post";
 import { Link } from "react-router-dom";
 import styles from "./PostCard.module.scss";
 
+type PostCardVariant = "compact" | "featured";
+
 type PostCardProps = {
   post: Post;
+  variant?: PostCardVariant;
 };
 
-export default function PostCard({ post }: PostCardProps) {
+export default function PostCard({
+  post,
+  variant = "compact",
+}: PostCardProps) {
+  const cardClass =
+    variant === "featured"
+      ? `${styles.card} ${styles.featured}`
+      : styles.card;
+
   return (
     <li
-      className={styles.card}
+      className={cardClass}
       style={{ "--animation-order": post.animationOrder } as CSSProperties}
     >
       <Link to={`/experience/${post.id}`} className={styles.link}>

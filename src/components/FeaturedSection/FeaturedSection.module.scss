@@ -1,0 +1,27 @@
+.inner {
+  padding-top: var(--space-6);
+  padding-bottom: 0;
+}
+
+.header {
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 0;
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  letter-spacing: 0.02em;
+}
+
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+@media (max-width: 640px) {
+  .postGrid {
+    grid-template-columns: 1fr;
+  }
+}
