@@ -27,27 +27,27 @@ export default function AboutSection() {
         >
           <h2 id="about-heading">I&apos;m Aniisa</h2>
           <p>
-            I&apos;m a software engineer building mostly headless commerce
-            platforms, developer and AI tooling, interactive web experiences and the
-            occasional side project for fun. I care about reliable delivery,
-            clear developer experience, and interfaces that hold up for real
-            users.
+            I&apos;m a software engineer working across developer and AI
+            tooling, headless commerce, frontend platforms, and the occasional
+            side project for fun. I care about reliable delivery, clear
+            developer experience, and interfaces that hold up for real users.
           </p>
           <p>
             At Haus Tech I&apos;m a full-stack developer working on
-            TypeScript/React storefront libraries, WordPress commerce plugins,
-            internal CLI tooling for AI-assisted development, and the
+            TypeScript/React storefront libraries, developer infrastructure for
+            AI-assisted development, WordPress commerce plugins and the
             documentation platform that ties our multi-repo ecosystem together.
-            I&apos;ve owned projects end to end, from an Nx monorepo of Vendure
-            plugins to a shadow-DOM Elementor widget suite backed by GraphQL.
+            I&apos;ve owned projects end to end, from architecting our internal
+            AI agent tooling and its cross-repo infrastructure to building a
+            shadow-DOM Elementor widget suite backed by GraphQL.
           </p>
           <p>
             Before Haus I was the first in-house developer at Vogue Scandinavia,
             brought in to move frontend development in-house from an outsourced
             Stockholm dev team and build out the React/Next.js/Redux platform. I
             got my start at Capgemini through the Ignite Graduate Program, with
-            most of that time spent at Telia on a DevOps team building internal
-            order-management applications.
+            most of that time spent on a DevOps delivery team at Telia, building
+            internal order-management applications.
           </p>
           <p>
             Off the clock: friends, crocheting, cuddling my cat, documentaries,
