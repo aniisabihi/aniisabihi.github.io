@@ -27,6 +27,7 @@ export const CAREER_POSTS: Post[] = [
       "Security runs as a first-class part of the pipeline, not an afterthought. A guard-hook layer intercepts dangerous bash invocations by command shape rather than spelling, and restricts file access by resolving symlinks to their target and refusing what it cannot resolve. The static <code>permissions.deny</code> rules are derived programmatically from the same source lists the runtime guards use, so enforcement and documentation cannot drift apart, and a parity test fails when only one half of a rule lands. A namespaced settings-merge strategy lets the installer extend a user's global Claude config while still guaranteeing a scoped, clean uninstall.",
       "Architectural decisions across both repos are captured as ADRs, enforced by a decisions gate in CI and pre-PR hooks, and every release runs a full verify gate — strict TypeScript typecheck, ESLint, esbuild bundling, the Node test runner, and a coverage ratchet with an 85% floor on the highest-stakes modules — before publishing to npm.",
     ],
+    links: [],
     thumbnail: "/illustrations/haus-workflow.png",
     categories: ["Work", "TypeScript", "JavaScript"],
     animationOrder: 2,
@@ -53,13 +54,7 @@ export const CAREER_POSTS: Post[] = [
       "The site itself layers config-driven content visibility (per-section show/hide flags resolved at build time), generated plugin/storefront metadata JSON, and an AI-readable content index (<code>llms.txt</code> + per-package READMEs) on top of the synced docs.",
       "To tailor the browsing experience beyond Docusaurus defaults, I swizzled core theme components (<code>DocItem</code>, <code>Footer</code>, <code>TOC</code>) and built two custom React components: <code>PluginCards</code> for plugin catalog browsing and <code>WordPressWidgetCards</code> for the Elementor widget catalog. The project also integrates Algolia DocSearch, enforces lint/typecheck/format gates in CI on every PR, and deploys automatically to GitHub Pages via OIDC on merge to <code>main</code>.",
     ],
-    links: [
-      { href: "https://wearehaustech.github.io/", icon: "globe" },
-      {
-        href: "https://github.com/WeAreHausTech/wearehaustech.github.io",
-        icon: "github",
-      },
-    ],
+    links: [{ href: "https://wearehaustech.github.io/", icon: "globe" }],
     videos: [
       {
         src: "/posts/work/wearehaustech/wearehaustech.mp4",
