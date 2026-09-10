@@ -27,16 +27,6 @@ export const CAREER_POSTS: Post[] = [
       "Security runs as a first-class part of the pipeline, not an afterthought. A guard-hook layer intercepts dangerous bash invocations by command shape rather than spelling, and restricts file access by resolving symlinks to their target and refusing what it cannot resolve. The static <code>permissions.deny</code> rules are derived programmatically from the same source lists the runtime guards use, so enforcement and documentation cannot drift apart, and a parity test fails when only one half of a rule lands. A namespaced settings-merge strategy lets the installer extend a user's global Claude config while still guaranteeing a scoped, clean uninstall.",
       "Architectural decisions across both repos are captured as ADRs, enforced by a decisions gate in CI and pre-PR hooks, and every release runs a full verify gate — strict TypeScript typecheck, ESLint, esbuild bundling, the Node test runner, and a coverage ratchet with an 85% floor on the highest-stakes modules — before publishing to npm.",
     ],
-    links: [
-      {
-        href: "https://github.com/WeAreHausTech/haus-workflow",
-        icon: "github",
-      },
-      {
-        href: "https://github.com/WeAreHausTech/haus-workflow-catalog",
-        icon: "github-square",
-      },
-    ],
     thumbnail: "/illustrations/haus-workflow.png",
     categories: ["Work", "TypeScript", "JavaScript"],
     animationOrder: 2,
