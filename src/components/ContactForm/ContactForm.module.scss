@@ -18,7 +18,7 @@
 .form textarea {
   width: 100%;
   padding: 0.85rem 1rem;
-  border: 1px solid rgba(26, 26, 26, 0.12);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.88);
   font-family: var(--font-accent);
@@ -29,14 +29,23 @@
 
   &:focus {
     outline: none;
-    border-color: var(--lilac);
-    box-shadow: 0 0 0 3px rgba(193, 187, 221, 0.35);
+    border-color: var(--focus-ring);
+    box-shadow: 0 0 0 3px rgba(91, 75, 150, 0.28);
   }
 }
 
 .form textarea {
   resize: vertical;
   min-height: 7rem;
+}
+
+/* Browser default placeholders land at ~4.49:1 on this field background and
+   vary between engines — set it explicitly so the 4.5:1 floor does not depend
+   on the user agent. */
+.form input::placeholder,
+.form textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 1;
 }
 
 .actions {
@@ -58,7 +67,7 @@
     transform var(--transition-fast);
 
   &:hover {
-    background: var(--lilac);
+    background: var(--accent-deep);
     color: var(--white);
   }
 }

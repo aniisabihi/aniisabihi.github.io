@@ -11,7 +11,7 @@
 
   p {
     margin: 0 0 var(--space-5);
-    color: rgba(26, 26, 26, 0.72);
+    color: var(--text-muted);
   }
 }
 
@@ -22,13 +22,13 @@
   padding: 0.75rem 1.25rem;
   border: none;
   border-radius: var(--radius-pill);
-  background: var(--lilac);
+  background: var(--accent-deep);
   color: var(--white);
   font: inherit;
   cursor: pointer;
   transition: background var(--transition-fast);
 
   &:hover {
-    background: var(--darkpink);
+    background: var(--accent-deep-hover);
   }
 }

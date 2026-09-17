@@ -70,7 +70,7 @@ export default function ImageCarousel({
       onMouseEnter={() => setAutoplay(false)}
       onMouseLeave={() => setAutoplay(true)}
     >
-      <div className={styles.viewport}>
+      <div className={styles.viewport} aria-live={autoplay ? "off" : "polite"}>
         <img
           key={activeImage.src}
           src={activeImage.src}
@@ -101,13 +101,12 @@ export default function ImageCarousel({
           >
             ›
           </button>
-          <div className={styles.dots} role="tablist" aria-label="Image slides">
+          <div className={styles.dots} role="group" aria-label="Choose image">
             {images.map((image, index) => (
               <button
                 key={image.src}
                 type="button"
-                role="tab"
-                aria-selected={index === activeIndex}
+                aria-current={index === activeIndex ? "true" : undefined}
                 className={
                   index === activeIndex
                     ? `${styles.dot} ${styles.active}`

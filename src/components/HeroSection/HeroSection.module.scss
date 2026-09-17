@@ -26,11 +26,11 @@
 .eyebrow {
   margin: 0 0 var(--space-3);
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--darkpink);
+  color: var(--accent);
 }
 
 .title {
@@ -71,7 +71,7 @@
   color: var(--black);
 
   &:hover {
-    background: var(--lilac);
+    background: var(--accent-deep);
     color: var(--white);
   }
 }
@@ -80,11 +80,11 @@
   composes: cta;
   background: transparent;
   color: var(--black);
-  box-shadow: inset 0 0 0 1.5px var(--border);
+  box-shadow: inset 0 0 0 1.5px var(--border-strong);
 
   &:hover {
-    box-shadow: inset 0 0 0 1.5px var(--darkpink);
-    color: var(--darkpink);
+    box-shadow: inset 0 0 0 1.5px var(--accent);
+    color: var(--accent);
   }
 }
 

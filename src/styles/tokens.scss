@@ -7,9 +7,21 @@
   --pink-soft: #fff7fc;
   --darkpink: #dabfde;
   --lilac: #c1bbdd;
-  --border: rgba(26, 26, 26, 0.08);
+
+  /* Accessible foreground variants of the pastel palette.
+     The pastels above stay as backgrounds (they clear 4.5:1 against --black);
+     these hue-matched darker tones are what text, icons and borders use.
+     Ratios are the worst case across every surface they appear on. */
+  --accent: #83488c; /* darkpink hue — text/links, >=5.1:1 on all surfaces */
+  --accent-strong: #6b3a73; /* accent hover, >=8:1 */
+  --accent-deep: #7467b3; /* lilac hue — background for white text, 4.85:1 */
+  --accent-deep-hover: #5d5196; /* 6.81:1 with white text */
+  --focus-ring: #5b4b96; /* >=5.7:1 against every light surface */
+
+  --border: rgba(26, 26, 26, 0.08); /* decorative hairlines only */
+  --border-strong: #767676; /* form/UI boundaries, 4.54:1 — WCAG 1.4.11 */
   --text: #1a1a1a;
-  --text-muted: rgba(26, 26, 26, 0.72);
+  --text-muted: #5a5a5a; /* 6.9:1 on white, 6.18:1 on pink */
   --surface: #fafafa;
   --gradient-section: linear-gradient(
     180deg,
@@ -25,6 +37,11 @@
 
   --max-width: 1100px;
   --header-height: 4.5rem;
+
+  /* Minimum interactive target — WCAG 2.2 SC 2.5.8 (AA) requires 24x24 CSS px.
+     44px is the comfortable touch size used for primary controls. */
+  --tap-min: 24px;
+  --tap-comfortable: 44px;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;

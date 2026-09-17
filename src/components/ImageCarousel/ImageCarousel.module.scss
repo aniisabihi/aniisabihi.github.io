@@ -47,7 +47,7 @@
     color var(--transition-fast);
 
   &:hover {
-    background: var(--lilac);
+    background: var(--accent-deep);
     color: var(--white);
   }
 }
@@ -69,25 +69,39 @@
   margin-top: var(--space-4);
 }
 
+/* The visible dot stays small, but the hit area is a full 24px square so the
+   control meets WCAG 2.2 SC 2.5.8 (Target Size, Minimum). */
 .dot {
-  width: 0.65rem;
-  height: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-min);
+  height: var(--tap-min);
+  padding: 0;
   border-radius: 50%;
-  background: rgba(26, 26, 26, 0.2);
-  transition:
-    background var(--transition-fast),
-    transform var(--transition-fast);
+  background: none;
 
-  &.active {
-    background: var(--lilac);
+  &::before {
+    content: "";
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    background: var(--border-strong);
+    transition:
+      background var(--transition-fast),
+      transform var(--transition-fast);
+  }
+
+  &.active::before {
+    background: var(--accent-deep);
     transform: scale(1.15);
   }
 }
 
 @media (max-width: 640px) {
   .control {
-    width: 2rem;
-    height: 2rem;
-    font-size: 1.35rem;
+    width: var(--tap-comfortable);
+    height: var(--tap-comfortable);
+    font-size: 1.5rem;
   }
 }

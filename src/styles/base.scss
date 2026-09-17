@@ -10,13 +10,22 @@ body,
   min-height: 100%;
 }
 
+html {
+  /* Stop iOS inflating text when a phone is rotated to landscape. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
-  color: var(--black);
+  color: var(--text);
   background: var(--white);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  /* Long unbroken strings (URLs, package names) must not push the page
+     sideways on a narrow screen. */
+  overflow-wrap: break-word;
 }
 
 img {
@@ -49,6 +58,14 @@ ol {
   list-style: none;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  /* Headings set their own tight leading; keep it readable rather than cramped. */
+  line-height: 1.2;
+}
+
 @keyframes fade-rise {
   from {
     opacity: 0;
@@ -77,7 +94,11 @@ ol {
   }
 }
 
+/* Dual-tone focus ring: a white band directly around the element, then a dark
+   ring outside it. One of the two always clears 3:1 (WCAG 1.4.11), whether the
+   control sits on a light surface or on a dark accent button. */
 :focus-visible {
-  outline: 3px solid var(--lilac);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--white);
 }

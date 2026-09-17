@@ -34,6 +34,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
+  min-height: var(--tap-comfortable);
   margin-bottom: var(--space-5);
   padding: 0;
   border: none;
@@ -45,7 +46,7 @@
   transition: color var(--transition-fast);
 
   &:hover {
-    color: var(--darkpink);
+    color: var(--accent);
   }
 }
 
@@ -63,7 +64,7 @@
   border-radius: var(--radius-pill);
   background: var(--darkpink);
   color: var(--black);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -107,7 +108,7 @@
   border-radius: var(--radius-pill);
   background: rgba(255, 255, 255, 0.72);
   border: 1px solid var(--border);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: 600;
 }
 
@@ -137,12 +138,12 @@
   color: var(--text);
 
   a {
-    color: var(--darkpink);
+    color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 0.12em;
 
     &:hover {
-      color: var(--lilac);
+      color: var(--accent-strong);
     }
   }
 
@@ -182,7 +183,7 @@
       transform var(--transition-fast);
 
     &:hover {
-      background: var(--darkpink);
+      background: var(--accent-deep);
       color: var(--white);
       transform: translateY(-2px);
     }

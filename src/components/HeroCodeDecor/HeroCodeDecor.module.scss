@@ -52,17 +52,21 @@
 }
 
 @media (max-width: 900px) {
+  /* The hero copy centres itself at this width, so the decoration spans the
+     whole hero instead of just its right half and keeps only the bands above
+     and below the copy — visible, but never sitting under the headline. */
   .root {
+    left: 0;
+  }
+
+  .line:nth-child(n + 4):nth-child(-n + 9) {
     display: none;
   }
 }
 
 @media (max-width: 640px) {
-  .line:nth-child(n + 4) {
+  /* The longest remaining line would run past the right edge here. */
+  .line:nth-child(2) {
     display: none;
-  }
-
-  .line {
-    font-size: 0.7rem;
   }
 }

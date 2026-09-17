@@ -74,7 +74,7 @@
   p {
     margin: 0 0 var(--space-4);
     font-size: clamp(1.2rem, 2vw, 1.45rem);
-    line-height: 1.2;
+    line-height: 1.55;
   }
 }
 
@@ -82,7 +82,7 @@
   padding: 0;
   border: none;
   background: none;
-  color: var(--darkpink);
+  color: var(--accent);
   font-family: inherit;
   font-size: inherit;
   text-decoration: underline;
@@ -90,16 +90,18 @@
   cursor: pointer;
 
   &:hover {
-    color: var(--lilac);
+    color: var(--accent-strong);
   }
 }
 
 @media (max-width: 900px) {
+  /* The two-column grid collapses here, so the bio no longer gets its inset
+     from the photo's column track — it needs real horizontal padding instead. */
   .inner {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding: 0 var(--space-5) min(16rem, 72vw) 0;
+    padding: 0 var(--space-5) min(16rem, 72vw);
   }
 
   .photo {
@@ -112,5 +114,11 @@
     max-width: none;
     padding: 0 0 var(--space-8);
     text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding-inline: var(--space-4);
   }
 }

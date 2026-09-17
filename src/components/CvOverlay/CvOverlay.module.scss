@@ -34,12 +34,12 @@
   padding: 0.45rem 0.85rem;
   border-radius: var(--radius-pill);
   background: var(--white);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
   transition: background var(--transition-fast);
 
   &:hover {
-    background: var(--lilac);
+    background: var(--accent-deep);
     color: var(--white);
   }
 }
@@ -57,7 +57,7 @@
   transition: background var(--transition-fast);
 
   &:hover {
-    background: var(--darkpink);
+    background: var(--accent-deep);
     color: var(--white);
   }
 }
@@ -80,13 +80,13 @@
 .fallback {
   margin: 0;
   padding: var(--space-3) var(--space-4);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   text-align: center;
   color: var(--text-muted);
   border-top: 1px solid var(--border);
 
   a {
-    color: var(--darkpink);
+    color: var(--accent);
     text-decoration: underline;
   }
 }
