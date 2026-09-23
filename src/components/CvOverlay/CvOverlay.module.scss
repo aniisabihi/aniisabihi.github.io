@@ -8,6 +8,20 @@
   padding: var(--space-4);
   background: rgba(26, 26, 26, 0.72);
   backdrop-filter: blur(4px);
+  animation: overlay-in 200ms ease both;
+}
+
+@keyframes overlay-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
 }
 
 .dialog {
@@ -15,28 +29,46 @@
   flex-direction: column;
   width: min(100%, 56rem);
   height: min(92vh, 52rem);
-  border-radius: var(--radius-sm);
+  height: min(92dvh, 52rem);
+  border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--white);
   box-shadow: 0 24px 60px rgba(26, 26, 26, 0.28);
+  animation: dialog-in 280ms var(--ease-out) both;
 }
 
 .toolbar {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-5);
   background: var(--pink);
   border-bottom: 1px solid var(--border);
 }
 
+.title {
+  margin: 0 auto 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-kicker);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 .action {
-  padding: 0.45rem 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--tap-comfortable);
+  padding: 0 1rem;
   border-radius: var(--radius-pill);
   background: var(--white);
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   font-weight: 600;
-  transition: background var(--transition-fast);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
 
   &:hover {
     background: var(--accent-deep);
@@ -45,12 +77,12 @@
 }
 
 .close {
-  margin-left: auto;
+  flex-shrink: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
+  width: var(--tap-comfortable);
+  height: var(--tap-comfortable);
   border-radius: 50%;
   background: var(--white);
   font-size: 1.1rem;
@@ -104,6 +136,22 @@
   }
 
   .toolbar {
-    flex-wrap: wrap;
+    padding-left: var(--space-4);
+    padding-top: max(var(--space-2), env(safe-area-inset-top));
+  }
+
+  .action {
+    padding: 0 0.8rem;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Not enough room for the label, both actions and a round close button. */
+  .title {
+    display: none;
+  }
+
+  .action:first-of-type {
+    margin-left: auto;
   }
 }

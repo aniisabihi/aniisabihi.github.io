@@ -1,115 +1,164 @@
 .card {
-  animation: fade-rise 350ms ease both;
-  animation-delay: calc(var(--animation-order, 0) * 80ms);
+  animation: fade-rise 450ms var(--ease-out) both;
+  animation-delay: calc(var(--animation-order, 0) * 60ms);
 }
 
 .link {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
   height: 100%;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
-  transition:
-    transform var(--transition-medium),
-    box-shadow var(--transition-medium);
+  border-radius: var(--radius-md);
 
-  &:hover {
+  &:hover .media,
+  &:focus-visible .media {
+    box-shadow: var(--shadow-card-hover);
     transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(26, 26, 26, 0.14);
   }
 
-  &:hover .overlay,
-  &:focus-visible .overlay {
-    opacity: 1;
-    background: linear-gradient(
-      180deg,
-      rgba(193, 187, 221, 0.15) 10%,
-      rgba(26, 26, 26, 0.88) 100%
-    );
+  &:hover .thumb,
+  &:focus-visible .thumb {
+    transform: scale(1.04);
   }
 
   &:hover .title,
-  &:hover .subtitle,
-  &:focus-visible .title,
-  &:focus-visible .subtitle {
-    transform: translateY(0);
+  &:focus-visible .title {
+    color: var(--accent);
+  }
+
+  /* The ring wraps image and caption together, well clear of the text. */
+  &:focus-visible {
+    outline-offset: 6px;
   }
 }
 
 .media {
   position: relative;
-  min-height: 16rem;
-  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius-md);
   background-color: var(--darkpink);
-  background-repeat: no-repeat;
-  background-position: center;
+  box-shadow: var(--shadow-card);
+  transition:
+    transform var(--transition-medium),
+    box-shadow var(--transition-medium);
 }
 
-.overlay {
+.thumb {
   position: absolute;
   inset: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 500ms var(--ease-out);
+}
+
+.caption {
+  display: grid;
+  gap: var(--space-1);
+  padding-inline: var(--space-1);
+}
+
+.kicker {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  align-items: center;
   gap: var(--space-2);
-  padding: var(--space-4);
-  background: transparent;
-  color: var(--white);
-  opacity: 0;
-  transition:
-    opacity var(--transition-medium),
-    background var(--transition-medium);
+  margin: 0 0 var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.dot {
+  color: var(--text-muted);
 }
 
 .title {
   margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  transition: color var(--transition-fast);
+}
+
+.role {
+  display: block;
+  margin-top: 0.15rem;
   font-size: 0.95rem;
-  line-height: 1.35;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  transform: translateY(6px);
-  transition: transform var(--transition-medium);
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--text);
 }
 
 .subtitle {
-  margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.88);
-  transform: translateY(6px);
-  transition: transform var(--transition-medium);
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: var(--text-muted);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .overlay,
-  .title,
-  .subtitle {
-    transition: none;
-  }
-
-  .link:hover {
+  .link:hover .media,
+  .link:focus-visible .media,
+  .link:hover .thumb,
+  .link:focus-visible .thumb {
     transform: none;
   }
 }
 
-@media (hover: none) {
-  .overlay {
-    opacity: 1;
-    background: linear-gradient(
-      180deg,
-      rgba(26, 26, 26, 0.1) 20%,
-      rgba(26, 26, 26, 0.88) 100%
-    );
-  }
-
-  .title,
-  .subtitle {
-    transform: none;
-  }
-}
-
+/* Phones: a compact contents-page row (thumbnail beside caption) instead of a
+   stack of full-width cards — thirty of those made the page ~14,000px tall. */
 @media (max-width: 640px) {
+  .link {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    align-items: start;
+    gap: var(--space-4);
+
+    &:focus-visible {
+      outline-offset: 4px;
+    }
+  }
+
   .media {
-    min-height: 14rem;
+    aspect-ratio: 1;
+    border-radius: var(--radius-sm);
+    box-shadow: none;
+  }
+
+  .link:hover .media,
+  .link:focus-visible .media {
+    box-shadow: none;
+    transform: none;
+  }
+
+  .caption {
+    padding: 0;
+  }
+
+  .kicker {
+    margin-bottom: 0;
+    font-size: 0.6875rem;
+  }
+
+  .title {
+    font-size: var(--text-base);
+  }
+
+  .role {
+    font-size: var(--text-sm);
+  }
+
+  .subtitle {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    font-size: 0.8125rem;
   }
 }

@@ -4,17 +4,22 @@
 }
 
 .viewport {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 14rem;
   padding: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
 }
 
 .image {
   display: block;
   margin: 0 auto;
   object-fit: contain;
+  border-radius: var(--radius-md);
+  animation: slide-in 350ms var(--ease-out) both;
 }
 
 .imageWidth {
@@ -30,21 +35,34 @@
   max-width: 100%;
 }
 
+@keyframes slide-in {
+  from {
+    opacity: 0.2;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
 .control {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  width: 2.5rem;
-  height: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-comfortable);
+  height: var(--tap-comfortable);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.92);
   color: var(--black);
-  font-size: 1.75rem;
-  line-height: 1;
+  font-size: 0.9rem;
   box-shadow: var(--shadow-card);
+  transform: translateY(-50%);
   transition:
     background var(--transition-fast),
-    color var(--transition-fast);
+    color var(--transition-fast),
+    opacity var(--transition-fast);
 
   &:hover {
     background: var(--accent-deep);
@@ -54,19 +72,60 @@
 
 .controlPrev {
   composes: control;
-  left: var(--space-2);
+  left: var(--space-3);
 }
 
 .controlNext {
   composes: control;
-  right: var(--space-2);
+  right: var(--space-3);
+}
+
+/* On a mouse, arrows stay out of the way until the image is pointed at;
+   keyboard focus and touch always see them. */
+@media (hover: hover) {
+  .control {
+    opacity: 0;
+  }
+
+  .root:hover .control,
+  .control:focus-visible {
+    opacity: 1;
+  }
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.playToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--tap-comfortable);
+  height: var(--tap-comfortable);
+  margin-left: calc(var(--space-2) * -1);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast);
+
+  &:hover {
+    color: var(--accent);
+    background: var(--pink-soft);
+  }
 }
 
 .dots {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
+  gap: var(--space-1);
 }
 
 /* The visible dot stays small, but the hit area is a full 24px square so the
@@ -83,25 +142,33 @@
 
   &::before {
     content: "";
-    width: 0.65rem;
-    height: 0.65rem;
-    border-radius: 50%;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: var(--radius-pill);
     background: var(--border-strong);
     transition:
       background var(--transition-fast),
-      transform var(--transition-fast);
+      width var(--transition-medium);
+  }
+
+  &:hover::before {
+    background: var(--accent);
   }
 
   &.active::before {
+    width: 1.1rem;
     background: var(--accent-deep);
-    transform: scale(1.15);
   }
 }
 
-@media (max-width: 640px) {
-  .control {
-    width: var(--tap-comfortable);
-    height: var(--tap-comfortable);
-    font-size: 1.5rem;
-  }
+.counter {
+  min-width: 3.5rem;
+  margin: 0;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
 }

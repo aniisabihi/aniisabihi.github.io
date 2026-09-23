@@ -1,11 +1,10 @@
 export const SITE = {
   name: "Aniisa Bihi",
-  displayName: "ANIISA BIHI",
   email: "aniisaaden@gmail.com",
   resumePath: "/AniisaBihi_CV.pdf",
   url: import.meta.env.VITE_SITE_URL ?? "https://aniisabihi.github.io",
   defaultDescription:
-    "Portfolio of Aniisa Bihi — software engineer building headless commerce platforms, developer tooling, and interactive web experiences.",
+    "Portfolio of Aniisa Bihi — curious full-stack developer who loves solving complex problems and turning AI and technology into practical, useful solutions.",
   defaultOgImage: "/img/aniisa.png",
 } as const;
 
@@ -17,19 +16,19 @@ export const SECTION_IDS = {
 } as const;
 
 export const NAV_SECTIONS = [
-  { label: "ABOUT", sectionId: SECTION_IDS.about },
-  { label: "EXPERIENCES", sectionId: SECTION_IDS.work },
-  { label: "CONTACT", sectionId: SECTION_IDS.contact },
+  { label: "About", sectionId: SECTION_IDS.about },
+  { label: "Experiences", sectionId: SECTION_IDS.work },
+  { label: "Contact", sectionId: SECTION_IDS.contact },
 ] as const;
 
 export const SOCIAL_LINKS = [
-  { label: "MAIL", href: "mailto:aniisaaden@gmail.com", external: false },
+  { label: "Email", href: "mailto:aniisaaden@gmail.com", external: false },
   {
-    label: "LINKEDIN",
+    label: "LinkedIn",
     href: "https://www.linkedin.com/in/aniisabihi/",
     external: true,
   },
-  { label: "GITHUB", href: "https://github.com/aniisabihi", external: true },
+  { label: "GitHub", href: "https://github.com/aniisabihi", external: true },
 ] as const;
 
 export function absoluteUrl(path: string): string {

@@ -1,4 +1,8 @@
 :root {
+  /* The palette is light-only; tell the UA so form controls, scrollbars and
+     autofill stay light when the OS is in dark mode. */
+  color-scheme: light;
+
   --black: #1a1a1a;
   --white: #ffffff;
   --blue: #dcfffb;
@@ -32,11 +36,26 @@
   --gradient-section-end: color-mix(in srgb, var(--lilac) 35%, var(--white));
 
   --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
-  --font-accent: "abhandwritingregular", serif;
+  /* Missing glyphs (digits, some punctuation) fall back to the body face, not
+     Times. */
+  --font-accent: "abhandwritingregular", "DM Sans", system-ui, sans-serif;
   --font-mono: "SFMono-Regular", "Menlo", "Consolas", monospace;
 
   --max-width: 1100px;
-  --header-height: 4.5rem;
+  --measure: 38rem; /* comfortable reading line, ~70 characters */
+  --header-height: 4.75rem;
+
+  /* Editorial type scale. Display sizes are fluid; UI sizes are fixed so
+     controls never shrink below a readable size on a phone. */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.0625rem;
+  --text-lg: clamp(1.125rem, 1rem + 0.5vw, 1.3rem);
+  --text-xl: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
+  --text-2xl: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+  --text-display: clamp(2.75rem, 1.6rem + 5vw, 4.75rem);
+  --tracking-kicker: 0.14em;
 
   /* Minimum interactive target — WCAG 2.2 SC 2.5.8 (AA) requires 24x24 CSS px.
      44px is the comfortable touch size used for primary controls. */
@@ -49,12 +68,18 @@
   --space-4: 1rem;
   --space-5: 1.5rem;
   --space-6: 2rem;
+  --space-7: 2.5rem;
   --space-8: 3rem;
+  --space-10: 4.5rem;
+  --space-section: clamp(3.5rem, 2rem + 6vw, 6.5rem);
 
   --radius-sm: 6px;
+  --radius-md: 12px;
   --radius-pill: 999px;
 
   --shadow-card: 0 10px 30px rgba(26, 26, 26, 0.08);
+  --shadow-card-hover: 0 18px 40px rgba(26, 26, 26, 0.14);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --transition-fast: 150ms ease;
   --transition-medium: 250ms ease;
 }

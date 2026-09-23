@@ -1,42 +1,70 @@
 .form {
   display: grid;
-  gap: var(--space-4);
+  gap: var(--space-5);
   width: 100%;
+}
+
+.note {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
 }
 
 .field {
   display: grid;
   gap: var(--space-2);
+  align-content: start;
 }
 
 .label {
-  font-family: var(--font-accent);
-  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
+/* Inputs are UI, so they use the body face; the handwriting is kept for the
+   section's own voice. 16px minimum stops iOS zooming in on focus. */
 .form input,
 .form textarea {
   width: 100%;
-  padding: 0.85rem 1rem;
+  min-height: 3rem;
+  padding: 0.75rem 1rem;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.88);
-  font-family: var(--font-accent);
-  font-size: clamp(1.15rem, 1.75vw, 1.5rem);
+  background: rgba(255, 255, 255, 0.92);
+  font-size: max(1rem, var(--text-base));
+  line-height: 1.5;
   transition:
     border-color var(--transition-fast),
-    box-shadow var(--transition-fast);
+    box-shadow var(--transition-fast),
+    background var(--transition-fast);
+
+  &:hover {
+    border-color: var(--text);
+  }
 
   &:focus {
     outline: none;
+    background: var(--white);
     border-color: var(--focus-ring);
     box-shadow: 0 0 0 3px rgba(91, 75, 150, 0.28);
+  }
+
+  &[aria-invalid="true"] {
+    border-color: #a32020;
   }
 }
 
 .form textarea {
   resize: vertical;
-  min-height: 7rem;
+  min-height: 9rem;
 }
 
 /* Browser default placeholders land at ~4.49:1 on this field background and
@@ -50,60 +78,87 @@
 
 .actions {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .submit {
-  min-width: 8rem;
-  padding: 0.8rem 1.4rem;
-  border-radius: var(--radius-sm);
-  background: var(--darkpink);
-  color: var(--black);
-  font-family: var(--font-accent);
-  font-size: clamp(1.25rem, 2vw, 1.875rem);
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 3rem;
+  padding: 0 1.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent-deep);
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   transition:
     background var(--transition-fast),
     transform var(--transition-fast);
 
+  i {
+    transition: transform var(--transition-fast);
+  }
+
   &:hover {
-    background: var(--accent-deep);
-    color: var(--white);
+    background: var(--accent-deep-hover);
+
+    i {
+      transform: translateX(3px);
+    }
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:disabled {
+    cursor: progress;
+    opacity: 0.75;
   }
 }
 
 .fieldError {
   margin: 0;
-  font-family: var(--font-accent);
-  font-size: 0.95rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
   color: #6b1d1d;
-}
-
-.feedback {
-  margin: var(--space-4) 0 0;
-  font-family: var(--font-accent);
-  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
-  line-height: 1.6;
-
-  a {
-    color: var(--black);
-    text-decoration: underline;
-  }
-}
-
-.feedbackSuccess {
-  composes: feedback;
-  color: var(--black);
 }
 
 .feedbackError {
-  composes: feedback;
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid #a32020;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: var(--text-sm);
   color: #6b1d1d;
 }
 
+.success {
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.75);
+  font-family: var(--font-accent);
+  font-size: var(--text-lg);
+  line-height: 1.6;
+
+  p {
+    margin: 0;
+  }
+
+  .successTitle {
+    margin-bottom: var(--space-2);
+    font-size: clamp(1.6rem, 1.3rem + 1vw, 2rem);
+    color: var(--accent);
+  }
+}
+
 @media (max-width: 640px) {
-  .actions {
-    justify-content: stretch;
+  .row {
+    grid-template-columns: 1fr;
   }
 
   .submit {

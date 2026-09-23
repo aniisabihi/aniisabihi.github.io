@@ -4,22 +4,31 @@ import styles from "./ImageCarousel.module.scss";
 
 type ImageCarouselProps = {
   images: PostImage[];
+  /** Names the carousel for assistive tech, e.g. the project name. */
+  label?: string;
   intervalMs?: number;
 };
 
 export default function ImageCarousel({
   images,
-  intervalMs = 4000,
+  label,
+  intervalMs = 5000,
 }: ImageCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [autoplay, setAutoplay] = useState(true);
+  // `playing` is the user's choice (the pause button, or any manual step);
+  // `holding` is a temporary pause while the pointer or focus is inside.
+  const [playing, setPlaying] = useState(() => {
+    return !(
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    );
+  });
+  const [holding, setHolding] = useState(false);
   const hasMultiple = images.length > 1;
-  const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const rotating = hasMultiple && playing && !holding;
 
   useEffect(() => {
-    if (!hasMultiple || !autoplay || prefersReducedMotion) {
+    if (!rotating) {
       return undefined;
     }
 
@@ -28,16 +37,17 @@ export default function ImageCarousel({
     }, intervalMs);
 
     return () => window.clearInterval(timer);
-  }, [hasMultiple, autoplay, prefersReducedMotion, images.length, intervalMs]);
+  }, [rotating, images.length, intervalMs]);
 
   if (images.length === 0) {
     return null;
   }
 
-  const goTo = (index: number) => setActiveIndex(index);
-  const goPrev = () =>
-    setActiveIndex((index) => (index - 1 + images.length) % images.length);
-  const goNext = () => setActiveIndex((index) => (index + 1) % images.length);
+  // Any manual step means the reader has taken over — stop auto-advancing.
+  const step = (index: number) => {
+    setPlaying(false);
+    setActiveIndex((index + images.length) % images.length);
+  };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (!hasMultiple) {
@@ -46,61 +56,82 @@ export default function ImageCarousel({
 
     if (event.key === "ArrowLeft") {
       event.preventDefault();
-      goPrev();
+      step(activeIndex - 1);
     }
 
     if (event.key === "ArrowRight") {
       event.preventDefault();
-      goNext();
+      step(activeIndex + 1);
     }
   };
 
-  const activeImage = images[activeIndex];
+  const activeImage = images[activeIndex] ?? images[0];
 
   return (
     <div
       className={styles.root}
       role="region"
       aria-roledescription="carousel"
-      aria-label="Project images"
-      tabIndex={hasMultiple ? 0 : -1}
+      aria-label={label ? `${label} images` : "Project images"}
       onKeyDown={handleKeyDown}
-      onFocus={() => setAutoplay(false)}
-      onBlur={() => setAutoplay(true)}
-      onMouseEnter={() => setAutoplay(false)}
-      onMouseLeave={() => setAutoplay(true)}
+      onFocus={() => setHolding(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+          setHolding(false);
+        }
+      }}
+      onMouseEnter={() => setHolding(true)}
+      onMouseLeave={() => setHolding(false)}
     >
-      <div className={styles.viewport} aria-live={autoplay ? "off" : "polite"}>
+      <div className={styles.viewport} aria-live={rotating ? "off" : "polite"}>
         <img
           key={activeImage.src}
           src={activeImage.src}
           alt={activeImage.alt}
+          decoding="async"
           className={
             activeImage.variant === "height"
               ? styles.imageHeight
               : styles.imageWidth
           }
         />
+
+        {hasMultiple && (
+          <>
+            <button
+              type="button"
+              className={styles.controlPrev}
+              onClick={() => step(activeIndex - 1)}
+              aria-label="Previous image"
+            >
+              <i className="fa fa-chevron-left" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              className={styles.controlNext}
+              onClick={() => step(activeIndex + 1)}
+              aria-label="Next image"
+            >
+              <i className="fa fa-chevron-right" aria-hidden="true" />
+            </button>
+          </>
+        )}
       </div>
 
       {hasMultiple && (
-        <>
+        <div className={styles.bar}>
           <button
             type="button"
-            className={styles.controlPrev}
-            onClick={goPrev}
-            aria-label="Previous image"
+            className={styles.playToggle}
+            onClick={() => setPlaying((value) => !value)}
+            aria-label={playing ? "Pause slideshow" : "Play slideshow"}
           >
-            ‹
+            <i
+              className={`fa ${playing ? "fa-pause" : "fa-play"}`}
+              aria-hidden="true"
+            />
           </button>
-          <button
-            type="button"
-            className={styles.controlNext}
-            onClick={goNext}
-            aria-label="Next image"
-          >
-            ›
-          </button>
+
           <div className={styles.dots} role="group" aria-label="Choose image">
             {images.map((image, index) => (
               <button
@@ -112,12 +143,17 @@ export default function ImageCarousel({
                     ? `${styles.dot} ${styles.active}`
                     : styles.dot
                 }
-                onClick={() => goTo(index)}
+                onClick={() => step(index)}
                 aria-label={`Show image ${index + 1} of ${images.length}`}
               />
             ))}
           </div>
-        </>
+
+          <p className={styles.counter} aria-hidden="true">
+            {String(activeIndex + 1).padStart(2, "0")} /{" "}
+            {String(images.length).padStart(2, "0")}
+          </p>
+        </div>
       )}
     </div>
   );

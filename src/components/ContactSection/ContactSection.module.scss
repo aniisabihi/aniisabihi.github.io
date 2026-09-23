@@ -1,21 +1,50 @@
 .contact {
-  padding-block: var(--space-8);
   background: var(--gradient-section);
 }
 
+/* One centred column — heading, then the form — opening the same way the
+   Experiences section does. The form keeps a comfortable line length rather
+   than stretching across the page. */
 .inner {
-  padding-block: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-7);
+}
 
-  h2 {
-    margin: 0 0 var(--space-2);
-    font-family: var(--font-accent);
-    font-size: clamp(1.75rem, 3vw, 1.875rem);
-  }
+.header {
+  max-width: 34rem;
+  text-align: center;
 }
 
 .intro {
-  margin: 0 0 var(--space-5);
+  margin: var(--space-4) 0 0;
   font-family: var(--font-accent);
-  font-size: clamp(1.15rem, 1.75vw, 1.35rem);
-  line-height: 1.6;
+  font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.7rem);
+  /* Tall line box in the handwriting face — see AboutSection. */
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.formCard {
+  width: 100%;
+  max-width: 40rem;
+  padding: var(--space-7);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8) inset,
+    var(--shadow-card);
+}
+
+@media (max-width: 640px) {
+  .inner {
+    gap: var(--space-6);
+  }
+
+  .formCard {
+    width: calc(100% + var(--space-4));
+    max-width: none;
+    padding: var(--space-5) var(--space-4);
+  }
 }

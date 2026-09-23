@@ -1,12 +1,12 @@
 import type { CSSProperties } from "react";
 import HeroCodeDecor from "../HeroCodeDecor";
-import { SECTION_IDS } from "../../config/site";
+import { SECTION_IDS, SITE } from "../../config/site";
 import { useSectionNav } from "../../hooks/useSectionNav";
 import landing from "../LandingSection/LandingSection.module.scss";
 import styles from "./HeroSection.module.scss";
 
 export default function HeroSection() {
-  const { goToSection } = useSectionNav();
+  const { sectionLinkHandler } = useSectionNav();
 
   return (
     <section
@@ -22,27 +22,27 @@ export default function HeroSection() {
         >
           <p className={styles.eyebrow}>Software Engineer</p>
           <h1 id="hero-heading" className={styles.title}>
-            Aniisa Bihi
+            {SITE.name}
           </h1>
           <p className={styles.tagline}>
-            Building headless commerce platforms, developer tooling, and
-            interactive web experiences.
+            Curious full-stack developer who loves solving complex problems and
+            turning AI and technology into practical, useful solutions.
           </p>
           <div className={styles.actions}>
-            <button
-              type="button"
+            <a
+              href={`/#${SECTION_IDS.work}`}
               className={styles.ctaPrimary}
-              onClick={() => goToSection(SECTION_IDS.work)}
+              onClick={sectionLinkHandler(SECTION_IDS.work)}
             >
               View experiences
-            </button>
-            <button
-              type="button"
+            </a>
+            <a
+              href={`/#${SECTION_IDS.contact}`}
               className={styles.ctaSecondary}
-              onClick={() => goToSection(SECTION_IDS.contact)}
+              onClick={sectionLinkHandler(SECTION_IDS.contact)}
             >
               Get in touch
-            </button>
+            </a>
           </div>
         </div>
       </div>

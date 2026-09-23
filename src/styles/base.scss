@@ -14,18 +14,31 @@ html {
   /* Stop iOS inflating text when a phone is rotated to landscape. */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* Anything scrolled or tabbed into view lands below the sticky header
+     instead of underneath it — WCAG 2.2 SC 2.4.11 (Focus Not Obscured). */
+  scroll-padding-top: calc(var(--header-height) + var(--space-3));
 }
 
 body {
   margin: 0;
   font-family: var(--font-body);
+  font-optical-sizing: auto;
+  font-size: var(--text-base);
   color: var(--text);
   background: var(--white);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   /* Long unbroken strings (URLs, package names) must not push the page
      sideways on a narrow screen. */
   overflow-wrap: break-word;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: var(--pink);
+  color: var(--black);
 }
 
 img {
@@ -43,6 +56,7 @@ button,
 input,
 textarea {
   font: inherit;
+  color: inherit;
 }
 
 button {
@@ -64,6 +78,28 @@ h3,
 h4 {
   /* Headings set their own tight leading; keep it readable rather than cramped. */
   line-height: 1.2;
+  text-wrap: balance;
+}
+
+p,
+li,
+figcaption {
+  /* Avoid a single orphaned word on the last line of a paragraph. */
+  text-wrap: pretty;
+}
+
+/* Hidden visually, still read by assistive tech. */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 @keyframes fade-rise {
@@ -79,7 +115,7 @@ h4 {
 }
 
 .fade-rise {
-  animation: fade-rise 350ms ease both;
+  animation: fade-rise 450ms var(--ease-out) both;
   animation-delay: calc(var(--animation-order, 0) * 100ms);
 }
 
@@ -101,4 +137,12 @@ h4 {
   outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
   box-shadow: 0 0 0 2px var(--white);
+}
+
+/* Headings and sections that receive focus programmatically (route changes,
+   in-page navigation) are landmarks for screen readers, not controls — they
+   should not show a ring. */
+[tabindex="-1"]:focus {
+  outline: none;
+  box-shadow: none;
 }
