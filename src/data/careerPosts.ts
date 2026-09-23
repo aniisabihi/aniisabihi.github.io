@@ -380,7 +380,7 @@ export const CAREER_POSTS: Post[] = [
     images: [
       {
         src: "/posts/work/haus/1.png",
-        alt: "Haus Tech",
+        alt: "Haus Tech logo, white lowercase wordmark on a coral background",
         variant: "width",
       },
     ],
@@ -431,7 +431,7 @@ export const CAREER_POSTS: Post[] = [
     images: [
       {
         src: "/posts/work/vogue/1.png",
-        alt: "Vogue Scandinavia",
+        alt: "Vogue Scandinavia logo on a pink background with decorative swirls",
         variant: "width",
       },
     ],
@@ -474,7 +474,7 @@ export const CAREER_POSTS: Post[] = [
     images: [
       {
         src: "/posts/work/capgemini/1.jpg",
-        alt: "Capgemini",
+        alt: "Capgemini logo, blue wordmark below its droplet icon",
         variant: "width",
       },
     ],
