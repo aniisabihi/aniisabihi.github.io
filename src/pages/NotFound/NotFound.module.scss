@@ -1,17 +1,33 @@
 .root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--space-8) var(--space-5);
+  padding: var(--space-section) var(--space-5);
   text-align: center;
 
   h1 {
     margin: 0 0 var(--space-3);
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-size: var(--text-2xl);
+    letter-spacing: -0.02em;
   }
 
   p {
-    margin: 0 0 var(--space-5);
+    max-width: 28rem;
+    margin: 0 0 var(--space-6);
+    font-size: var(--text-lg);
     color: var(--text-muted);
+  }
+
+  .code {
+    margin: 0 0 var(--space-2);
+    /* The handwriting face has no numerals (it falls back to a serif). */
+    font-size: clamp(5rem, 3rem + 10vw, 9rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--darkpink);
   }
 }
 
@@ -19,13 +35,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.25rem;
-  border: none;
+  min-height: 3rem;
+  padding: 0 1.5rem;
   border-radius: var(--radius-pill);
   background: var(--accent-deep);
   color: var(--white);
-  font: inherit;
-  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
   transition: background var(--transition-fast);
 
   &:hover {

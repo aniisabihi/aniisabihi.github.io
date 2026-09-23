@@ -12,12 +12,20 @@ export default function AboutSection() {
       id={SECTION_IDS.about}
       className={`${landing.section} ${styles.about}`}
       aria-labelledby="about-heading"
+      tabIndex={-1}
     >
       <div
         className={`${styles.photo} fade-rise`}
         style={{ "--animation-order": 1 } as CSSProperties}
       >
-        <img src="/img/aniisa_hey.png" alt="Aniisa Bihi" />
+        <img
+          src="/img/aniisa_hey.png"
+          alt="Cartoon avatar of Aniisa waving, with the word “hey.”"
+          width={600}
+          height={600}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
 
       <div className={styles.inner}>
@@ -25,7 +33,9 @@ export default function AboutSection() {
           className={`${styles.bio} fade-rise`}
           style={{ "--animation-order": 2 } as CSSProperties}
         >
-          <h2 id="about-heading">I&apos;m Aniisa</h2>
+          <h2 id="about-heading" className={landing.headingHand}>
+            I&apos;m Aniisa
+          </h2>
           <p>
             I&apos;m a software engineer working across developer and AI
             tooling, headless commerce, frontend platforms, and the occasional
@@ -55,12 +65,19 @@ export default function AboutSection() {
           </p>
           <p>
             Feel free to check out{" "}
-            <button type="button" className={styles.resume} onClick={openCv}>
+            <button
+              type="button"
+              className={styles.resume}
+              aria-haspopup="dialog"
+              onClick={() => openCv()}
+            >
               my resume
             </button>{" "}
             or reach out below.
           </p>
-          <p>Btw, it&apos;s my handwriting you&apos;ve been reading!</p>
+          <p className={styles.signoff}>
+            Btw, it&apos;s my handwriting you&apos;ve been reading!
+          </p>
         </div>
       </div>
     </section>

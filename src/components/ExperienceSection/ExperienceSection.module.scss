@@ -1,34 +1,71 @@
-.inner {
-  padding-top: var(--space-6);
-}
-
 .header {
-  margin-bottom: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-7);
   text-align: center;
-}
-
-.title {
-  margin-bottom: 0;
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  letter-spacing: 0.02em;
 }
 
 .filters {
   display: grid;
   gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+/* Result count + reset, sitting on a hairline like a table-of-contents rule. */
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: var(--tap-comfortable);
   margin-bottom: var(--space-6);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.count {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+
+  strong {
+    color: var(--text);
+  }
+}
+
+.clear {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-comfortable);
+  padding: 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+
+  &:hover {
+    color: var(--accent-strong);
+  }
 }
 
 .empty {
-  margin: var(--space-8) 0 0;
+  margin: var(--space-8) 0;
   text-align: center;
+  font-size: var(--text-lg);
   color: var(--text-muted);
 }
 
 .postGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-5);
+  gap: var(--space-8) var(--space-5);
 }
 
 @media (max-width: 900px) {
@@ -38,7 +75,26 @@
 }
 
 @media (max-width: 640px) {
+  .header {
+    margin-bottom: var(--space-6);
+  }
+
   .postGrid {
     grid-template-columns: 1fr;
+    gap: 0;
+
+    /* Rows are separated by hairlines, like an index. */
+    > li {
+      padding-block: var(--space-4);
+      border-bottom: 1px solid var(--border);
+    }
+
+    > li:first-child {
+      padding-top: 0;
+    }
+  }
+
+  .status {
+    margin-bottom: var(--space-4);
   }
 }

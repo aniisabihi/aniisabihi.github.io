@@ -13,7 +13,7 @@ export default function Layout() {
           Skip to main content
         </a>
         <Header />
-        <main id="main-content" className={styles.main}>
+        <main id="main-content" className={styles.main} tabIndex={-1}>
           <Outlet />
         </main>
         <Footer />

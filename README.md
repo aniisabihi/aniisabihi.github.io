@@ -41,14 +41,18 @@ Push to `main`/`master` → GitHub Actions (`.github/workflows/deploy.yml`).
 
 ```
 src/
-  components/   UI (Header, PostCard, ImageCarousel, PageMeta, ContactForm)
+  components/   UI (Header, PostCard, ImageCarousel, PageMeta, ContactForm, …)
+  hooks/        Section navigation, hash scroll, scroll spy
+  context/      UI state (resume dialog)
   config/       Site constants
   data/
     posts.ts         Single source — grid + project detail content
+    careerPosts.ts   Recent roles and projects, merged into posts.ts
     postDetails.js   Generated intermediate (yarn extract-posts)
   pages/        Route pages
   types/        TypeScript types
-  styles/       CSS layers
+  utils/        Post sorting, title/date formatting, thumbnail styles
+  styles/       Design tokens (type scale, spacing, colours), base, fonts
 public/
   posts/        Project images
   illustrations/ Grid thumbnails

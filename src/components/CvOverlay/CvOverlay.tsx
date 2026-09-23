@@ -14,7 +14,7 @@ const FOCUSABLE_SELECTOR = [
 ].join(", ");
 
 export default function CvOverlay() {
-  const { cvOpen, closeCv } = useUi();
+  const { cvOpen, closeCv, cvReturnFocusRef } = useUi();
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
 
@@ -24,7 +24,9 @@ export default function CvOverlay() {
     }
 
     const previousOverflow = document.body.style.overflow;
-    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const previouslyFocused =
+      cvReturnFocusRef.current ??
+      (document.activeElement as HTMLElement | null);
     document.body.style.overflow = "hidden";
     closeButtonRef.current?.focus();
 
@@ -88,7 +90,7 @@ export default function CvOverlay() {
       // Send focus back where it came from rather than dropping it to <body>.
       previouslyFocused?.focus?.();
     };
-  }, [closeCv, cvOpen]);
+  }, [closeCv, cvOpen, cvReturnFocusRef]);
 
   if (!cvOpen) {
     return null;
@@ -101,11 +103,15 @@ export default function CvOverlay() {
         className={styles.dialog}
         role="dialog"
         aria-modal="true"
-        aria-label="Resume"
+        aria-labelledby="cv-title"
         onClick={(event) => event.stopPropagation()}
       >
         <div className={styles.toolbar}>
+          <h2 id="cv-title" className={styles.title}>
+            Resume
+          </h2>
           <a className={styles.action} href={SITE.resumePath} download>
+            <i className="fa fa-download" aria-hidden="true" />
             Download
           </a>
           <a
@@ -114,7 +120,9 @@ export default function CvOverlay() {
             target="_blank"
             rel="noreferrer"
           >
-            Open in new tab
+            <i className="fa fa-external-link" aria-hidden="true" />
+            Open
+            <span className="visually-hidden"> in new tab</span>
           </a>
           <button
             ref={closeButtonRef}
@@ -131,7 +139,7 @@ export default function CvOverlay() {
           <iframe
             className={styles.frame}
             src={SITE.resumePath}
-            title="Aniisa Bihi resume"
+            title={`${SITE.name} resume (PDF)`}
           />
           <p className={styles.fallback}>
             PDF preview not available?{" "}
